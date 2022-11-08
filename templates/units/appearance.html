@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style>
+    .option {
+        padding: 15px;
+        width: 90%;
+    }
+
+    .option:hover {
+        background: var(--gradient-right);
+    }
+</style>
+{% endblock %}
+
+{% block page_title %}Choose a topic{% endblock %}
+
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="center">
+    <div class="error">
+        {{ message }}
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="center">
+    <div style="margin-top: 20px;" class="container">
+        <a href="../vocabulary_for_topic/kids-clothing">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Kids clothing</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/male-clothing">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Male clothing</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/female-clothing">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Female clothing</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/accessories">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Accessories</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/hair">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Hair</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/beauty">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Beauty</div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

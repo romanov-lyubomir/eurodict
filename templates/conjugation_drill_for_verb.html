@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block imports %}
+{% endblock %}
+{% block css %}
+<style>
+    body {
+        display: grid;
+        place-items: center;
+    }
+
+    .form {
+        min-width: 250px;
+        margin-top: 150px;
+        position: absolute;
+        top: 180px;
+    }
+
+    .wrapper {
+        display: grid;
+        place-items: center;
+    }
+
+    .big {
+        font-size: 20px;
+    }
+
+    .correct-word {
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .error {
+        margin-top: 10px;
+    }
+
+    @media screen and (min-width: 500px) {
+        .form {
+            min-width: 400px;
+        }
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+<!-- {{tense}}/{{session["verb"]}}/{{session["verb_id"]}} -->
+{% if verb_is_correct == True or verb_is_correct == False: %}
+<script>
+    const audio = new Audio("../../static/audio/sentences/{{tense}}/{{session['verb']}}/{{session['verb_id']}}.mp3");
+    audio.play();
+</script>
+{% endif %}
+
+{% if verb_is_correct == True: %}
+<h3 style="color: green;">Correct!</h3>
+{% if play_audio: %}
+<div style="display: inline;" class="correct-word">{{ session["conjugated_verb"] }}</div>
+<script>
+    audio.addEventListener('ended', (event) => {
+        window.location.href = "/conjugation_drill_for_verb/{{tense}}/{{session['verb']}}";
+    });
+</script>
+{% endif %}
+{% elif verb_is_correct == False: %}
+<h3 style="color: red">Wrong!</h3>
+{% if play_audio: %}
+<h4>The correct answer is <div style="display: inline;" class="correct-word">{{ session["conjugated_verb"] }}</div>
+</h4>
+{% endif %}
+
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="center">
+    <div class="error">
+        {{ message }}
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+{% endif %}
+
+<form class="form" method="POST">
+    <div class="center">
+        <p class="big">{{ session["pronoun"] }}</p>
+    </div>
+    <div class="center">
+        {% if user_input: %} 
+        <input spellcheck="false" autocomplete="off" id="inputField" value="{{ user_input }}" class="big" type="text" name="user_input" autofocus>
+        <script>
+            let end = document.getElementById("inputField");
+            let len = end.value.length;
+            if (end.setSelectionRange) {
+                end.focus();
+                end.setSelectionRange(len, len);
+            }
+        </script>
+        {% else: %}
+        <input spellcheck="false" autocomplete="off" id="inputField" class="big" type="text" name="user_input" autofocus>
+        {% endif %}
+    </div>
+    <div class="center">
+        <p class="big">({{ session["verb"] }})</p>
+    </div>
+    <input type="submit" hidden />
+</form>
+
+
+{% endblock %}

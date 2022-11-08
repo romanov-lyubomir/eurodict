@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style>
+    .option {
+        padding: 15px;
+        width: 90%;
+    }
+
+    .option:hover {
+        background: var(--gradient-right);
+    }
+</style>
+{% endblock %}
+
+{% block page_title %}Choose a topic{% endblock %}
+
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="center">
+    <div class="error">
+        {{ message }}
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="center">
+    <div style="margin-top: 20px;" class="container">
+        <a href="../vocabulary_for_topic/people-body">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Body</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/people-face">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Face</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/people-hand">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Hand</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/people-foot">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Foot</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/people-muscles">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Muscles</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/people-skeleton">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Skeleton</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/people-internal_organs">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Internal organs</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/people-genetals">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Genitals</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/people-family">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Family</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/people-relations">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Relations</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/people-feelings">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Feelings</div>
+                </div>
+            </div>
+        </a>
+        <a href="../vocabulary_for_topic/people-life_events">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Life events</div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

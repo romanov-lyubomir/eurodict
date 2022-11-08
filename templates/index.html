@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block imports %}
+{% endblock %}
+{% block css %}
+<style>
+    .background-div {
+        background-image: url(/static/images/europe.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 250px;
+        display: grid;
+        place-items: center;
+    }
+    .grid{  
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        grid-gap: 10px;
+    }
+    .img {
+        height: 20px;
+        width: 20px;
+        background-color: white;
+        float: left;
+        padding: 10px;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        height: 20px;
+        width: 140px;
+        background: var(--gradient-right);
+        float: right;
+        padding: 10px;
+        border-radius: 0 10px 10px 0;
+    }
+    .content-verbs {
+        display: flex;
+        align-items: center;
+        height: 20px;
+        width: 180px;
+        background: var(--gradient-right);
+        float: right;
+        padding: 10px;
+        border-radius: 10px 10px 10px 10px;
+    }
+    @media screen and (min-width: 500px) {
+        .grid{
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    @media screen and (min-width: 700px) {
+        .grid{
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="background-div">
+    <div class="center">
+        <div style="padding: 10px; background-color: rgba(0, 0, 0, .8); border-radius: 10px">
+            <div class="center">
+                <h1 class="title">EuroDict</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="center" style="margin: 20px 0 0 0;">
+    <p style="font-size: 20px;"><i>"A different language is a different vision of life."</i></p>
+</div>
+<div class="center" style="margin: 0 0 20px 0;">
+    <p><b>Federico Fellini</b></p>
+</div>
+<div class="center">
+    <p>Vocabulary</p>
+</div>
+<div class="center">
+    <div class="grid">
+        <!--Loop trough all topics -->
+        {% for topic in topics %}
+        <div class="option" style="width: 200px; height: 50px;">
+            <div class="img shadow"></div>
+            <div class="content shadow">{{ topic | capitalize }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="center">
+    <p>Conjugation drills</p>
+</div>
+<div class="center">
+    <div class="grid">
+        <!--Loop trough all topics -->
+        {% for verb in verbs %}
+        <div class="option" style="width: 200px; height: 50px;">
+            <div class="content-verbs shadow">{{ verb | capitalize }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="center">
+    <p>Lessons</p>
+</div>
+<div class="center">
+    <div class="grid">
+        <!--Loop trough all topics -->
+        {% for lesson in lessons_list %}
+        <div class="option" style="width: 200px; height: 50px;">
+            <div class="img shadow"></div>
+            <div class="content shadow">{{ lesson | capitalize }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

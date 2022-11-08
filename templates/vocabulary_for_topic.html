@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% block imports %}
+{% endblock %}
+
+{% block css %}
+<style>
+    .image-form-div{
+        position: relative;
+        top: 100px;
+    }
+    .svg{
+        position: absolute;
+        top: 90px;
+        left: 30px;
+    }
+    .container {
+        width: 100%;
+        max-width: 500px;
+        padding: 15px;
+        margin: 0 auto;
+    }
+
+    .word-correct-message {
+        position: absolute;
+        top: 70px;
+    }
+
+    .wrapper {
+        display: grid;
+        place-items: center;
+    }
+
+    .big {
+        font-size: 20px;
+    }
+
+    .correct-word {
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .error {
+        margin-top: 10px;
+    }
+
+    @media screen and (min-width: 500px) {
+        .form {
+            min-width: 400px;
+        }
+    }
+</style>
+{% if session["german"][0:3] == "il " or session["german"][0:3] == "lo " :%}
+<style>
+    .correct-word {
+        background-color: blue;
+    }
+</style>
+{% elif session["german"][0:3] == "la ":%}
+<style>
+    .correct-word {
+        background-color: red;
+    }
+</style>
+{% endif %}
+
+{% endblock %}
+
+
+{% block body %}
+
+<a href="{{ url_for('vocabulary_topics') }}">
+    <svg class="svg" width="16" height="16" viewBox="0 0 16 16">
+        <g fill="none" fill-rule="evenodd">
+            <path 
+            fill="#fff"
+            d="M6.93 8l-4.7-4.7a.76.76 0 1 1 1.06-1.08L8 6.92l4.7-4.7a.76.76 0 0 1 1.08 1.07L9.08 8l4.7 4.7a.76.76 0 1 1-1.07 1.08L8 9.08l-4.7 4.7a.76.76 0 0 1-1.08-1.07L6.92 8z">
+            </path>
+        </g>
+    </svg>
+</a>
+
+{% if word_is_correct == True or word_is_correct == False: %}
+<script>
+    const audio = new Audio("../static/audio/vocabulary/{{session['word_id']}}.mp3");
+    audio.play();
+</script>
+{% endif %}
+
+<div class="center">
+    <div class="word-correct-message">
+        {% if word_is_correct == True: %}
+        <div class="center">
+            <h3 style="color: green;">Correct!</h3>
+        </div>
+        {% if play_audio: %}
+        <div class="center"><div style="display: inline;" class="correct-word">{{ session["german"] }}</div></div>
+        <script>
+            audio.addEventListener('ended', (event) => {
+                window.location.href = "/vocabulary_for_topic/{{topic}}";
+            });
+        </script>
+        {% endif %}
+        {% elif word_is_correct == False: %}
+        <div class="center">
+            <h3 style="color: red;">Wrong!</h3>
+        </div>
+        {% if play_audio: %}
+        <div class="center">
+            <h4>The correct answer is <div style="display: inline;" class="correct-word">{{ session["german"] }}</div>
+            </h4>
+        </div>
+        {% endif %}
+    
+    
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="center">
+            <div class="error">
+                {{ message }}
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    
+        {% endif %}
+    </div>
+</div>
+
+
+<!--Check if session["image"] != None -->
+<div class="image-form-div">
+    {% if session["image"] != None: %}
+    {% set img_url = url_for('static', filename="images/vocabulary/" + topic + "/" + session['image']) %}
+    <div class="center">
+        <img src="{{ img_url }}" alt="{{ session['image'] }}"
+            style="width: 80vw; height: calc(80vw / 1.5); max-width: 450px; max-height: 300px; margin-bottom: 30px;">
+    </div>
+    {% endif %}
+    <div class="center">
+        <form method="POST">
+            <div class="center">
+                <p class="big">Translate <b>{{ session["english"] }}</b> into German</p>
+            </div>
+            <div class="center">
+                {% if user_input: %}
+                <input spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off" id="inputField"
+                    value="{{ user_input }}" class="big" type="text" name="user_input" autofocus>
+                <script>
+                    let end = document.getElementById("inputField");
+                    let len = end.value.length;
+                    if (end.setSelectionRange) {
+                        end.focus();
+                        end.setSelectionRange(len, len);
+                    }
+                </script>
+                {% else: %}
+                <input spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off" id="inputField"
+                    class="big" type="text" name="user_input" autofocus>
+                {% endif %}
+            </div>
+            <input type="submit" hidden />
+        </form>
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block imports %}
+{% endblock %}
+{% block css %}
+<style>
+    img{
+        box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, .8);
+        margin: 20px 0;
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+<div class="center">
+    <h1 class="title">Page not found</h1>
+</div>
+<div class="center">
+    <h2>We are sorry!</h2>
+</div>
+<div class="center">
+    <img src="{{url_for('static', filename='images/falling.png')}}" alt="">
+</div>
+{% endblock %}

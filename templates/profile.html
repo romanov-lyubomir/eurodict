@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style>
+</style>
+{% endblock %}
+
+
+{% block page_title %}
+Your profile
+{% endblock %}
+
+{% block body %}
+<div class="center">
+    <table>
+        <caption>Your data</caption>
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Username</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ current_user.email }}</td>
+                <td>{{ current_user.username }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

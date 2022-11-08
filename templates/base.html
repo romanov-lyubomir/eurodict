@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta property="site_name" content="EuroDict">
+    <meta name="title" content="EuroDict">
+    <meta property="title" content="EuroDict">
+    <meta name="description" content="An application to learn German more easily">
+    <meta name="keywords" content="German, Deutsch, Learn German, Lerne Deutsch">
+    <meta property="url" content="https://eurodict.herokuapp.com/">
+    <meta property="type" content="website">
+    <meta name="google" value="notranslate">
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#1C6B2B">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="prefetch" href="{{ url_for('static', filename='fonts/JetBrainsMono-Regular.woff2') }}"
+        as="JetBrains Mono">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}" />
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/manifest-icon-192.maskable.png') }}">
+    {% block imports %}
+    {% endblock %}
+    <title>EuroDict</title>
+    <style>
+        :root {
+            --gradient-left: linear-gradient(to left, #303030, #202020);
+            --gradient-right: linear-gradient(to right, #303030, #202020);
+        }
+
+        @font-face {
+            font-family: 'JetBrains Mono';
+            font-style: normal;
+            font-weight: 400;
+            src: local('JetBrains Mono'), local('JetBrains-Mono'), url("/static/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+            /*src: url("/static/fonts/JetBrainsMono-Regular.woff2") format("woff2");*/
+            /*font-display: swap;*/
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "JetBrains Mono", monospace;
+            color: white;
+        }
+
+        *::selection {
+            background-color: #00309A;
+        }
+
+        body::-webkit-scrollbar {
+            width: .75rem;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #202020;
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: #818B99;
+            border: 3px solid transparent;
+            border-radius: .375rem;
+            background-clip: content-box;
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background: #f5f2eec4;
+            border: 3px solid transparent;
+            border-radius: 9px;
+            background-clip: content-box;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .shadow {
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+        }
+
+        img {
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, .8);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        form,
+        .container {
+            background: var(--gradient-left);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px #101010;
+        }
+
+        form .option,
+        .container .option {
+            padding: 15px;
+            width: 90%;
+        }
+
+        form .option:hover,
+        .container .option:hover {
+            background: var(--gradient-right);
+        }
+
+
+        .flag {
+            float: right;
+            margin: 5px 5px 0 0;
+            box-shadow: none;
+        }
+
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .error {
+            background-color: #CF000F;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        body {
+            background: var(--gradient-left);
+        }
+
+        nav {
+            width: 100%;
+            height: 59px;
+            background: var(--gradient-right);
+            box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, .8);
+            position: sticky;
+        }
+
+        nav p {
+            font-size: 24px;
+            height: 60px;
+            float: left;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            float: left;
+        }
+
+        nav ul li {
+            float: left;
+            list-style: none;
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            font-size: 14px;
+            padding: 20px 14px;
+            text-decoration: none;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            background: var(--gradient-left);
+            padding: 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        nav ul li ul li a {
+            padding: 8px 14px;
+        }
+
+        nav ul li ul li a:hover,
+        nav ul li:hover {
+            background: var(--gradient-right);
+        }
+
+        table {
+            border: 1px solid #303030;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+        table th {
+            border: 1px solid #C0C0C0;
+            padding: 5px;
+            background: #303030;
+        }
+
+        table td {
+            border: 1px solid #C0C0C0;
+            padding: 5px;
+        }
+
+        button,
+        input[type=submit] {
+            height: 40px;
+            width: 100px;
+            top: 0;
+            left: 0;
+            background-color: #238636;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        button:hover,
+        input[type=submit]:hover {
+            background-color: #1C6B2B;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            border-bottom: 1px solid rgb(92, 92, 92);
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            background: transparent;
+            width: 240px;
+            height: 25px;
+            margin: 0 0 10px 0;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+        }
+
+
+        .profile-pic {
+            float: right;
+            margin: 5px 5px 0 0;
+            box-shadow: none;
+        }
+
+        h1.title {
+            margin: 20px 0;
+        }
+
+        .home-option,
+        .vocabulary-option,
+        .conjugation-drill-option,
+        .profile-option,
+        .logout-option,
+        .register-option,
+        .login-option,
+        .lessons-option,
+        .install-option {
+            display: none;
+        }
+
+        @media screen and (min-width: 380px) {
+            .home-option {
+                display: block;
+            }
+
+            .home-option-in-menu {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 520px) {
+            .vocabulary-option {
+                display: block;
+            }
+
+            .vocabulary-option-in-menu {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 680px) {
+            .conjugation-drill-option {
+                display: block;
+            }
+
+            .conjugation-drill-option-in-menu {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 770px) {
+            .lessons-option {
+                display: block;
+            }
+
+            .lessons-option-in-menu {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 950px) {
+
+            .register-option,
+            .login-option,
+            .profile-option,
+            .logout-option,
+            .install-option {
+                display: block;
+            }
+
+            .menu {
+                display: none;
+            }
+        }
+    </style>
+    {% block css %}
+    {% endblock %}
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <!-- <li>
+                <svg width="20" height="20" viewBox="0 0 16 16">
+                    <g fill="none" fill-rule="evenodd">
+                        <path fill="#ffffff"
+                            d="M1.1 3.8C.6 3.8.2 3.4.2 3s.4-.8 1-.8h13.7c.5 0 .8.4.8.8s-.3.8-.8.8H1zm0 5C.6 8.8.2 8.3.2 8s.4-.8 1-.8h13.7c.5 0 .8.4.8.8s-.3.8-.8.8H1zm0 5c-.5 0-.9-.4-.9-.8s.4-.8 1-.8h13.7c.5 0 .8.4.8.8s-.3.8-.8.8H1z">
+                        </path>
+                    </g>
+                </svg>
+            </li> -->
+            <li class="home-option"><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="vocabulary-option"><a href="{{ url_for('vocabulary_topics') }}">Vocabulary</a></li>
+            <li class="conjugation-drill-option">
+                <a href="{{ url_for('conjugation_drill_tenses') }}">Conjugation drill</a>
+            </li>
+            <li class="lessons-option"><a href="{{ url_for('lessons') }}">Lessons</a></li>
+            {% if current_user.is_authenticated: %}
+            <li class="profile-option"><a href="{{ url_for('profile') }}">Your profile</a></li>
+            <li class="logout-option"><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else: %}
+            <li class="register-option"><a href="{{ url_for('register') }}">Register</a></li>
+            <li class="login-option"><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+            <li class="install-option"><a class="add-button" href="#">Install</a></li>
+            <li class="menu">
+                <a href="#">Menu</a>
+                <ul>
+                    <li class="home-option-in-menu"><a href="{{ url_for('index') }}">Home</a></li>
+                    <li class="vocabulary-option-in-menu">
+                        <a href="{{ url_for('vocabulary_topics') }}">Vocabulary</a>
+                    </li>
+                    <li class="conjugation-drill-option-in-menu">
+                        <a href="{{ url_for('conjugation_drill_tenses') }}">Conjugation drill</a>
+                    </li>
+                    <li class="lessons-option-in-menu"><a href="{{ url_for('lessons') }}">Lessons</a></li>
+                    {% if current_user.is_authenticated: %}
+                    <li class="profile-option-in-menu"><a href="{{ url_for('profile') }}">Your profile</a></li>
+                    <li class="logout-option-in-menu"><a href="{{ url_for('logout') }}">Logout</a></li>
+                    {% else: %}
+                    <li class="register-option-in-menu"><a href="{{ url_for('register') }}">Register</a></li>
+                    <li class="login-option-in-menu"><a href="{{ url_for('login') }}">Login</a></li>
+                    {% endif %}
+                    <li class="install-option-in-menu"><a class="add-button" href="#">Install</a></li>
+                </ul>
+            </li>
+        </ul>
+        <img class="flag" style="width: 50px; height: 50px"
+            src="{{url_for('static', filename='images/german_flag.png')}}" alt="German flag">
+        {% if current_user.is_authenticated: %}
+        <img class="profile-pic" src="{{url_for('static', filename='images/user.png')}}" alt="User profile picture">
+        {% endif %}
+    </nav>
+    {% block body %}
+    {% endblock %}
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/service-worker.js')
+                .then(function (registration) {
+                    console.log('Service Worker Registered');
+                    return registration;
+                })
+                .catch(function (err) {
+                    console.error('Unable to register service worker.', err);
+                });
+        }
+
+        let deferredPrompt;
+        const addBtn = document.querySelector('.add-button');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            addBtn.addEventListener('click', (e) => {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    deferredPrompt = null;
+                });
+            });
+        });
+
+        window.addEventListener('online', function (e) {
+            console.log("You are online");
+        }, false);
+    </script>
+</body>
+
+</html>

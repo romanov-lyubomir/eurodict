@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block imports %}
+{% endblock %}
+{% block css %}
+{% endblock %}
+
+
+{% block body %}
+<div class="center">
+    <h1 class="title">Conjugation drill</h1>
+</div>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="center">
+    <div class="error">
+        {{ message }}
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
+<div class="center">
+    <div style="margin-top: 20px;" class="container">
+        <a href="conjugation_drill_for_tense/presente">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Presente</div>
+                </div>
+            </div>
+        </a>
+        <a href="conjugation_drill_for_tense/futuro_semplice">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Futuro semplice</div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

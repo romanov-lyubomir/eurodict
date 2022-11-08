@@ -1,0 +1,24 @@
+German, English,word_id,img
+"der Berg,-en",mountain,425,None
+"der Hang,-:e",slope,426,None
+"das Ufer,-",shore,427,None
+"der Fluss,-:e",river,428,None
+"der Gletscher,-",glacier,429,None
+"das Tal,-e",valley,430,None
+"die Höhle,-n",cave,431,None
+"der Hügel,-",hill,432,None
+"das Plateau,-s",plateau,433,None
+"die Schlucht,-en",ravine,434,None
+"die Ebene,-n",planes,435,None
+"der Regenwald,-:er",rainforest,436,None
+"der Wasserfall,-:e",waterfall,437,None
+"die Küste,-n",coast,438,None
+"die Wüste,-n",desert,439,None
+"der Sumpf,-:e",swamp,440,None
+"der Bach,-:er",stream,441,None
+"die Klippe,-n",cliff,442,None
+"der Wald,-:er",forest,443,None
+"der See,-n",lake,444,None
+"das Korallenriff,-e",coral reef,445,None
+"der Geysir,-e",geyser,446,None
+"die Flussmündung,-en",river mouth,447,None

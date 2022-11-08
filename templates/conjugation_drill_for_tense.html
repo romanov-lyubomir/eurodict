@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% block imports %}
+{% endblock %}
+{% block css %}
+<style>
+    .option {
+        padding: 15px;
+        width: 90%;
+    }
+
+    .option:hover {
+        background: var(--gradient-right);
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+<div class="center">
+    <h1 class="title">Conjugation drill</h1>
+</div>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="center">
+    <div class="error">
+        {{ message }}
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
+<div class="center">
+    <div style="margin-top: 20px;" class="container">
+        <a href="../conjugation_drill_for_verb/{{tense}}/essere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Essere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/avere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Avere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/volere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Volere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/fare">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Fare</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/dire">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Dire</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/dare">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Dare</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/dovere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Dovere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/capire">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Capire</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/parlare">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Parlare</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/potere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Potere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/sapere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Sapere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/stare">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Stare</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/trovare">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Trovare</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/uscire">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Uscire</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/vedere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Vedere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/venire">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Venire</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/volere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Volere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/andare">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Andare</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/abitare">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Abitare</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/leggere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Leggere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/dormire">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Dormire</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/{{tense}}/finire">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Finire</div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+{% endblock %}
