@@ -1,32 +1,82 @@
 {% extends "base.html" %}
+{% block imports %}
+{% endblock %}
 
 {% block css %}
-<style>
-</style>
 {% endblock %}
 
 
-{% block page_title %}
-Your profile
-{% endblock %}
 
 {% block body %}
 <div class="center">
+    <h1 class="title">Your profile</h1>
+</div>
+<div class="center">
     <table>
         <caption>Your data</caption>
-        <thead>
-            <tr>
-                <th>Email</th>
-                <th>Username</th>
-            </tr>
-        </thead>
         <tbody>
             <tr>
+                <th>Email</th>
                 <td>{{ current_user.email }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
                 <td>{{ current_user.username }}</td>
+            </tr>
+            <tr>
+                <th>Language</th>
+                <td>{{ current_user.language | capitalize}}</td>
             </tr>
         </tbody>
     </table>
 </div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="center"><p>{{ message }}</p></div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="center">
+    <form class="shadow" action="{{ url_for('change_password') }}" method="POST">
+        <div class="center"><input placeholder="Current password" type="password" name="old_password" id="old_password" required></div>
+        <div class="center"><input placeholder="New password" type="password" name="new_password" id="new_password" required></div>
+        <div class="center"><input type="submit" name="submit" value="Change password"></div>
+    </form>
+</div>
+
+<div class="center">
+    <form class="shadow" action="{{ url_for('change_username') }}" method="POST">
+        <div class="center"><input placeholder="Password" type="password" name="password" required></div>
+        <div class="center"><input placeholder="New username" type="text" name="new_username" required></div>
+        <div class="center"><input type="submit" name="submit" value="Change username"></div>
+    </form>
+</div>
+
+<!-- Create a change language form -->
+<div class="center">
+    <form class="shadow" action="{{ url_for('change_language') }}" method="POST">
+        <div class="center">
+            <select name="new_language" id="language">
+                <option value="italian">Italian</option>
+                <option value="german">German</option>
+            </select>
+        </div>
+        <div class="center"><input type="submit" name="submit" value="Change language"></div>
+    </form>
+</div>
+
+<div class="center">
+    <input onclick="confirmDeletion()" type="submit" name="delete" value="Delete profile">
+</div>
+
+<script>
+    function confirmDeletion() {
+        if (confirm("Are you sure you want to delete your profile?")) {
+            window.location.href = "{{ url_for('delete_profile') }}";
+        }
+    }
+</script>
 
 {% endblock %}

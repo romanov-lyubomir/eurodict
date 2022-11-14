@@ -1,27 +1,35 @@
 {% extends "base.html" %}
+{% block imports %}
+{% endblock %}
 
 {% block css %}
-
 {% endblock %}
 
-{% block page_title %}
-Register
-{% endblock %}
 
 {% block body %}
 <div class="center">
-    <form action="{{ url_for('register') }}" method="POST">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-        <p>{{ message }}</p>
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
-        <div class="center"><input type="text" name="email" placeholder="Email"></div>
-        <div class="center"><input type="text" name="username" placeholder="Username"></div>
-        <div class="center"><input type="password" name="password" placeholder="Password"></div>
-        <div class="center"><input type="submit" name="submit"></div>
+    <h1 class="title">Register</h1>
+</div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="center"><p>{{ message }}</p></div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<div class="center">
+    <form class="shadow" action="{{ url_for('register') }}" method="POST">
+        <div class="center"><input spellcheck="false" autocomplete="off" type="text" name="email" placeholder="Email"></div>
+        <div class="center"><input spellcheck="false" autocomplete="off" type="text" name="username" placeholder="Username"></div>
+        <div class="center"><input spellcheck="false"autocomplete="off" type="password" name="password" placeholder="Password"></div>
+        <!-- Create a dropdown menu -->
+        <div class="center">
+            <select name="language">
+                <option value="italian">Italian</option>
+                <option value="german">German</option>
+            </select>
+        </div>
+        <div class="center"><input type="submit" name="submit" value="Submit"></div>
     </form>
 </div>
 {% endblock %}

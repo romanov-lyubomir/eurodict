@@ -7,7 +7,11 @@
         display: grid;
         place-items: center;
     }
-
+    .svg{
+        position: absolute;
+        top: 90px;
+        left: 30px;
+    }
     .form {
         min-width: 250px;
         margin-top: 150px;
@@ -43,10 +47,19 @@
 
 
 {% block body %}
+<a href="{{ url_for('conjugation_drill_tenses') }}">
+    <svg class="svg" width="16" height="16" viewBox="0 0 16 16">
+        <g fill="none" fill-rule="evenodd">
+            <path fill="#fff"
+                d="M6.93 8l-4.7-4.7a.76.76 0 1 1 1.06-1.08L8 6.92l4.7-4.7a.76.76 0 0 1 1.08 1.07L9.08 8l4.7 4.7a.76.76 0 1 1-1.07 1.08L8 9.08l-4.7 4.7a.76.76 0 0 1-1.08-1.07L6.92 8z">
+            </path>
+        </g>
+    </svg>
+</a>
 <!-- {{tense}}/{{session["verb"]}}/{{session["verb_id"]}} -->
 {% if verb_is_correct == True or verb_is_correct == False: %}
 <script>
-    const audio = new Audio("../../static/audio/sentences/{{tense}}/{{session['verb']}}/{{session['verb_id']}}.mp3");
+    const audio = new Audio("/static/audio/{{language}}/sentences/{{tense}}/{{session['verb']}}/{{session['verb_id']}}.mp3");
     audio.play();
 </script>
 {% endif %}
@@ -57,7 +70,7 @@
 <div style="display: inline;" class="correct-word">{{ session["conjugated_verb"] }}</div>
 <script>
     audio.addEventListener('ended', (event) => {
-        window.location.href = "/conjugation_drill_for_verb/{{tense}}/{{session['verb']}}";
+        window.location.href = "/conjugation_drill_for_verb/{{language}}/{{tense}}/{{session['verb']}}";
     });
 </script>
 {% endif %}
@@ -83,13 +96,14 @@
 
 {% endif %}
 
-<form class="form" method="POST">
+<form class="form shadow" method="POST">
     <div class="center">
         <p class="big">{{ session["pronoun"] }}</p>
     </div>
     <div class="center">
-        {% if user_input: %} 
-        <input spellcheck="false" autocomplete="off" id="inputField" value="{{ user_input }}" class="big" type="text" name="user_input" autofocus>
+        {% if user_input: %}
+        <input spellcheck="false" autocomplete="off" id="inputField" value="{{ user_input }}" class="big" type="text"
+            name="user_input" autofocus>
         <script>
             let end = document.getElementById("inputField");
             let len = end.value.length;
@@ -99,7 +113,8 @@
             }
         </script>
         {% else: %}
-        <input spellcheck="false" autocomplete="off" id="inputField" class="big" type="text" name="user_input" autofocus>
+        <input spellcheck="false" autocomplete="off" id="inputField" class="big" type="text" name="user_input"
+            autofocus>
         {% endif %}
     </div>
     <div class="center">

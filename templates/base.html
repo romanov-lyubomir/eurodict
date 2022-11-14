@@ -5,8 +5,8 @@
     <meta property="site_name" content="EuroDict">
     <meta name="title" content="EuroDict">
     <meta property="title" content="EuroDict">
-    <meta name="description" content="An application to learn German more easily">
-    <meta name="keywords" content="German, Deutsch, Learn German, Lerne Deutsch">
+    <meta name="description" content="An application to learn German and Italian more easily">
+    <meta name="keywords" content="Italian, Italiano, Learn Italian, Imparare l'Italiano, German, Deutsch, Learn German, Lerne Deutsch">
     <meta property="url" content="https://eurodict.herokuapp.com/">
     <meta property="type" content="website">
     <meta name="google" value="notranslate">
@@ -16,12 +16,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="prefetch" href="{{ url_for('static', filename='fonts/JetBrainsMono-Regular.woff2') }}"
         as="JetBrains Mono">
-    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="icon" href="{{ url_for('static', filename='icons/favicon.png') }}">
     <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}" />
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/manifest-icon-192.maskable.png') }}">
     {% block imports %}
     {% endblock %}
     <title>EuroDict</title>
+    {% if current_user.is_authenticated %}
+        {% if current_user.language == "italian" %} 
+        <style>
+            button,
+            input[type=submit],
+            *::selection {
+                background-color: #1C6B2B;
+            }
+            button:hover,
+            input[type=submit]:hover {
+                background-color: #165522;
+            }
+        </style>
+        {% elif current_user.language == "german" %} 
+        <style>
+            button,
+            input[type=submit],
+            *::selection {
+                background-color: #C7002B;
+            }
+            button:hover,
+            input[type=submit]:hover {
+                background-color: #a00023;
+            }
+        </style>
+        {% endif %}
+    {% else %}
+        <style>
+            button,
+            input[type=submit],
+            *::selection {
+                background-color: #003194;
+            }
+            button:hover,
+            input[type=submit]:hover {
+                background-color: #002369;
+            }
+        </style>
+    {% endif %}
     <style>
         :root {
             --gradient-left: linear-gradient(to left, #303030, #202020);
@@ -44,11 +83,6 @@
             font-family: "JetBrains Mono", monospace;
             color: white;
         }
-
-        *::selection {
-            background-color: #00309A;
-        }
-
         body::-webkit-scrollbar {
             width: .75rem;
         }
@@ -56,6 +90,7 @@
         body::-webkit-scrollbar-track {
             background: #202020;
         }
+
         body::-webkit-scrollbar-thumb {
             background-color: #818B99;
             border: 3px solid transparent;
@@ -69,18 +104,22 @@
             border-radius: 9px;
             background-clip: content-box;
         }
-
         a:hover {
             text-decoration: underline;
         }
-
+        select{
+            color: black;
+            margin-bottom: 10px;
+        }
+        option{
+            color: black;
+        }
         .shadow {
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
         }
 
         img {
             border-radius: 10px;
-            box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, .8);
         }
 
         a {
@@ -92,7 +131,7 @@
             background: var(--gradient-left);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 10px 10px 10px #101010;
+            margin: 20px;
         }
 
         form .option,
@@ -110,7 +149,6 @@
         .flag {
             float: right;
             margin: 5px 5px 0 0;
-            box-shadow: none;
         }
 
         .center {
@@ -133,8 +171,8 @@
             width: 100%;
             height: 59px;
             background: var(--gradient-right);
-            box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, .8);
             position: sticky;
+            top: 0;
         }
 
         nav p {
@@ -206,18 +244,11 @@
 
         button,
         input[type=submit] {
-            height: 40px;
-            width: 100px;
+            padding: 10px;
             top: 0;
             left: 0;
-            background-color: #238636;
             border-radius: 20px;
             cursor: pointer;
-        }
-
-        button:hover,
-        input[type=submit]:hover {
-            background-color: #1C6B2B;
         }
 
         input[type="text"],
@@ -241,7 +272,6 @@
         .profile-pic {
             float: right;
             margin: 5px 5px 0 0;
-            box-shadow: none;
         }
 
         h1.title {
@@ -320,9 +350,10 @@
 </head>
 
 <body>
-    <nav>
+    <nav class="shadow">
         <ul>
-            <!-- <li>
+            <!--
+            <li>
                 <svg width="20" height="20" viewBox="0 0 16 16">
                     <g fill="none" fill-rule="evenodd">
                         <path fill="#ffffff"
@@ -330,14 +361,15 @@
                         </path>
                     </g>
                 </svg>
-            </li> -->
+            </li> 
+            -->
             <li class="home-option"><a href="{{ url_for('index') }}">Home</a></li>
+            {% if current_user.is_authenticated: %}
             <li class="vocabulary-option"><a href="{{ url_for('vocabulary_topics') }}">Vocabulary</a></li>
+            <li class="lessons-option"><a href="{{ url_for('lessons') }}">Lessons</a></li>
             <li class="conjugation-drill-option">
                 <a href="{{ url_for('conjugation_drill_tenses') }}">Conjugation drill</a>
             </li>
-            <li class="lessons-option"><a href="{{ url_for('lessons') }}">Lessons</a></li>
-            {% if current_user.is_authenticated: %}
             <li class="profile-option"><a href="{{ url_for('profile') }}">Your profile</a></li>
             <li class="logout-option"><a href="{{ url_for('logout') }}">Logout</a></li>
             {% else: %}
@@ -349,6 +381,7 @@
                 <a href="#">Menu</a>
                 <ul>
                     <li class="home-option-in-menu"><a href="{{ url_for('index') }}">Home</a></li>
+                    {% if current_user.is_authenticated: %}
                     <li class="vocabulary-option-in-menu">
                         <a href="{{ url_for('vocabulary_topics') }}">Vocabulary</a>
                     </li>
@@ -356,7 +389,6 @@
                         <a href="{{ url_for('conjugation_drill_tenses') }}">Conjugation drill</a>
                     </li>
                     <li class="lessons-option-in-menu"><a href="{{ url_for('lessons') }}">Lessons</a></li>
-                    {% if current_user.is_authenticated: %}
                     <li class="profile-option-in-menu"><a href="{{ url_for('profile') }}">Your profile</a></li>
                     <li class="logout-option-in-menu"><a href="{{ url_for('logout') }}">Logout</a></li>
                     {% else: %}
@@ -367,10 +399,13 @@
                 </ul>
             </li>
         </ul>
+        <!-- Check if the user is logged -->
+        {% if current_user.is_authenticated and current_user.language == "italian": %}
+        <img class="flag" style="width: 50px; height: 50px"
+            src="{{url_for('static', filename='images/italian_flag.png')}}" alt="Italian flag">
+        {% elif current_user.is_authenticated and current_user.language == "german": %}
         <img class="flag" style="width: 50px; height: 50px"
             src="{{url_for('static', filename='images/german_flag.png')}}" alt="German flag">
-        {% if current_user.is_authenticated: %}
-        <img class="profile-pic" src="{{url_for('static', filename='images/user.png')}}" alt="User profile picture">
         {% endif %}
     </nav>
     {% block body %}

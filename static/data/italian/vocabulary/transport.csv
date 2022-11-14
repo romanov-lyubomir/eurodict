@@ -1,0 +1,20 @@
+Italian,English,word_id,img
+la stazione,station,62,station_it.jpg
+la fermata,stop,63,None
+il binario,track,64,track.jpg
+la biglietteria,ticket office,65,ticket_office.jpg
+alta velocità,high speed,66,high_speed.jpg
+frecciarossa,red arrow,68,red_arrow.jpg
+sotterranea,underground,69,underground.jpg
+il ritardo,dalay,70,delay.jpg
+proviniente da,coming from,71,None
+il viaggio,trip,72,trip.jpg
+il viaggiatore,traveler,73,trip.jpg
+convalidare,to validate,76,None
+il biglietto,ticket,77,ticket.jpg
+cancellato,canceled,78,cancelled.jpg
+in ritardo,late,79,delay.jpg
+diretto a,direct to,80,None
+delle ore,at (hour),81,at.jpg
+ferma,stops,82,None
+il treno,train,84,train.jpg

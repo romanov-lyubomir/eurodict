@@ -49,16 +49,22 @@
         }
     }
 </style>
-{% if session["german"][0:3] == "il " or session["german"][0:3] == "lo " :%}
+{% if session["italian"][0:4] == "der ":%}
 <style>
     .correct-word {
         background-color: blue;
     }
 </style>
-{% elif session["german"][0:3] == "la ":%}
+{% elif session["italian"][0:4] == "die ":%}
 <style>
     .correct-word {
         background-color: red;
+    }
+</style>
+{% elif session["italian"][0:4] == "das ":%}
+<style>
+    .correct-word {
+        background-color: green;
     }
 </style>
 {% endif %}
@@ -81,7 +87,7 @@
 
 {% if word_is_correct == True or word_is_correct == False: %}
 <script>
-    const audio = new Audio("../static/audio/vocabulary/{{session['word_id']}}.mp3");
+    const audio = new Audio("../static/audio/{{current_user.language}}/vocabulary/{{session['word_id']}}.mp3");
     audio.play();
 </script>
 {% endif %}
@@ -93,7 +99,7 @@
             <h3 style="color: green;">Correct!</h3>
         </div>
         {% if play_audio: %}
-        <div class="center"><div style="display: inline;" class="correct-word">{{ session["german"] }}</div></div>
+        <div class="center"><div style="display: inline;" class="correct-word">{{ session["italian"] }}</div></div>
         <script>
             audio.addEventListener('ended', (event) => {
                 window.location.href = "/vocabulary_for_topic/{{topic}}";
@@ -106,7 +112,7 @@
         </div>
         {% if play_audio: %}
         <div class="center">
-            <h4>The correct answer is <div style="display: inline;" class="correct-word">{{ session["german"] }}</div>
+            <h4>The correct answer is <div style="display: inline;" class="correct-word">{{ session["italian"] }}</div>
             </h4>
         </div>
         {% endif %}
@@ -134,14 +140,14 @@
     {% if session["image"] != None: %}
     {% set img_url = url_for('static', filename="images/vocabulary/" + topic + "/" + session['image']) %}
     <div class="center">
-        <img src="{{ img_url }}" alt="{{ session['image'] }}"
+        <img class="shadow" src="{{ img_url }}" alt="{{ session['image'] }}"
             style="width: 80vw; height: calc(80vw / 1.5); max-width: 450px; max-height: 300px; margin-bottom: 30px;">
     </div>
     {% endif %}
     <div class="center">
-        <form method="POST">
+        <form class="shadow" method="POST">
             <div class="center">
-                <p class="big">Translate <b>{{ session["english"] }}</b> into German</p>
+                <p class="big">Translate <b>{{ session["english"] }}</b> into Italian</p>
             </div>
             <div class="center">
                 {% if user_input: %}

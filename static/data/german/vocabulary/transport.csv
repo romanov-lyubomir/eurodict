@@ -1,0 +1,11 @@
+German,English,word_id,img
+"der Bahnhof,-:e",station,61,station_de.jpg
+"die Haltestelle,-n",stop,62,None
+"das Gleis,-e",track,63,track.jpg
+"der Fahrkartenschalter,-",ticket office,64,ticket_office.jpg
+"fällt aus",is canceled,65,cancelled.jpg
+"die Verspätung,-en",dalay,66,delay.jpg
+"der Reisende,-n",traveler,67,trip.jpg
+"der Zug,-:e",train,68,train.jpg
+"der Fahrschein,-e",ticket,69,ticket.jpg
+"direkt zu",direct to,70,None

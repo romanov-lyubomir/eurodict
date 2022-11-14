@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% block imports %}
+{% endblock %}
+{% block css %}
+<style>
+    .option {
+        padding: 15px;
+        width: 90%;
+    }
+
+    .option:hover {
+        background: var(--gradient-right);
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+<div class="center">
+    <h1 class="title">Conjugation drill</h1>
+</div>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="center">
+    <div class="error">
+        {{ message }}
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
+<div class="center">
+    <div style="margin-top: 20px;" class="container shadow">
+        <a href="{{ url_for('conjugation_drill_for_verb', language='italian', tense=tense, verb='essere') }}">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Essere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/avere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Avere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/volere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Volere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/fare">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Fare</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/dire">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Dire</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/dare">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Dare</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/dovere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Dovere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/capire">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Capire</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/parlare">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Parlare</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/potere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Potere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/sapere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Sapere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/stare">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Stare</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/trovare">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Trovare</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/uscire">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Uscire</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/vedere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Vedere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/venire">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Venire</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/volere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Volere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/andare">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Andare</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/abitare">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Abitare</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/leggere">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Leggere</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/dormire">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Dormire</div>
+                </div>
+            </div>
+        </a>
+        <a href="../conjugation_drill_for_verb/italian/{{tense}}/finire">
+            <div class="center">
+                <div class="option">
+                    <div class="center">Finire</div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+{% endblock %}
