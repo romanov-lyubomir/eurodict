@@ -70,7 +70,7 @@
 <div style="display: inline;" class="correct-word">{{ session["conjugated_verb"] }}</div>
 <script>
     audio.addEventListener('ended', (event) => {
-        window.location.href = "/conjugation_drill_for_verb/{{language}}/{{tense}}/{{session['verb']}}";
+        window.location.href = "/conjugation_drill_for_verb/{{tense}}/{{session['verb']}}";
     });
 </script>
 {% endif %}

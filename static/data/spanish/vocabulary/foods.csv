@@ -1,0 +1,41 @@
+Italian,English,word_id,img
+el desayuno,breakfast,1,None
+el almuerzo,lunch,2,None
+la merienda,snack,3,None
+la cena,dinner,4,None
+el tenedor,fork,5,None
+la cuchara,spoon,6,None
+el cuchillo,knife,7,None
+el plato,plate,8,None
+la servilleta,napkin,9,None
+la taza,cup,10,None
+la copa,glass,11,None
+la botella,bottle,12,None
+el hielo,ice,13,None
+el dulce,dessert,14,None
+el helado,ice cream,15,None
+el pan,bread,16,None
+la mantequilla,butter,17,None
+la sal,salt,18,None
+el papel,pepper,19,None
+el/la azúcar,sugar,20,None
+el miel,honey,21,None
+el aceite de oliva,olive oil,22,None
+el vinagre,vinegar,23,None
+el yogur,yogurt,24,None
+el queso,cheese,25,None
+el huevo,egg,26,None
+el cereal,cereal,27,None
+la sopa,soup,28,None
+el arroz,rice,29,None
+la ensalada,salad,30,None
+el pollo,chicken,31,None
+la carne de vaca,beef,32,None
+la carne de res,lamb,33,None
+la carne de cerdo,pork,34,None
+la carne,meat,35,None
+la comida,food,36,None
+el jamón,ham,37,None
+el bistec,steak,38,None
+la salchicha,sausage,39,None
+el pescado,fish,40,None

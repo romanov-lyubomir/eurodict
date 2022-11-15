@@ -49,6 +49,7 @@
         }
     }
 </style>
+{% if current_user.language == "german" %}
 {% if session["italian"][0:4] == "der ":%}
 <style>
     .correct-word {
@@ -67,6 +68,35 @@
         background-color: green;
     }
 </style>
+{% endif %}
+{% elif current_user.language == "spanish" %}
+{% if session["italian"][0:3] == "el " or session["italian"][0:4] == "los " :%}
+<style>
+    .correct-word {
+        background-color: blue;
+    }
+</style>
+{% elif session["italian"][0:3] == "la " or session["italian"][0:4] == "las ":%}
+<style>
+    .correct-word {
+        background-color: red;
+    }
+</style>
+{% endif %}
+{% elif current_user.language == "italian" %}
+{% if session["italian"][0:3] == "il " or session["italian"][0:3] == "lo " or session["italian"][0:2] == "i " or session["italian"][0:4] == "gli ":%}
+<style>
+    .correct-word {
+        background-color: blue;
+    }
+</style>
+{% elif session["italian"][0:3] == "la " or session["italian"][0:3] == "le ":%}
+<style>
+    .correct-word {
+        background-color: red;
+    }
+</style>
+{% endif %}
 {% endif %}
 
 {% endblock %}
@@ -147,7 +177,7 @@
     <div class="center">
         <form class="shadow" method="POST">
             <div class="center">
-                <p class="big">Translate <b>{{ session["english"] }}</b> into Italian</p>
+                <p class="big">Translate <b>{{ session["english"] }}</b> into {{ current_user.language | capitalize }}</p>
             </div>
             <div class="center">
                 {% if user_input: %}

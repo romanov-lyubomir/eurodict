@@ -1,0 +1,14 @@
+Italian,English,word_id,img
+la estación,station,62,station_it.jpg
+la parada,stop,63,None
+la pista,track,64,track.jpg
+la taquilla,ticket office,65,ticket_office.jpg
+alta velocidad,high speed,66,high_speed.jpg
+el retraso,dalay,67,delay.jpg
+el viaje,trip,68,trip.jpg
+el viahero,traveler,69,trip.jpg
+el boleto,ticket,70,ticket.jpg
+cancelado,canceled,71,cancelled.jpg
+con un retraso,late,72,delay.jpg
+directo a,direct to,73,None
+el tren,train,74,train.jpg

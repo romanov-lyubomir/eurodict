@@ -154,6 +154,9 @@ verbs_italian = [
 verbs_german = [
     "sein", "haben"
 ]
+verbs_spanish = [
+    "ser", "estar", "haber"
+]
 lessons_list = ["the_alphabet"]  # type: ignore
 
 
@@ -174,6 +177,14 @@ def index():
             current_user=current_user,
             topics=topics,
             tenses=["Präsens", "Präteritum", "Perfekt", "Plusquamperfekt", "Futur I", "Futur II"],
+            lessons_list=lessons_list
+        )
+        elif current_user.language == "spanish":  # type: ignore
+            return render_template(
+            'index.html',
+            current_user=current_user,
+            topics=topics,
+            tenses=["Presente", "Futuro"],
             lessons_list=lessons_list
         )
     else:
@@ -208,24 +219,18 @@ def lesson_for_topic(language, topic):
 def conjugation_drill_tenses():
     if not current_user.is_authenticated:  # type: ignore
         return redirect(url_for("index"))
-    if current_user.language == "italian":  # type: ignore
-        return render_template("conjugation_drill_tenses_italian.html", current_user=current_user)
-    elif current_user.language == "german":  # type: ignore
-        return render_template("conjugation_drill_tenses_german.html", current_user=current_user)
+    return render_template(f"conjugation_drill_tenses_{current_user.language}.html", current_user=current_user)  # type: ignore
 
 
-@app.route('/conjugation_drill_for_tense/<language>/<tense>')  # type: ignore
-def conjugation_drill_for_tense(language, tense):
+@app.route('/conjugation_drill_for_tense/<tense>')  # type: ignore
+def conjugation_drill_for_tense(tense):
     if not current_user.is_authenticated:  # type: ignore
         return redirect(url_for("index"))
-    if language == "italian":
-        return render_template("conjugation_drill_for_tense_italian.html", tense=tense, current_user=current_user)
-    elif language == "german":
-        return render_template("conjugation_drill_for_tense_german.html", tense=tense, current_user=current_user)
+    return render_template(f"conjugation_drill_for_tense_{current_user.language}.html", tense=tense, current_user=current_user)  # type: ignore
 
 
-@app.route('/conjugation_drill_for_verb/<language>/<tense>/<verb>', methods=["GET", "POST"])
-def conjugation_drill_for_verb(language, tense, verb):
+@app.route('/conjugation_drill_for_verb/<tense>/<verb>', methods=["GET", "POST"])
+def conjugation_drill_for_verb(tense, verb):
     if not current_user.is_authenticated:  # type: ignore
         return redirect(url_for("index"))
     # def set_random_verb():
@@ -236,19 +241,19 @@ def conjugation_drill_for_verb(language, tense, verb):
         # session["verb_id"] = random_verb["verb_id"].values[0]
         # session["verb"] = verb
     def set_random_verb():
-        words = pd.read_csv(f"static/data/{language}/verbs/{verb}.csv")
+        words = pd.read_csv(f"static/data/{current_user.language}/verbs/{verb}.csv")  # type: ignore
         words = words.values.tolist()
 
         random_sentence = random.choice(words)
 
         session["pronoun"] = random_sentence[0]
         index = 0
-        if language == "italian":
+        if current_user.language == "italian":  # type: ignore
             if tense == "presente":
                 index = 1
             elif tense == "futuro_semplice":
                 index = 2
-        elif language == "german":
+        elif current_user.language == "german":  # type: ignore
             if tense == "praesens":
                 index = 1
             elif tense == "praeteritum":
@@ -261,13 +266,18 @@ def conjugation_drill_for_verb(language, tense, verb):
                 index = 5
             elif tense == "futur_zwei":
                 index = 6
+        elif current_user.language == "spanish":  # type: ignore
+            if tense == "presente":
+                index = 1
+            elif tense == "futuro":
+                index = 2
 
 
         session["conjugated_verb"] = random_sentence[index]
         session["verb_id"] = random_sentence[len(random_sentence) - 1]
         session["verb"] = verb
 
-    if language == "italian":
+    if current_user.language == "italian":  # type: ignore
         if not tense in ["presente", "futuro_semplice"]:
             flash("Unknown tense: " + tense)
             return redirect("/conjugation_drill_tenses")
@@ -275,8 +285,12 @@ def conjugation_drill_for_verb(language, tense, verb):
         if not verb in verbs_italian:
             flash("Unknown verb: " + verb)
             return redirect("/conjugation_drill_tenses")
-    elif language == "german":
+    elif current_user.language == "german":  # type: ignore
         if not verb in verbs_german:
+            flash("Unknown verb: " + verb)
+            return redirect("/conjugation_drill_tenses")
+    elif current_user.language == "spanish":  # type: ignore
+        if not verb in verbs_spanish:
             flash("Unknown verb: " + verb)
             return redirect("/conjugation_drill_tenses")
 
@@ -293,7 +307,7 @@ def conjugation_drill_for_verb(language, tense, verb):
                 user_input=user_input,
                 current_user=current_user,
                 play_audio=True,
-                language=language,
+                language=current_user.language,  # type: ignore
             )
         return render_template(
             'conjugation_drill_for_verb.html',
@@ -301,7 +315,7 @@ def conjugation_drill_for_verb(language, tense, verb):
             verb_is_correct=verb_is_correct,
             current_user=current_user,
             play_audio=True,
-            language=language,
+            language=current_user.language,  # type: ignore
         )
 
     set_random_verb()
@@ -309,7 +323,7 @@ def conjugation_drill_for_verb(language, tense, verb):
         'conjugation_drill_for_verb.html',
         tense=tense,
         current_user=current_user,
-        language=language,
+        language=current_user.language,  # type: ignore
     )
 
 @app.route('/vocabulary_for_topic/<topic>', methods=["GET", "POST"])
