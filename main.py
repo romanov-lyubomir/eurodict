@@ -15,6 +15,7 @@ from requests import Session
 from sqlalchemy.orm import relationship
 from unidecode import unidecode
 from werkzeug.security import check_password_hash, generate_password_hash
+from flask_socketio import SocketIO, emit
 
 # ! Remember to add the module to the requirements.txt file
 
@@ -100,6 +101,7 @@ def is_valid_email(email):
 
 
 app = Flask(__name__)
+socket = SocketIO(app)
 Compress(app)
 app.config['SECRET_KEY'] = "caF^GdASSz%QJZwT2001*^"
 ckeditor = CKEditor(app)
@@ -533,9 +535,9 @@ def error_404(e):
     return render_template("error_404.html")
 
 
-@app.route('/offline.html')
+socket.on('offline')
 def offline():
-    return app.send_static_file('offline.html')
+    return render_template("offline.html")
 
 
 @app.route('/service-worker.js')
