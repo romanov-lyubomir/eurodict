@@ -537,7 +537,7 @@ def error_404(e):
 
 socket.on('offline')
 def offline():
-    return render_template("offline.html")
+    return app.send_static_file("offline.html")
 
 
 @app.route('/service-worker.js')
