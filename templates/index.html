@@ -152,7 +152,7 @@
             {% set a_url = url_for('vocabulary_for_topic', topic=topic) %}
             <a href="{{ a_url }}">
                 <div class="img shadow"><img src="{{img_url}}" alt=""></div>
-                <div class="content shadow">{{ topic | capitalize }}</div>
+                <div class="content shadow">{{ topic | format }}</div>
             </a>
         </div>
         {% endfor %}
@@ -168,7 +168,7 @@
         {% set a_url = url_for('conjugation_drill_for_tense', language=current_user.language, tense=tense) %}
         <a href="{{ a_url }}">
             <div class="option" style="width: 200px; height: 50px;">
-                <div class="content-verbs shadow">{{ tense }}</div>
+                <div class="content-verbs shadow">{{ tense | format }}</div>
             </div>
         </a>
         {% endfor %}
@@ -184,7 +184,7 @@
         {% set a_url = url_for('lesson_for_topic', topic=lesson, language=current_user.language) %}
         <a href="{{ a_url }}">
             <div class="option" style="width: 200px; height: 50px;">
-                <div class="content-verbs shadow">{{ lesson | capitalize }}</div>
+                <div class="content-verbs shadow">{{ lesson | format }}</div>
             </div>
         </a>
         {% endfor %}
@@ -194,28 +194,28 @@
 
 <div class="flags-container">
     <div class="flag-container">
-        <div>
+        <a href="{{ url_for('create_session_profile', language='italian') }}">
             <img class="flag-pic" src="{{ url_for('static', filename='images/italy_flag_big.png') }}" alt="">
             <div class="center">
                 <p>Learn Italian</p>
             </div>
-        </div>
+        </a>
     </div>
     <div class="flag-container">
-        <div>
+        <a href="{{ url_for('create_session_profile', language='spanish') }}">
             <img class="flag-pic" src="{{ url_for('static', filename='images/spain_flag_big.png') }}" alt="">
             <div class="center">
                 <p>Learn Spanish</p>
             </div>
-        </div>
+        </a>
     </div>
     <div class="flag-container">
-        <div>
+        <a href="{{ url_for('create_session_profile', language='german') }}">
             <img class="flag-pic" src="{{ url_for('static', filename='images/germany_flag_big.png') }}" alt="">
             <div class="center">
                 <p>Learn German</p>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 

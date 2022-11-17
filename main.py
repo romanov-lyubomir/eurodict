@@ -148,10 +148,24 @@ def decode(string_to_decode):
     return unidecode(string_to_decode)
 
 
-topics = ["foods", "drinks", "fruits", "transport"]
+@app.template_filter('format')
+def format(string_to_format):
+    return string_to_format.replace("_", " ").capitalize()
+
+
+topics = [
+    "foods", "drinks", "fruits",
+    "transport"
+]
+
 verbs_italian = [
-    "abitare", "andare", "avere", "capire", "dare", "dire", "dormire", "dovere", "essere", "fare",
-    "finire", "leggere", "parlare", "potere", "sapere", "stare", "trovare", "uscire", "vedere", "venire", "volere"
+    "abitare", "andare", "avere",
+    "capire", "dare", "dire",
+    "dormire", "dovere", "essere",
+    "fare", "finire", "leggere",
+    "parlare", "potere", "sapere",
+    "stare", "trovare", "uscire",
+    "vedere", "venire", "volere"
 ]
 verbs_german = [
     "sein", "haben"
@@ -159,7 +173,17 @@ verbs_german = [
 verbs_spanish = [
     "ser", "estar", "haber"
 ]
-lessons_list = ["the_alphabet"]  # type: ignore
+
+italian_tenses = ["presente", "futuro_semplice"]
+german_tenses = ["praesens", "praeteritum", "perfekt", "plusquamperfekt", "futur_eins", "futur_zwei"]
+spanish_tenses = ["presente", "futuro"]
+italian_tenses_formatted = ["Presente", "Futuro semplice"]
+german_tenses_formatted = ["Präsens", "Präteritum", "Perfekt", "Plusquamperfekt", "Futur I", "Futur II"]
+spanish_tenses_formatted = ["Presente", "Futuro"]
+
+italian_lessons = ["the_alphabet"]
+german_lessons = ["the_alphabet"]
+spanish_lessons = ["the_alphabet"]
 
 
 @app.route('/')  # type: ignore
@@ -171,7 +195,7 @@ def index():
             current_user=current_user,
             topics=topics,
             tenses=["Presente", "Futuro Semplice"],
-            lessons_list=lessons_list
+            lessons_list=italian_lessons,
         )
         elif current_user.language == "german":  # type: ignore
             return render_template(
@@ -179,7 +203,7 @@ def index():
             current_user=current_user,
             topics=topics,
             tenses=["Präsens", "Präteritum", "Perfekt", "Plusquamperfekt", "Futur I", "Futur II"],
-            lessons_list=lessons_list
+            lessons_list=german_lessons,
         )
         elif current_user.language == "spanish":  # type: ignore
             return render_template(
@@ -187,7 +211,7 @@ def index():
             current_user=current_user,
             topics=topics,
             tenses=["Presente", "Futuro"],
-            lessons_list=lessons_list
+            lessons_list=spanish_lessons,
         )
     else:
         return render_template(
@@ -203,33 +227,89 @@ def vocabulary_topics():
     return render_template("vocabulary_topics.html", current_user=current_user)
 
 
-@app.route('/lessons')
+@app.route('/lessons')  # type: ignore
 def lessons():
     if not current_user.is_authenticated:  # type: ignore
         return redirect(url_for("index"))
-    return render_template(f"lessons_{current_user.language}.html", current_user=current_user)  # type: ignore
+    if current_user.language == "italian":  # type: ignore
+        return render_template(
+            "lessons.html",
+            lessons=italian_lessons,
+            current_user=current_user
+        ) 
+    if current_user.language == "spanish":  # type: ignore
+        return render_template(
+            "lessons.html",
+            lessons=spanish_lessons,
+            current_user=current_user
+        ) 
+    if current_user.language == "german":  # type: ignore
+        return render_template(
+            "lessons.html",
+            lessons=german_lessons,
+            current_user=current_user
+        )
 
 
-@app.route('/lesson_for_topic/<language>/<topic>')
-def lesson_for_topic(language, topic):
+@app.route('/lesson_for_topic/<topic>')
+def lesson_for_topic(topic):
     if not current_user.is_authenticated:  # type: ignore
         return redirect(url_for("index"))
-    return render_template(f"lessons/{language}/{topic}.html", current_user=current_user)
+    return render_template(f"lessons/{current_user.language}/{topic}.html", current_user=current_user)  # type: ignore
 
 
 @app.route('/conjugation_drill_tenses')  # type: ignore
 def conjugation_drill_tenses():
     if not current_user.is_authenticated:  # type: ignore
         return redirect(url_for("index"))
-    return render_template(f"conjugation_drill_tenses_{current_user.language}.html", current_user=current_user)  # type: ignore
+    if current_user.language == "italian": # type: ignore
+        return render_template(
+            "conjugation_drill_tenses.html",
+            tenses_formatted=italian_tenses_formatted,
+            tenses=italian_tenses,
+            current_user=current_user
+        )
+    if current_user.language == "german": # type: ignore
+        return render_template(
+            "conjugation_drill_tenses.html",
+            tenses_formatted=german_tenses_formatted,
+            tenses=german_tenses,
+            current_user=current_user
+        )
+    if current_user.language == "spanish": # type: ignore
+        return render_template(
+            "conjugation_drill_tenses.html",
+            tenses_formatted=spanish_tenses_formatted,
+            tenses=spanish_tenses,
+            current_user=current_user
+        )
 
 
 @app.route('/conjugation_drill_for_tense/<tense>')  # type: ignore
 def conjugation_drill_for_tense(tense):
     if not current_user.is_authenticated:  # type: ignore
         return redirect(url_for("index"))
-    return render_template(f"conjugation_drill_for_tense_{current_user.language}.html", tense=tense, current_user=current_user)  # type: ignore
-
+    if current_user.language == "italian": # type: ignore
+        return render_template(
+            "conjugation_drill_for_tense.html",
+            verbs=verbs_italian,
+            tense=tense,
+            current_user=current_user
+        )
+    elif current_user.language == "german": # type: ignore
+        return render_template(
+            "conjugation_drill_for_tense.html",
+            verbs=verbs_german,
+            tense=tense,
+            current_user=current_user
+        )
+    elif current_user.language == "spanish": # type: ignore
+        return render_template(
+            "conjugation_drill_for_tense.html",
+            verbs=verbs_spanish,
+            tense=tense,
+            current_user=current_user
+        )
 
 @app.route('/conjugation_drill_for_verb/<tense>/<verb>', methods=["GET", "POST"])
 def conjugation_drill_for_verb(tense, verb):
@@ -428,6 +508,14 @@ def register():
         return redirect(url_for("index"))
 
     return render_template("register.html", current_user=current_user)
+
+
+
+@app.route('/create_session_profile/<language>', methods=["GET", "POST"])  # type: ignore
+def create_session_profile(language):
+    session["language"] = language
+    return redirect(url_for("index"))
+
 
 
 @app.route('/login', methods=["GET", "POST"])
