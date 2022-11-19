@@ -1,104 +1,19 @@
 import random
 from functools import wraps
 import os
-
+import functions
 import pandas as pd
-from flask import (Flask, abort, flash, redirect, render_template, request,
-                   session, url_for)
+from flask import Flask, abort, flash, redirect, render_template, request, session, url_for
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
 from flask_compress import Compress
-from flask_gravatar import Gravatar
-from flask_login import (LoginManager, UserMixin, current_user, login_required,
-                         login_user, logout_user)
+from flask_login import LoginManager, UserMixin, current_user, login_required, login_user, logout_user
 from flask_sqlalchemy import SQLAlchemy
-from requests import Session
-from sqlalchemy.orm import relationship
 from unidecode import unidecode
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO
 
 # ! Remember to add the module to the requirements.txt file
-
-
-def trim(string_to_trim):
-    trimmed_string = ""
-    for word in string_to_trim.split(" "):
-        if word:
-            trimmed_string += word + " "
-    return trimmed_string
-
-
-def has_only_allowed_symbols(*args, allowed_symbols="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_@.-+0123456789"):
-    for arg in args:
-        for letter in arg:
-            if not letter in allowed_symbols:
-                return False
-    return True
-
-
-def empty(*args):
-    for arg in args:
-        if trim(arg) == "":
-            return True
-    return False
-
-
-def skip_by_one_char(first, second, n):
-    imbalance = 0
-    a = 0
-    b = 0
-    i = 0
-    while (i < n and imbalance <= 1):
-        if (first[a] == second[b]):
-            #  When both string character at position a and b is same
-            a += 1
-            b += 1
-        else:
-            a += 1
-            imbalance += 1
-
-        i += 1
-
-    if (imbalance == 0):
-        #  In case, last character is extra in first string
-        return 1
-
-    return imbalance
-
-
-def differ_by_single_char(first, second):
-    #  Get the size of given string
-    n = len(first)
-    m = len(second)
-    imbalance = 0
-    if (n == m):
-        i = 0
-        #  Case A when both string are equal size
-        while (i < n and imbalance <= 1):
-            if (first[i] != second[i]):
-                imbalance += 1
-
-            i += 1
-
-    elif (n - m == 1 or m - n == 1):
-        #  When one string contains extra character
-        if (n > m):
-            imbalance = skip_by_one_char(first, second, m)
-        else:
-            imbalance = skip_by_one_char(second, first, n)
-
-    return imbalance == 1
-
-
-def is_valid_email(email):
-    if not "@" in email or not "." in email:
-        return False
-    if email.count("@") > 1:
-        return False
-    if email.index("@") > email.index("."):
-        return False
-    return True
 
 
 app = Flask(__name__)
@@ -107,10 +22,6 @@ Compress(app)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap(app)
-gravatar = Gravatar(
-    app, size=100, rating='g', default='retro',
-    force_default=False, force_lower=False, use_ssl=False, base_url=None
-)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///users.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -138,7 +49,7 @@ db.create_all()
 def admin_only(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if current_user.id != 1:  # type: ignore
+        if current_user.username != "admin": # type: ignore
             return abort(403)
         return f(*args, **kwargs)
     return decorated_function
@@ -381,7 +292,7 @@ def conjugation_drill_for_verb(tense, verb):
         user_input = unidecode(request.form.get("user_input")).lower()  # type: ignore
         verb_is_correct = user_input == unidecode(session["conjugated_verb"]).lower()
 
-        if differ_by_single_char(user_input, unidecode(session["conjugated_verb"])):
+        if functions.differ_by_single_char(user_input, unidecode(session["conjugated_verb"])):
             flash("You missed one letter.")
             return render_template(
                 'conjugation_drill_for_verb.html',
@@ -440,7 +351,7 @@ def vocabulary_for_topic(topic):
             user_input in unidecode(session["italian"]).lower().split("||")
         )
 
-        if differ_by_single_char(user_input, unidecode(session["italian"])):
+        if functions.differ_by_single_char(user_input, unidecode(session["italian"])):
             flash("You missed one letter.")
             return render_template(
                 'vocabulary_for_topic.html',
@@ -480,15 +391,15 @@ def register():
             flash("You've already signed up with that email, log in instead!")
             return redirect(url_for('register'))
 
-        if empty(email, username, password):
+        if functions.empty(email, username, password):
             flash("Don't leave fields empty!")
             return redirect(url_for('register'))
 
-        if not has_only_allowed_symbols(username, password):
+        if not functions.has_only_allowed_symbols(username, password):
             flash("You used not allowed symbols!")
             return redirect(url_for('register'))
 
-        if not is_valid_email(email):
+        if not functions.is_valid_email(email):
             flash("Please provide a valid email!")
             return redirect(url_for('register'))
 
@@ -573,7 +484,7 @@ def change_password():
         if not check_password_hash(current_user.password, old_password):  # type: ignore
             flash("Old password is incorrect!")
             return redirect(url_for("profile"))
-        if not has_only_allowed_symbols(new_password):
+        if not functions.has_only_allowed_symbols(new_password):
             flash("You used not allowed symbols!")
             return redirect(url_for("profile"))
         current_user.password = generate_password_hash(
@@ -593,7 +504,7 @@ def change_username():
         return redirect(url_for("index"))
     if request.form.get("submit"):
         new_username = request.form.get("new_username")
-        if not has_only_allowed_symbols(new_username):
+        if not functions.has_only_allowed_symbols(new_username):
             flash("You used not allowed symbols!")
             return redirect(url_for("profile"))
         current_user.username = new_username
