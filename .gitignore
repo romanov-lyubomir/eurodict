@@ -3,6 +3,7 @@ static/images/stock_images/*
 makeaudio.py
 makeaudio_for_verb.py
 notes.txt
+users.db
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

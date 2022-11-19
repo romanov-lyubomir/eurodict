@@ -1,5 +1,6 @@
 import random
 from functools import wraps
+import os
 
 import pandas as pd
 from flask import (Flask, abort, flash, redirect, render_template, request,
@@ -110,7 +111,7 @@ gravatar = Gravatar(
     app, size=100, rating='g', default='retro',
     force_default=False, force_lower=False, use_ssl=False, base_url=None
 )
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///users.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///users.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 login_manager = LoginManager()
