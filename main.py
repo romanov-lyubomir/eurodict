@@ -104,7 +104,7 @@ def is_valid_email(email):
 app = Flask(__name__)
 socket = SocketIO(app)
 Compress(app)
-app.config['SECRET_KEY'] = "caF^GdASSz%QJZwT2001*^"
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 gravatar = Gravatar(
