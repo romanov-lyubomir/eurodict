@@ -7,11 +7,6 @@
         display: grid;
         place-items: center;
     }
-    .svg{
-        position: absolute;
-        top: 90px;
-        left: 30px;
-    }
     .form {
         min-width: 250px;
         margin-top: 150px;
@@ -48,7 +43,7 @@
 
 {% block body %}
 <a href="{{ url_for('conjugation_drill_tenses') }}">
-    <svg class="svg" width="16" height="16" viewBox="0 0 16 16">
+    <svg class="svg-x" width="16" height="16" viewBox="0 0 16 16">
         <g fill="none" fill-rule="evenodd">
             <path fill="#fff"
                 d="M6.93 8l-4.7-4.7a.76.76 0 1 1 1.06-1.08L8 6.92l4.7-4.7a.76.76 0 0 1 1.08 1.07L9.08 8l4.7 4.7a.76.76 0 1 1-1.07 1.08L8 9.08l-4.7 4.7a.76.76 0 0 1-1.08-1.07L6.92 8z">
@@ -56,7 +51,6 @@
         </g>
     </svg>
 </a>
-<!-- {{tense}}/{{session["verb"]}}/{{session["verb_id"]}} -->
 {% if verb_is_correct == True or verb_is_correct == False: %}
 <script>
     const audio = new Audio("/static/audio/{{language}}/sentences/{{tense}}/{{session['verb']}}/{{session['verb_id']}}.mp3");

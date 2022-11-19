@@ -185,6 +185,7 @@
             background: var(--gradient-right);
             position: sticky;
             top: 0;
+            z-index: 1;
         }
 
         nav p {
@@ -285,10 +286,17 @@
             float: right;
             margin: 5px 5px 0 0;
         }
-        .svg-x{
+        .svg-x {
             position: absolute;
             top: 90px;
             left: 30px;
+            z-index: 0;
+            display: none;
+        }
+        @media screen and (min-width: 450px) {
+            .svg-x {
+                display: block;
+            }
         }
         h1.title {
             margin: 20px 0;

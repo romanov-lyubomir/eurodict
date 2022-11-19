@@ -1,5 +1,7 @@
 static/images/stock_images/*
 *.ini
+makeaudio.py
+makeaudio_for_verb.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
