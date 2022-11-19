@@ -197,7 +197,6 @@ def index():
             topics=topics,
             tenses=["Presente", "Futuro Semplice"],
             lessons_list=italian_lessons,
-            environment_variable=os.environ.get("DATABASE_URL")
         )
         elif current_user.language == "german":  # type: ignore
             return render_template(
@@ -206,7 +205,6 @@ def index():
             topics=topics,
             tenses=["Präsens", "Präteritum", "Perfekt", "Plusquamperfekt", "Futur I", "Futur II"],
             lessons_list=german_lessons,
-            environment_variable=os.environ.get("DATABASE_URL")
         )
         elif current_user.language == "spanish":  # type: ignore
             return render_template(
@@ -215,13 +213,11 @@ def index():
             topics=topics,
             tenses=["Presente", "Futuro"],
             lessons_list=spanish_lessons,
-            environment_variable=os.environ.get("DATABASE_URL")
         )
     else:
         return render_template(
         'index.html',
         current_user=current_user,
-        environment_variable=os.environ.get("DATABASE_URL")
     )
 
 
