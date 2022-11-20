@@ -31,10 +31,10 @@ login_manager.init_app(app)
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))  # type: ignore
+    return User.query.get(int(user_id))
 
 
-class User(UserMixin, db.Model):  # type: ignore
+class User(UserMixin, db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
@@ -49,7 +49,7 @@ db.create_all()
 def admin_only(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if current_user.username != "admin": # type: ignore
+        if current_user.username != "admin":
             return abort(403)
         return f(*args, **kwargs)
     return decorated_function
@@ -98,10 +98,10 @@ german_lessons = ["the_alphabet"]
 spanish_lessons = ["the_alphabet"]
 
 
-@app.route('/')  # type: ignore
+@app.route('/')  
 def index():
-    if current_user.is_authenticated:  # type: ignore
-        if current_user.language == "italian":  # type: ignore
+    if current_user.is_authenticated:  
+        if current_user.language == "italian":  
             return render_template(
             'index.html',
             current_user=current_user,
@@ -109,7 +109,7 @@ def index():
             tenses=["Presente", "Futuro Semplice"],
             lessons_list=italian_lessons,
         )
-        elif current_user.language == "german":  # type: ignore
+        elif current_user.language == "german":  
             return render_template(
             'index.html',
             current_user=current_user,
@@ -117,7 +117,7 @@ def index():
             tenses=["Präsens", "Präteritum", "Perfekt", "Plusquamperfekt", "Futur I", "Futur II"],
             lessons_list=german_lessons,
         )
-        elif current_user.language == "spanish":  # type: ignore
+        elif current_user.language == "spanish":  
             return render_template(
             'index.html',
             current_user=current_user,
@@ -134,28 +134,28 @@ def index():
 
 @app.route('/vocabulary_topics')
 def vocabulary_topics():
-    if not current_user.is_authenticated:  # type: ignore
+    if not current_user.is_authenticated:  
         return redirect(url_for("index"))
     return render_template("vocabulary_topics.html", current_user=current_user)
 
 
-@app.route('/lessons')  # type: ignore
+@app.route('/lessons')  
 def lessons():
-    if not current_user.is_authenticated:  # type: ignore
+    if not current_user.is_authenticated:  
         return redirect(url_for("index"))
-    if current_user.language == "italian":  # type: ignore
+    if current_user.language == "italian":  
         return render_template(
             "lessons.html",
             lessons=italian_lessons,
             current_user=current_user
         ) 
-    if current_user.language == "spanish":  # type: ignore
+    if current_user.language == "spanish":  
         return render_template(
             "lessons.html",
             lessons=spanish_lessons,
             current_user=current_user
         ) 
-    if current_user.language == "german":  # type: ignore
+    if current_user.language == "german":  
         return render_template(
             "lessons.html",
             lessons=german_lessons,
@@ -165,30 +165,30 @@ def lessons():
 
 @app.route('/lesson_for_topic/<topic>')
 def lesson_for_topic(topic):
-    if not current_user.is_authenticated:  # type: ignore
+    if not current_user.is_authenticated:  
         return redirect(url_for("index"))
-    return render_template(f"lessons/{current_user.language}/{topic}.html", current_user=current_user)  # type: ignore
+    return render_template(f"lessons/{current_user.language}/{topic}.html", current_user=current_user)  
 
 
-@app.route('/conjugation_drill_tenses')  # type: ignore
+@app.route('/conjugation_drill_tenses')  
 def conjugation_drill_tenses():
-    if not current_user.is_authenticated:  # type: ignore
+    if not current_user.is_authenticated:  
         return redirect(url_for("index"))
-    if current_user.language == "italian": # type: ignore
+    if current_user.language == "italian": 
         return render_template(
             "conjugation_drill_tenses.html",
             tenses_formatted=italian_tenses_formatted,
             tenses=italian_tenses,
             current_user=current_user
         )
-    if current_user.language == "german": # type: ignore
+    if current_user.language == "german": 
         return render_template(
             "conjugation_drill_tenses.html",
             tenses_formatted=german_tenses_formatted,
             tenses=german_tenses,
             current_user=current_user
         )
-    if current_user.language == "spanish": # type: ignore
+    if current_user.language == "spanish": 
         return render_template(
             "conjugation_drill_tenses.html",
             tenses_formatted=spanish_tenses_formatted,
@@ -197,25 +197,25 @@ def conjugation_drill_tenses():
         )
 
 
-@app.route('/conjugation_drill_for_tense/<tense>')  # type: ignore
+@app.route('/conjugation_drill_for_tense/<tense>')  
 def conjugation_drill_for_tense(tense):
-    if not current_user.is_authenticated:  # type: ignore
+    if not current_user.is_authenticated:  
         return redirect(url_for("index"))
-    if current_user.language == "italian": # type: ignore
+    if current_user.language == "italian": 
         return render_template(
             "conjugation_drill_for_tense.html",
             verbs=verbs_italian,
             tense=tense,
             current_user=current_user
         )
-    elif current_user.language == "german": # type: ignore
+    elif current_user.language == "german": 
         return render_template(
             "conjugation_drill_for_tense.html",
             verbs=verbs_german,
             tense=tense,
             current_user=current_user
         )
-    elif current_user.language == "spanish": # type: ignore
+    elif current_user.language == "spanish": 
         return render_template(
             "conjugation_drill_for_tense.html",
             verbs=verbs_spanish,
@@ -225,29 +225,29 @@ def conjugation_drill_for_tense(tense):
 
 @app.route('/conjugation_drill_for_verb/<tense>/<verb>', methods=["GET", "POST"])
 def conjugation_drill_for_verb(tense, verb):
-    if not current_user.is_authenticated:  # type: ignore
+    if not current_user.is_authenticated:
         return redirect(url_for("index"))
     # def set_random_verb():
-        # random_verb = pd.read_csv(f"static/data/{current_user.language}/verbs/{verb}.csv").sample() # type: ignore
+        # random_verb = pd.read_csv(f"static/data/{current_user.language}/verbs/{verb}.csv").sample()
 
         # session["pronoun"] = random_verb["pronoun"].values[0]
         # session["conjugated_verb"] = random_verb[tense].values[0]
         # session["verb_id"] = random_verb["verb_id"].values[0]
         # session["verb"] = verb
     def set_random_verb():
-        words = pd.read_csv(f"static/data/{current_user.language}/verbs/{verb}.csv")  # type: ignore
+        words = pd.read_csv(f"static/data/{current_user.language}/verbs/{verb}.csv")
         words = words.values.tolist()
 
         random_sentence = random.choice(words)
 
         session["pronoun"] = random_sentence[0]
         index = 0
-        if current_user.language == "italian":  # type: ignore
+        if current_user.language == "italian":
             if tense == "presente":
                 index = 1
             elif tense == "futuro_semplice":
                 index = 2
-        elif current_user.language == "german":  # type: ignore
+        elif current_user.language == "german":
             if tense == "praesens":
                 index = 1
             elif tense == "praeteritum":
@@ -260,7 +260,7 @@ def conjugation_drill_for_verb(tense, verb):
                 index = 5
             elif tense == "futur_zwei":
                 index = 6
-        elif current_user.language == "spanish":  # type: ignore
+        elif current_user.language == "spanish":  
             if tense == "presente":
                 index = 1
             elif tense == "futuro":
@@ -271,7 +271,7 @@ def conjugation_drill_for_verb(tense, verb):
         session["verb_id"] = random_sentence[len(random_sentence) - 1]
         session["verb"] = verb
 
-    if current_user.language == "italian":  # type: ignore
+    if current_user.language == "italian":  
         if not tense in ["presente", "futuro_semplice"]:
             flash("Unknown tense: " + tense)
             return redirect("/conjugation_drill_tenses")
@@ -279,17 +279,17 @@ def conjugation_drill_for_verb(tense, verb):
         if not verb in verbs_italian:
             flash("Unknown verb: " + verb)
             return redirect("/conjugation_drill_tenses")
-    elif current_user.language == "german":  # type: ignore
+    elif current_user.language == "german":  
         if not verb in verbs_german:
             flash("Unknown verb: " + verb)
             return redirect("/conjugation_drill_tenses")
-    elif current_user.language == "spanish":  # type: ignore
+    elif current_user.language == "spanish":  
         if not verb in verbs_spanish:
             flash("Unknown verb: " + verb)
             return redirect("/conjugation_drill_tenses")
 
     if request.form.get("user_input") != None:
-        user_input = unidecode(request.form.get("user_input")).lower()  # type: ignore
+        user_input = unidecode(request.form.get("user_input")).lower()  
         verb_is_correct = user_input == unidecode(session["conjugated_verb"]).lower()
 
         if functions.differ_by_single_char(user_input, unidecode(session["conjugated_verb"])):
@@ -301,7 +301,7 @@ def conjugation_drill_for_verb(tense, verb):
                 user_input=user_input,
                 current_user=current_user,
                 play_audio=True,
-                language=current_user.language,  # type: ignore
+                language=current_user.language,  
             )
         return render_template(
             'conjugation_drill_for_verb.html',
@@ -309,7 +309,7 @@ def conjugation_drill_for_verb(tense, verb):
             verb_is_correct=verb_is_correct,
             current_user=current_user,
             play_audio=True,
-            language=current_user.language,  # type: ignore
+            language=current_user.language,  
         )
 
     set_random_verb()
@@ -317,15 +317,15 @@ def conjugation_drill_for_verb(tense, verb):
         'conjugation_drill_for_verb.html',
         tense=tense,
         current_user=current_user,
-        language=current_user.language,  # type: ignore
+        language=current_user.language,  
     )
 
 @app.route('/vocabulary_for_topic/<topic>', methods=["GET", "POST"])
 def vocabulary_for_topic(topic):
-    if not current_user.is_authenticated:  # type: ignore
+    if not current_user.is_authenticated:  
         return redirect(url_for("index"))
     def set_random_word():  # Setting a random word to the session
-        words = pd.read_csv(f"static/data/{current_user.language}/vocabulary/{topic}.csv")  # type: ignore
+        words = pd.read_csv(f"static/data/{current_user.language}/vocabulary/{topic}.csv")  
         words = words.values.tolist()
 
         random_word = random.choice(words)
@@ -344,7 +344,7 @@ def vocabulary_for_topic(topic):
 
     if request.form.get("user_input") != None:
         user_input = unidecode(request.form.get(
-            "user_input")).lower()  # type: ignore
+            "user_input")).lower()  
 
         word_is_correct = user_input == (
             unidecode(session["italian"]).lower() or
@@ -408,7 +408,7 @@ def register():
             email=email,
             username=username,
             password=generate_password_hash(
-                password,  # type: ignore
+                password,  
                 method='pbkdf2:sha256',
                 salt_length=8
             ),
@@ -423,7 +423,7 @@ def register():
 
 
 
-@app.route('/create_session_profile/<language>', methods=["GET", "POST"])  # type: ignore
+@app.route('/create_session_profile/<language>', methods=["GET", "POST"])  
 def create_session_profile(language):
     session["language"] = language
     return redirect(url_for("index"))
@@ -443,7 +443,7 @@ def login():
         if not user:
             flash("Profile not found!")
             return redirect(url_for('login'))
-        elif not check_password_hash(user.password, password):  # type: ignore
+        elif not check_password_hash(user.password, password):  
             flash('Password incorrect, please try again.')
             return redirect(url_for('login'))
         else:
@@ -454,7 +454,7 @@ def login():
 
 @app.route('/profile')
 def profile():
-    if not current_user.is_authenticated:  # type: ignore
+    if not current_user.is_authenticated:  
         return redirect(url_for("index"))
     return render_template("profile.html", current_user=current_user)
 
@@ -467,28 +467,28 @@ def logout():
 
 @app.route('/delete_profile', methods=["GET", "POST"])
 def delete_profile():
-    if not current_user.is_authenticated:  # type: ignore
+    if not current_user.is_authenticated:  
         return redirect(url_for("index"))
     db.session.delete(current_user)
     db.session.commit()
     return redirect(url_for("index"))
 
 
-@app.route('/change_password', methods=["GET", "POST"])  # type: ignore
+@app.route('/change_password', methods=["GET", "POST"])  
 def change_password():
-    if not current_user.is_authenticated:  # type: ignore
+    if not current_user.is_authenticated:  
         return redirect(url_for("index"))
     if request.form.get("submit"):
         old_password = request.form.get("old_password")
         new_password = request.form.get("new_password")
-        if not check_password_hash(current_user.password, old_password):  # type: ignore
+        if not check_password_hash(current_user.password, old_password):  
             flash("Old password is incorrect!")
             return redirect(url_for("profile"))
         if not functions.has_only_allowed_symbols(new_password):
             flash("You used not allowed symbols!")
             return redirect(url_for("profile"))
         current_user.password = generate_password_hash(
-            new_password,  # type: ignore
+            new_password,  
             method='pbkdf2:sha256',
             salt_length=8
         )
@@ -498,9 +498,9 @@ def change_password():
     flash("Password not changed!")
     return redirect(url_for("profile"))
 
-@app.route('/change_username', methods=["GET", "POST"])  # type: ignore
+@app.route('/change_username', methods=["GET", "POST"])  
 def change_username():
-    if not current_user.is_authenticated:  # type: ignore
+    if not current_user.is_authenticated:  
         return redirect(url_for("index"))
     if request.form.get("submit"):
         new_username = request.form.get("new_username")
@@ -515,9 +515,9 @@ def change_username():
     return redirect(url_for("profile"))
     
 
-@app.route('/change_language', methods=["GET", "POST"])  # type: ignore
+@app.route('/change_language', methods=["GET", "POST"])  
 def change_language():
-    if not current_user.is_authenticated:  # type: ignore
+    if not current_user.is_authenticated:  
         return redirect(url_for("index"))
     if request.form.get("submit"):
         new_language = request.form.get("new_language")

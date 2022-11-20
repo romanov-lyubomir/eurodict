@@ -34,29 +34,48 @@
             input[type=submit]:hover {
                 background-color: #165522;
             }
+            a.link{
+                color: #1C6B2B;
+            }
+            a.link:hover{
+                color: #165522;
+            }
         </style>
         {% elif current_user.language == "german" %} 
         <style>
             button,
             input[type=submit],
-            *::selection {
+            *::selection{
                 background-color: #C7002B;
             }
             button:hover,
-            input[type=submit]:hover {
+            input[type=submit]:hover{
                 background-color: #a00023;
             }
+            a.link{
+                color: #C7002B;
+            }
+            a.link:hover{
+                color: #a00023;
+            }
+
         </style>
         {% elif current_user.language == "spanish" %} 
         <style>
             button,
             input[type=submit],
-            *::selection {
+            *::selection{
                 background-color: #dc6601;
             }
             button:hover,
             input[type=submit]:hover {
                 background-color: #d24e01;
+            }
+            a.link{
+                color: #dc6601;
+            }
+            a.link:hover{
+                color: #d24e01;
             }
         </style>
         {% endif %}
