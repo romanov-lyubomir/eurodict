@@ -1,5 +1,6 @@
 static/images/stock_images/*
 *.ini
+*.db
 makeaudio.py
 makeaudio_for_verb.py
 notes.txt
