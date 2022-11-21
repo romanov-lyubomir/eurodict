@@ -107,7 +107,8 @@ def index():
             'index.html',
             current_user=current_user,
             topics=topics,
-            tenses=["Presente", "Futuro Semplice"],
+            tenses=italian_tenses,
+            tenses_formatted=italian_tenses_formatted,
             lessons_list=italian_lessons,
         )
         elif current_user.language == "german":  
@@ -115,7 +116,8 @@ def index():
             'index.html',
             current_user=current_user,
             topics=topics,
-            tenses=["Präsens", "Präteritum", "Perfekt", "Plusquamperfekt", "Futur I", "Futur II"],
+            tenses_formatted=german_tenses_formatted,
+            tenses=german_tenses,
             lessons_list=german_lessons,
         )
         elif current_user.language == "spanish":  
@@ -123,7 +125,8 @@ def index():
             'index.html',
             current_user=current_user,
             topics=topics,
-            tenses=["Presente", "Futuro"],
+            tenses_formatted=spanish_tenses_formatted,
+            tenses=spanish_tenses,
             lessons_list=spanish_lessons,
         )
     else:
