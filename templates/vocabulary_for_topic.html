@@ -4,9 +4,20 @@
 
 {% block css %}
 <style>
+    progress{
+        position: absolute;
+        top: 70px;
+    }
+    .word-correct-message {
+        position: absolute;
+        top: 100px;
+    }
+    .error {
+        margin-top: 10px;
+    }
     .image-form-div{
         position: relative;
-        top: 100px;
+        top: 150px;
     }
     .container {
         width: 100%;
@@ -14,12 +25,6 @@
         padding: 15px;
         margin: 0 auto;
     }
-
-    .word-correct-message {
-        position: absolute;
-        top: 70px;
-    }
-
     .wrapper {
         display: grid;
         place-items: center;
@@ -32,10 +37,6 @@
     .correct-word {
         border-radius: 5px;
         padding: 5px;
-    }
-
-    .error {
-        margin-top: 10px;
     }
 
     @media screen and (min-width: 500px) {
@@ -146,8 +147,6 @@
             </h4>
         </div>
         {% endif %}
-    
-    
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
@@ -159,7 +158,6 @@
         {% endfor %}
         {% endif %}
         {% endwith %}
-    
         {% endif %}
     </div>
 </div>

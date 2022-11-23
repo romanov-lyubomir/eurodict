@@ -340,8 +340,6 @@ def vocabulary_for_topic(topic, progress=0):
     if request.args.get("progress") != None:
         progress = int(request.args.get("progress"))
 
-    print(f"===================={progress}====================")
-
     def set_random_word():
         words = pd.read_csv(
             f"static/data/{current_user.language}/vocabulary/{topic}.csv")
@@ -360,7 +358,7 @@ def vocabulary_for_topic(topic, progress=0):
     if not topic in topics:
         flash("Unknown topic: " + topic)
         return redirect("/vocabulary_topics")
-
+        
     if request.form.get("user_input") != None:
         user_input = request.form.get("user_input").lower()
 
@@ -368,7 +366,8 @@ def vocabulary_for_topic(topic, progress=0):
             session["foreign_language"].lower() or
             user_input in session["foreign_language"].lower().split("||")
         )
-        if functions.differ_by_single_char(user_input, session["foreign_language"]):
+        if functions.differ_by_single_char(user_input, session["foreign_language"].lower()):
+            print(f"User input: '{user_input}' differs by one char from '{session['foreign_language']}'")
             flash("You missed one letter.")
             return render_template(
                 'vocabulary_for_topic.html',
@@ -379,7 +378,6 @@ def vocabulary_for_topic(topic, progress=0):
                 play_audio=True,
                 progress=progress,
             )
-        print(word_is_correct)
         if word_is_correct:
             progress += 1
         return render_template(

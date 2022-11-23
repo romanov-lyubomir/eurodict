@@ -20,53 +20,34 @@ def empty(*args):
             return True
     return False
 
+def differ_by_single_char(s1, s2):
+    def remove_char_at_index(s, i):
+        return s[:i] + s[i+1:]
 
-def skip_by_one_char(first, second, n):
-    imbalance = 0
-    a = 0
-    b = 0
-    i = 0
-    while (i < n and imbalance <= 1):
-        if (first[a] == second[b]):
-            #  When both string character at position a and b is same
-            a += 1
-            b += 1
-        else:
-            a += 1
-            imbalance += 1
-
-        i += 1
-
-    if (imbalance == 0):
-        #  In case, last character is extra in first string
-        return 1
-
-    return imbalance
-
-
-def differ_by_single_char(first, second):
-    #  Get the size of given string
-    n = len(first)
-    m = len(second)
-    imbalance = 0
-    if (n == m):
-        i = 0
-        #  Case A when both string are equal size
-        while (i < n and imbalance <= 1):
-            if (first[i] != second[i]):
-                imbalance += 1
-
-            i += 1
-
-    elif (n - m == 1 or m - n == 1):
-        #  When one string contains extra character
-        if (n > m):
-            imbalance = skip_by_one_char(first, second, m)
-        else:
-            imbalance = skip_by_one_char(second, first, n)
-
-    return imbalance == 1
-
+    def swap_char_at_index(s, i):
+        return s[:i] + s[i+1] + s[i] + s[i+2:]
+    
+    if s1 == s2:
+        return False
+    if len(s1) < len(s2):
+        s1, s2 = s2, s1
+    if len(s1) - len(s2) > 1:
+        return False
+    elif s1[:len(s2)] == s2:
+        return True
+    diff = 0
+    for i in range(len(s2)):
+        if s1[i] != s2[i]:
+            diff += 1
+    if diff == 1:
+        return True
+    for i in range(len(s1)):
+        if remove_char_at_index(s1, i) == s2:
+            return True
+    for i in range(len(s1) -1 ):
+        if swap_char_at_index(s1, i) == s2:
+            return True
+    return False
 
 def is_valid_email(email):
     if email[0] == "." or email[-1] == ".":
