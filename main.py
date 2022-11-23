@@ -7,9 +7,8 @@ from flask import Flask, abort, flash, redirect, render_template, request, sessi
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
 from flask_compress import Compress
-from flask_login import LoginManager, UserMixin, current_user, login_required, login_user, logout_user
+from flask_login import LoginManager, UserMixin, current_user, login_user, logout_user
 from flask_sqlalchemy import SQLAlchemy
-from unidecode import unidecode
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_socketio import SocketIO
 
@@ -24,7 +23,6 @@ ckeditor = CKEditor(app)
 Bootstrap(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///users.db")
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -56,9 +54,22 @@ def admin_only(f):
     return decorated_function
 
 
-@app.template_filter('decode')
-def decode(string_to_decode):
-    return unidecode(string_to_decode)
+def not_logged_in(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if current_user.is_authenticated:
+            return redirect(url_for("index"))
+        return f(*args, **kwargs)
+    return decorated_function
+
+
+def logged_in(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not current_user.is_authenticated:
+            return redirect(url_for("index"))
+        return f(*args, **kwargs)
+    return decorated_function
 
 
 @app.template_filter('format')
@@ -88,10 +99,12 @@ verbs_spanish = [
 ]
 
 italian_tenses = ["presente", "futuro_semplice"]
-german_tenses = ["praesens", "praeteritum", "perfekt", "plusquamperfekt", "futur_eins", "futur_zwei"]
+german_tenses = ["praesens", "praeteritum", "perfekt",
+                 "plusquamperfekt", "futur_eins", "futur_zwei"]
 spanish_tenses = ["presente", "futuro"]
 italian_tenses_formatted = ["Presente", "Futuro semplice"]
-german_tenses_formatted = ["Präsens", "Präteritum", "Perfekt", "Plusquamperfekt", "Futur I", "Futur II"]
+german_tenses_formatted = ["Präsens", "Präteritum",
+                           "Perfekt", "Plusquamperfekt", "Futur I", "Futur II"]
 spanish_tenses_formatted = ["Presente", "Futuro"]
 
 italian_lessons = ["the_alphabet"]
@@ -99,67 +112,65 @@ german_lessons = ["the_alphabet"]
 spanish_lessons = ["the_alphabet"]
 
 
-@app.route('/')  
+@app.route('/')
 def index():
-    if current_user.is_authenticated:  
-        if current_user.language == "italian":  
+    if current_user.is_authenticated:
+        if current_user.language == "italian":
             return render_template(
-            'index.html',
-            current_user=current_user,
-            topics=topics,
-            tenses=italian_tenses,
-            tenses_formatted=italian_tenses_formatted,
-            lessons_list=italian_lessons,
-        )
-        elif current_user.language == "german":  
+                'index.html',
+                current_user=current_user,
+                topics=topics,
+                tenses=italian_tenses,
+                tenses_formatted=italian_tenses_formatted,
+                lessons_list=italian_lessons,
+            )
+        elif current_user.language == "german":
             return render_template(
-            'index.html',
-            current_user=current_user,
-            topics=topics,
-            tenses_formatted=german_tenses_formatted,
-            tenses=german_tenses,
-            lessons_list=german_lessons,
-        )
-        elif current_user.language == "spanish":  
+                'index.html',
+                current_user=current_user,
+                topics=topics,
+                tenses_formatted=german_tenses_formatted,
+                tenses=german_tenses,
+                lessons_list=german_lessons,
+            )
+        elif current_user.language == "spanish":
             return render_template(
-            'index.html',
-            current_user=current_user,
-            topics=topics,
-            tenses_formatted=spanish_tenses_formatted,
-            tenses=spanish_tenses,
-            lessons_list=spanish_lessons,
-        )
+                'index.html',
+                current_user=current_user,
+                topics=topics,
+                tenses_formatted=spanish_tenses_formatted,
+                tenses=spanish_tenses,
+                lessons_list=spanish_lessons,
+            )
     else:
         return render_template(
-        'index.html',
-        current_user=current_user,
-    )
+            'index.html',
+            current_user=current_user,
+        )
 
 
 @app.route('/vocabulary_topics')
+@logged_in
 def vocabulary_topics():
-    if not current_user.is_authenticated:  
-        return redirect(url_for("index"))
     return render_template("vocabulary_topics.html", current_user=current_user)
 
 
-@app.route('/lessons')  
+@app.route('/lessons')
+@logged_in
 def lessons():
-    if not current_user.is_authenticated:  
-        return redirect(url_for("index"))
-    if current_user.language == "italian":  
+    if current_user.language == "italian":
         return render_template(
             "lessons.html",
             lessons=italian_lessons,
             current_user=current_user
-        ) 
-    if current_user.language == "spanish":  
+        )
+    if current_user.language == "spanish":
         return render_template(
             "lessons.html",
             lessons=spanish_lessons,
             current_user=current_user
-        ) 
-    if current_user.language == "german":  
+        )
+    if current_user.language == "german":
         return render_template(
             "lessons.html",
             lessons=german_lessons,
@@ -168,31 +179,29 @@ def lessons():
 
 
 @app.route('/lesson_for_topic/<topic>')
+@logged_in
 def lesson_for_topic(topic):
-    if not current_user.is_authenticated:  
-        return redirect(url_for("index"))
-    return render_template(f"lessons/{current_user.language}/{topic}.html", current_user=current_user)  
+    return render_template(f"lessons/{current_user.language}/{topic}.html", current_user=current_user)
 
 
-@app.route('/conjugation_drill_tenses')  
+@app.route('/conjugation_drill_tenses')
+@logged_in
 def conjugation_drill_tenses():
-    if not current_user.is_authenticated:  
-        return redirect(url_for("index"))
-    if current_user.language == "italian": 
+    if current_user.language == "italian":
         return render_template(
             "conjugation_drill_tenses.html",
             tenses_formatted=italian_tenses_formatted,
             tenses=italian_tenses,
             current_user=current_user
         )
-    if current_user.language == "german": 
+    if current_user.language == "german":
         return render_template(
             "conjugation_drill_tenses.html",
             tenses_formatted=german_tenses_formatted,
             tenses=german_tenses,
             current_user=current_user
         )
-    if current_user.language == "spanish": 
+    if current_user.language == "spanish":
         return render_template(
             "conjugation_drill_tenses.html",
             tenses_formatted=spanish_tenses_formatted,
@@ -201,25 +210,24 @@ def conjugation_drill_tenses():
         )
 
 
-@app.route('/conjugation_drill_for_tense/<tense>')  
+@app.route('/conjugation_drill_for_tense/<tense>')
+@logged_in
 def conjugation_drill_for_tense(tense):
-    if not current_user.is_authenticated:  
-        return redirect(url_for("index"))
-    if current_user.language == "italian": 
+    if current_user.language == "italian":
         return render_template(
             "conjugation_drill_for_tense.html",
             verbs=verbs_italian,
             tense=tense,
             current_user=current_user
         )
-    elif current_user.language == "german": 
+    elif current_user.language == "german":
         return render_template(
             "conjugation_drill_for_tense.html",
             verbs=verbs_german,
             tense=tense,
             current_user=current_user
         )
-    elif current_user.language == "spanish": 
+    elif current_user.language == "spanish":
         return render_template(
             "conjugation_drill_for_tense.html",
             verbs=verbs_spanish,
@@ -227,19 +235,20 @@ def conjugation_drill_for_tense(tense):
             current_user=current_user
         )
 
-@app.route('/conjugation_drill_for_verb/<tense>/<verb>', methods=["GET", "POST"])
-def conjugation_drill_for_verb(tense, verb):
-    if not current_user.is_authenticated:
-        return redirect(url_for("index"))
-    # def set_random_verb():
-        # random_verb = pd.read_csv(f"static/data/{current_user.language}/verbs/{verb}.csv").sample()
 
-        # session["pronoun"] = random_verb["pronoun"].values[0]
-        # session["conjugated_verb"] = random_verb[tense].values[0]
-        # session["verb_id"] = random_verb["verb_id"].values[0]
-        # session["verb"] = verb
+@app.route('/conjugation_drill_for_verb/<tense>/<verb>', methods=["GET", "POST"])
+@logged_in
+def conjugation_drill_for_verb(tense, verb):
+    # def set_random_verb():
+    # random_verb = pd.read_csv(f"static/data/{current_user.language}/verbs/{verb}.csv").sample()
+
+    # session["pronoun"] = random_verb["pronoun"].values[0]
+    # session["conjugated_verb"] = random_verb[tense].values[0]
+    # session["verb_id"] = random_verb["verb_id"].values[0]
+    # session["verb"] = verb
     def set_random_verb():
-        words = pd.read_csv(f"static/data/{current_user.language}/verbs/{verb}.csv")
+        words = pd.read_csv(
+            f"static/data/{current_user.language}/verbs/{verb}.csv")
         words = words.values.tolist()
 
         random_sentence = random.choice(words)
@@ -264,18 +273,17 @@ def conjugation_drill_for_verb(tense, verb):
                 index = 5
             elif tense == "futur_zwei":
                 index = 6
-        elif current_user.language == "spanish":  
+        elif current_user.language == "spanish":
             if tense == "presente":
                 index = 1
             elif tense == "futuro":
                 index = 2
 
-
         session["conjugated_verb"] = random_sentence[index]
         session["verb_id"] = random_sentence[len(random_sentence) - 1]
         session["verb"] = verb
 
-    if current_user.language == "italian":  
+    if current_user.language == "italian":
         if not tense in ["presente", "futuro_semplice"]:
             flash("Unknown tense: " + tense)
             return redirect("/conjugation_drill_tenses")
@@ -283,20 +291,20 @@ def conjugation_drill_for_verb(tense, verb):
         if not verb in verbs_italian:
             flash("Unknown verb: " + verb)
             return redirect("/conjugation_drill_tenses")
-    elif current_user.language == "german":  
+    elif current_user.language == "german":
         if not verb in verbs_german:
             flash("Unknown verb: " + verb)
             return redirect("/conjugation_drill_tenses")
-    elif current_user.language == "spanish":  
+    elif current_user.language == "spanish":
         if not verb in verbs_spanish:
             flash("Unknown verb: " + verb)
             return redirect("/conjugation_drill_tenses")
 
     if request.form.get("user_input") != None:
-        user_input = unidecode(request.form.get("user_input")).lower()  
-        verb_is_correct = user_input == unidecode(session["conjugated_verb"]).lower()
+        user_input = request.form.get("user_input").lower()
+        verb_is_correct = user_input == session["conjugated_verb"].lower()
 
-        if functions.differ_by_single_char(user_input, unidecode(session["conjugated_verb"])):
+        if functions.differ_by_single_char(user_input, session["conjugated_verb"]):
             flash("You missed one letter.")
             return render_template(
                 'conjugation_drill_for_verb.html',
@@ -305,7 +313,7 @@ def conjugation_drill_for_verb(tense, verb):
                 user_input=user_input,
                 current_user=current_user,
                 play_audio=True,
-                language=current_user.language,  
+                language=current_user.language,
             )
         return render_template(
             'conjugation_drill_for_verb.html',
@@ -313,7 +321,7 @@ def conjugation_drill_for_verb(tense, verb):
             verb_is_correct=verb_is_correct,
             current_user=current_user,
             play_audio=True,
-            language=current_user.language,  
+            language=current_user.language,
         )
 
     set_random_verb()
@@ -321,20 +329,27 @@ def conjugation_drill_for_verb(tense, verb):
         'conjugation_drill_for_verb.html',
         tense=tense,
         current_user=current_user,
-        language=current_user.language,  
+        language=current_user.language,
     )
 
+
 @app.route('/vocabulary_for_topic/<topic>', methods=["GET", "POST"])
-def vocabulary_for_topic(topic):
-    if not current_user.is_authenticated:  
-        return redirect(url_for("index"))
-    def set_random_word():  # Setting a random word to the session
-        words = pd.read_csv(f"static/data/{current_user.language}/vocabulary/{topic}.csv")  
+@logged_in
+def vocabulary_for_topic(topic, progress=0):
+
+    if request.args.get("progress") != None:
+        progress = int(request.args.get("progress"))
+
+    print(f"===================={progress}====================")
+
+    def set_random_word():
+        words = pd.read_csv(
+            f"static/data/{current_user.language}/vocabulary/{topic}.csv")
         words = words.values.tolist()
 
         random_word = random.choice(words)
 
-        session["italian"] = random_word[0]
+        session["foreign_language"] = random_word[0]
         session["english"] = random_word[1]
         session["word_id"] = random_word[2]
         session["image"] = random_word[3]
@@ -347,15 +362,13 @@ def vocabulary_for_topic(topic):
         return redirect("/vocabulary_topics")
 
     if request.form.get("user_input") != None:
-        user_input = unidecode(request.form.get(
-            "user_input")).lower()  
+        user_input = request.form.get("user_input").lower()
 
         word_is_correct = user_input == (
-            unidecode(session["italian"]).lower() or
-            user_input in unidecode(session["italian"]).lower().split("||")
+            session["foreign_language"].lower() or
+            user_input in session["foreign_language"].lower().split("||")
         )
-
-        if functions.differ_by_single_char(user_input, unidecode(session["italian"])):
+        if functions.differ_by_single_char(user_input, session["foreign_language"]):
             flash("You missed one letter.")
             return render_template(
                 'vocabulary_for_topic.html',
@@ -363,14 +376,19 @@ def vocabulary_for_topic(topic):
                 word_is_correct=word_is_correct,
                 user_input=user_input,
                 current_user=current_user,
-                play_audio=True
+                play_audio=True,
+                progress=progress,
             )
+        print(word_is_correct)
+        if word_is_correct:
+            progress += 1
         return render_template(
             'vocabulary_for_topic.html',
             topic=topic,
             word_is_correct=word_is_correct,
             current_user=current_user,
-            play_audio=True
+            play_audio=True,
+            progress=progress,
         )
 
     set_random_word()
@@ -378,10 +396,12 @@ def vocabulary_for_topic(topic):
         'vocabulary_for_topic.html',
         topic=topic,
         current_user=current_user,
+        progress=progress,
     )
 
 
 @app.route('/register', methods=["GET", "POST"])
+@not_logged_in
 def register():
     if request.form.get("submit"):
         # Getting the data and storing it in variables
@@ -412,7 +432,7 @@ def register():
             email=email,
             username=username,
             password=generate_password_hash(
-                password,  
+                password,
                 method='pbkdf2:sha256',
                 salt_length=8
             ),
@@ -426,15 +446,14 @@ def register():
     return render_template("register.html", current_user=current_user)
 
 
-
-@app.route('/create_session_profile/<language>', methods=["GET", "POST"])  
+@app.route('/create_session_profile/<language>', methods=["GET", "POST"])
 def create_session_profile(language):
     session["language"] = language
     return redirect(url_for("index"))
 
 
-
 @app.route('/login', methods=["GET", "POST"])
+@not_logged_in
 def login():
     if request.form.get("submit"):
         email_or_username = request.form.get("email")
@@ -447,7 +466,7 @@ def login():
         if not user:
             flash("Profile not found!")
             return redirect(url_for('login'))
-        elif not check_password_hash(user.password, password):  
+        elif not check_password_hash(user.password, password):
             flash('Password incorrect, please try again.')
             return redirect(url_for('login'))
         else:
@@ -457,9 +476,8 @@ def login():
 
 
 @app.route('/profile')
+@logged_in
 def profile():
-    if not current_user.is_authenticated:  
-        return redirect(url_for("index"))
     return render_template("profile.html", current_user=current_user)
 
 
@@ -470,29 +488,27 @@ def logout():
 
 
 @app.route('/delete_profile', methods=["GET", "POST"])
+@logged_in
 def delete_profile():
-    if not current_user.is_authenticated:  
-        return redirect(url_for("index"))
     db.session.delete(current_user)
     db.session.commit()
     return redirect(url_for("index"))
 
 
-@app.route('/change_password', methods=["GET", "POST"])  
+@app.route('/change_password', methods=["GET", "POST"])
+@logged_in
 def change_password():
-    if not current_user.is_authenticated:  
-        return redirect(url_for("index"))
     if request.form.get("submit"):
         old_password = request.form.get("old_password")
         new_password = request.form.get("new_password")
-        if not check_password_hash(current_user.password, old_password):  
+        if not check_password_hash(current_user.password, old_password):
             flash("Old password is incorrect!")
             return redirect(url_for("profile"))
         if not functions.has_only_allowed_symbols(new_password):
             flash("You used not allowed symbols!")
             return redirect(url_for("profile"))
         current_user.password = generate_password_hash(
-            new_password,  
+            new_password,
             method='pbkdf2:sha256',
             salt_length=8
         )
@@ -502,10 +518,10 @@ def change_password():
     flash("Password not changed!")
     return redirect(url_for("profile"))
 
-@app.route('/change_username', methods=["GET", "POST"])  
+
+@app.route('/change_username', methods=["GET", "POST"])
+@logged_in
 def change_username():
-    if not current_user.is_authenticated:  
-        return redirect(url_for("index"))
     if request.form.get("submit"):
         new_username = request.form.get("new_username")
         if not functions.has_only_allowed_symbols(new_username):
@@ -517,12 +533,11 @@ def change_username():
         return redirect(url_for("profile"))
     flash("Username not changed!")
     return redirect(url_for("profile"))
-    
 
-@app.route('/change_language', methods=["GET", "POST"])  
+
+@app.route('/change_language', methods=["GET", "POST"])
+@logged_in
 def change_language():
-    if not current_user.is_authenticated:  
-        return redirect(url_for("index"))
     if request.form.get("submit"):
         new_language = request.form.get("new_language")
         current_user.language = new_language
@@ -531,7 +546,6 @@ def change_language():
         return redirect(url_for("profile"))
     flash("Language not changed!")
     return redirect(url_for("profile"))
-    
 
 
 @app.errorhandler(404)
@@ -540,6 +554,8 @@ def error_404(e):
 
 
 socket.on('offline')
+
+
 def offline():
     return app.send_static_file("offline.html")
 

@@ -45,19 +45,19 @@
     }
 </style>
 {% if current_user.language == "german" %}
-{% if session["italian"][0:4] == "der ":%}
+{% if session["foreign_language"][0:4] == "der ":%}
 <style>
     .correct-word {
         background-color: blue;
     }
 </style>
-{% elif session["italian"][0:4] == "die ":%}
+{% elif session["foreign_language"][0:4] == "die ":%}
 <style>
     .correct-word {
         background-color: red;
     }
 </style>
-{% elif session["italian"][0:4] == "das ":%}
+{% elif session["foreign_language"][0:4] == "das ":%}
 <style>
     .correct-word {
         background-color: green;
@@ -65,13 +65,13 @@
 </style>
 {% endif %}
 {% elif current_user.language == "spanish" %}
-{% if session["italian"][0:3] == "el " or session["italian"][0:4] == "los " :%}
+{% if session["foreign_language"][0:3] == "el " or session["foreign_language"][0:4] == "los " :%}
 <style>
     .correct-word {
         background-color: blue;
     }
 </style>
-{% elif session["italian"][0:3] == "la " or session["italian"][0:4] == "las ":%}
+{% elif session["foreign_language"][0:3] == "la " or session["foreign_language"][0:4] == "las ":%}
 <style>
     .correct-word {
         background-color: red;
@@ -79,13 +79,13 @@
 </style>
 {% endif %}
 {% elif current_user.language == "italian" %}
-{% if session["italian"][0:3] == "il " or session["italian"][0:3] == "lo " or session["italian"][0:2] == "i " or session["italian"][0:4] == "gli ":%}
+{% if session["foreign_language"][0:3] == "il " or session["foreign_language"][0:3] == "lo " or session["foreign_language"][0:2] == "i " or session["foreign_language"][0:4] == "gli ":%}
 <style>
     .correct-word {
         background-color: blue;
     }
 </style>
-{% elif session["italian"][0:3] == "la " or session["italian"][0:3] == "le ":%}
+{% elif session["foreign_language"][0:3] == "la " or session["foreign_language"][0:3] == "le ":%}
 <style>
     .correct-word {
         background-color: red;
@@ -98,6 +98,7 @@
 
 
 {% block body %}
+
 
 <a href="{{ url_for('vocabulary_topics') }}">
     <svg class="svg-x" width="16" height="16" viewBox="0 0 16 16">
@@ -118,16 +119,20 @@
 {% endif %}
 
 <div class="center">
+    <progress value="{{ progress }}" max="10"></progress>
+</div>
+
+<div class="center">
     <div class="word-correct-message">
         {% if word_is_correct == True: %}
         <div class="center">
             <h3 style="color: green;">Correct!</h3>
         </div>
         {% if play_audio: %}
-        <div class="center"><div style="display: inline;" class="correct-word">{{ session["italian"] }}</div></div>
+        <div class="center"><div style="display: inline;" class="correct-word">{{ session["foreign_language"] }}</div></div>
         <script>
             audio.addEventListener('ended', (event) => {
-                window.location.href = "/vocabulary_for_topic/{{topic}}";
+                window.location.href = "{{ url_for('vocabulary_for_topic', topic=topic, progress=progress) }}";
             });
         </script>
         {% endif %}
@@ -137,7 +142,7 @@
         </div>
         {% if play_audio: %}
         <div class="center">
-            <h4>The correct answer is <div style="display: inline;" class="correct-word">{{ session["italian"] }}</div>
+            <h4>The correct answer is <div style="display: inline;" class="correct-word">{{ session["foreign_language"] }}</div>
             </h4>
         </div>
         {% endif %}
@@ -170,7 +175,7 @@
     </div>
     {% endif %}
     <div class="center">
-        <form class="shadow" method="POST">
+        <form action="{{ url_for('vocabulary_for_topic', topic=topic, progress=progress) }}" class="shadow" method="POST">
             <div class="center">
                 <p class="big">Translate <b>{{ session["english"] }}</b> into {{ current_user.language | capitalize }}</p>
             </div>

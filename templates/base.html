@@ -27,7 +27,7 @@
         <style>
             button,
             input[type=submit],
-            *::selection {
+            progress::-webkit-progress-value {
                 background-color: #1C6B2B;
             }
             button:hover,
@@ -45,7 +45,8 @@
         <style>
             button,
             input[type=submit],
-            *::selection{
+            *::selection,
+            progress::-webkit-progress-value {
                 background-color: #C7002B;
             }
             button:hover,
@@ -64,7 +65,8 @@
         <style>
             button,
             input[type=submit],
-            *::selection{
+            *::selection,
+            progress::-webkit-progress-value {
                 background-color: #dc6601;
             }
             button:hover,
@@ -83,7 +85,8 @@
         <style>
             button,
             input[type=submit],
-            *::selection {
+            *::selection,
+            progress::-webkit-progress-value {
                 background-color: #003194;
             }
             button:hover,
@@ -148,7 +151,28 @@
         .shadow {
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
         }
-
+        progress{
+            width: 80vw;
+            height: 20px;
+            min-width: 200px;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        progress::-webkit-progress-bar {
+            border: 0;
+            height: 20px;
+            border-radius: 10px;
+        }
+        progress::-webkit-progress-value {
+            border: 0;
+            height: 20px;
+            border-radius: 10px;
+        }
+        progress::-moz-progress-bar {
+            border: 0;
+            height: 20px;
+            border-radius: 10px;
+        }
         img {
             border-radius: 10px;
         }
