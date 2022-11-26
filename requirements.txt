@@ -6,14 +6,13 @@ Flask-Gravatar
 Flask-Login
 Flask-SQLAlchemy==2.5.1
 Flask-WTF
+flask_socketio
+flask_compress
 Jinja2
-MarkupSafe
 requests
 SQLAlchemy==1.3.0
 Werkzeug
 WTForms
 pandas
-flask_compress
-flask_socketio
 psycopg2
 unidecode
