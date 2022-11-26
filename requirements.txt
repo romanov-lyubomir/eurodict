@@ -4,7 +4,7 @@ Flask-Bootstrap
 Flask-CKEditor
 Flask-Gravatar
 Flask-Login
-Flask-SQLAlchemy==2.5.1
+Flask-SQLAlchemy
 Flask-WTF
 flask_socketio
 flask_compress
