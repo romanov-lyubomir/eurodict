@@ -6,7 +6,6 @@ Flask-Gravatar
 Flask-Login
 Flask-SQLAlchemy==2.5.1
 Flask-WTF
-idna
 itsdangerous
 Jinja2
 MarkupSafe
