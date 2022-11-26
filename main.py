@@ -1,6 +1,7 @@
 import random
 from functools import wraps
 import os
+from unidecode import unidecode
 import functions
 import pandas as pd
 from flask import Flask, abort, flash, redirect, render_template, request, session, url_for
@@ -22,7 +23,8 @@ app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///users.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+    "DATABASE_URL", "sqlite:///users.db")
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -238,7 +240,9 @@ def conjugation_drill_for_tense(tense):
 
 @app.route('/conjugation_drill_for_verb/<tense>/<verb>', methods=["GET", "POST"])
 @logged_in
-def conjugation_drill_for_verb(tense, verb):
+def conjugation_drill_for_verb(tense, verb, progress=0):
+    if request.args.get("progress") != None:
+        progress = int(request.args.get("progress"))
     # def set_random_verb():
     # random_verb = pd.read_csv(f"static/data/{current_user.language}/verbs/{verb}.csv").sample()
 
@@ -302,7 +306,7 @@ def conjugation_drill_for_verb(tense, verb):
 
     if request.form.get("user_input") != None:
         user_input = request.form.get("user_input").lower()
-        verb_is_correct = user_input == session["conjugated_verb"].lower()
+        verb_is_correct = unidecode(user_input) in unidecode(session["conjugated_verb"].lower())
 
         if functions.differ_by_single_char(user_input, session["conjugated_verb"]):
             flash("You missed one letter.")
@@ -314,7 +318,10 @@ def conjugation_drill_for_verb(tense, verb):
                 current_user=current_user,
                 play_audio=True,
                 language=current_user.language,
+                progress=progress
             )
+        if verb_is_correct:
+            progress += 1
         return render_template(
             'conjugation_drill_for_verb.html',
             tense=tense,
@@ -322,6 +329,7 @@ def conjugation_drill_for_verb(tense, verb):
             current_user=current_user,
             play_audio=True,
             language=current_user.language,
+            progress=progress
         )
 
     set_random_verb()
@@ -330,6 +338,7 @@ def conjugation_drill_for_verb(tense, verb):
         tense=tense,
         current_user=current_user,
         language=current_user.language,
+        progress=progress
     )
 
 
@@ -363,8 +372,8 @@ def vocabulary_for_topic(topic, progress=0):
         user_input = request.form.get("user_input").lower()
 
         word_is_correct = user_input == (
-            session["foreign_language"].lower() or
-            user_input in session["foreign_language"].lower().split("||")
+            unidecode(session["foreign_language"].lower()) or
+            unidecode(user_input in session["foreign_language"].lower()).split("||")
         )
         if functions.differ_by_single_char(user_input, session["foreign_language"].lower()):
             print(f"User input: '{user_input}' differs by one char from '{session['foreign_language']}'")

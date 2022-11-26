@@ -19,21 +19,9 @@
         position: relative;
         top: 150px;
     }
-    .container {
-        width: 100%;
-        max-width: 500px;
-        padding: 15px;
-        margin: 0 auto;
-    }
-    .wrapper {
-        display: grid;
-        place-items: center;
-    }
-
     .big {
         font-size: 20px;
     }
-
     .correct-word {
         border-radius: 5px;
         padding: 5px;
@@ -112,6 +100,7 @@
     </svg>
 </a>
 
+
 {% if word_is_correct == True or word_is_correct == False: %}
 <script>
     const audio = new Audio("../static/audio/{{current_user.language}}/vocabulary/{{session['word_id']}}.mp3");
@@ -163,7 +152,7 @@
 </div>
 
 
-<!--Check if session["image"] != None -->
+
 <div class="image-form-div">
     {% if session["image"] != None: %}
     {% set img_url = url_for('static', filename="images/vocabulary/" + topic + "/" + session['image']) %}
