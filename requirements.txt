@@ -18,4 +18,5 @@ WTForms
 pandas
 flask_compress
 flask_socketio
+psycopg2
 unidecode
