@@ -1,5 +1,4 @@
 gunicorn
-click
 dominate
 Flask
 Flask-Bootstrap
