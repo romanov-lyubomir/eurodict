@@ -251,11 +251,11 @@ def conjugation_drill_for_verb(tense, verb, progress=0):
     # session["verb_id"] = random_verb["verb_id"].values[0]
     # session["verb"] = verb
     def set_random_verb():
-        words = pd.read_csv(
+        sentences = pd.read_csv(
             f"static/data/{current_user.language}/verbs/{verb}.csv")
-        words = words.values.tolist()
+        sentences = sentences.values.tolist()
 
-        random_sentence = random.choice(words)
+        random_sentence = random.choice(sentences)
 
         session["pronoun"] = random_sentence[0]
         index = 0

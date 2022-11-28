@@ -33,56 +33,6 @@
         }
     }
 </style>
-{% if current_user.language == "german" %}
-{% if session["foreign_language"][0:4] == "der ":%}
-<style>
-    .correct-word {
-        background-color: blue;
-    }
-</style>
-{% elif session["foreign_language"][0:4] == "die ":%}
-<style>
-    .correct-word {
-        background-color: red;
-    }
-</style>
-{% elif session["foreign_language"][0:4] == "das ":%}
-<style>
-    .correct-word {
-        background-color: green;
-    }
-</style>
-{% endif %}
-{% elif current_user.language == "spanish" %}
-{% if session["foreign_language"][0:3] == "el " or session["foreign_language"][0:4] == "los " :%}
-<style>
-    .correct-word {
-        background-color: blue;
-    }
-</style>
-{% elif session["foreign_language"][0:3] == "la " or session["foreign_language"][0:4] == "las ":%}
-<style>
-    .correct-word {
-        background-color: red;
-    }
-</style>
-{% endif %}
-{% elif current_user.language == "italian" %}
-{% if session["foreign_language"][0:3] == "il " or session["foreign_language"][0:3] == "lo " or session["foreign_language"][0:2] == "i " or session["foreign_language"][0:4] == "gli ":%}
-<style>
-    .correct-word {
-        background-color: blue;
-    }
-</style>
-{% elif session["foreign_language"][0:3] == "la " or session["foreign_language"][0:3] == "le ":%}
-<style>
-    .correct-word {
-        background-color: red;
-    }
-</style>
-{% endif %}
-{% endif %}
-
 {% endblock %}
 
 
@@ -103,7 +53,7 @@
 
 {% if word_is_correct == True or word_is_correct == False: %}
 <script>
-    const audio = new Audio("../static/audio/{{current_user.language}}/vocabulary/{{session['word_id']}}.mp3");
+    const audio = new Audio("../static/audio/{{current_user.language}}/sentences/{{tense}}/{{session['pronoun']}}.mp3");
     audio.play();
 </script>
 {% endif %}
@@ -157,8 +107,9 @@
     <div class="center">
         <form action="{{ url_for('vocabulary_for_topic', topic=topic, progress=progress) }}" class="shadow" method="POST">
             <div class="center">
-                <p class="big">Translate <b>{{ session["english"] }}</b> into {{ current_user.language | capitalize }}</p>
+                <p class="big">{{ session["pronoun"] }}</p>
             </div>
+            <div class="center">({{ session["verb"] }})</div>
             <div class="center">
                 {% if user_input: %}
                 <input spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off" id="inputField"
@@ -181,6 +132,5 @@
     </div>
 
 </div>
-
 
 {% endblock %}
