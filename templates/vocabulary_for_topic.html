@@ -103,7 +103,7 @@
 
 {% if word_is_correct == True or word_is_correct == False: %}
 <script>
-    const audio = new Audio("../static/audio/{{current_user.language}}/vocabulary/{{session['word_id']}}.mp3");
+    const audio = new Audio("../../../../static/audio/{{current_user.language}}/vocabulary/{{session['word_id']}}.mp3");
     audio.play();
 </script>
 {% endif %}

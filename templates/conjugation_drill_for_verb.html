@@ -8,7 +8,7 @@
         position: absolute;
         top: 70px;
     }
-    .word-correct-message {
+    .verb-correct-message {
         position: absolute;
         top: 100px;
     }
@@ -22,7 +22,7 @@
     .big {
         font-size: 20px;
     }
-    .correct-word {
+    .correct-verb {
         border-radius: 5px;
         padding: 5px;
     }
@@ -39,7 +39,7 @@
 {% block body %}
 
 
-<a href="{{ url_for('vocabulary_topics') }}">
+<a href="{{ url_for('conjugation_drill_tenses') }}">
     <svg class="svg-x" width="16" height="16" viewBox="0 0 16 16">
         <g fill="none" fill-rule="evenodd">
             <path 
@@ -51,9 +51,9 @@
 </a>
 
 
-{% if word_is_correct == True or word_is_correct == False: %}
+{% if verb_is_correct == True or verb_is_correct == False: %}
 <script>
-    const audio = new Audio("../static/audio/{{current_user.language}}/sentences/{{tense}}/{{session['pronoun']}}.mp3");
+    const audio = new Audio("../../static/audio/{{current_user.language}}/sentences/{{tense}}/{{session['verb']}}/{{session['verb_id']}}.mp3");
     audio.play();
 </script>
 {% endif %}
@@ -63,26 +63,26 @@
 </div>
 
 <div class="center">
-    <div class="word-correct-message">
-        {% if word_is_correct == True: %}
+    <div class="verb-correct-message">
+        {% if verb_is_correct == True: %}
         <div class="center">
             <h3 style="color: green;">Correct!</h3>
         </div>
         {% if play_audio: %}
-        <div class="center"><div style="display: inline;" class="correct-word">{{ session["foreign_language"] }}</div></div>
+        <div class="center"><div style="display: inline;" class="correct-verb">{{ session["conjugated_verb"] }}</div></div>
         <script>
             audio.addEventListener('ended', (event) => {
-                window.location.href = "{{ url_for('vocabulary_for_topic', topic=topic, progress=progress) }}";
+                window.location.href = "{{ url_for('conjugation_drill_for_verb', tense=tense, verb=session['verb'], progress=progress) }}";
             });
         </script>
         {% endif %}
-        {% elif word_is_correct == False: %}
+        {% elif verb_is_correct == False: %}
         <div class="center">
             <h3 style="color: red;">Wrong!</h3>
         </div>
         {% if play_audio: %}
         <div class="center">
-            <h4>The correct answer is <div style="display: inline;" class="correct-word">{{ session["foreign_language"] }}</div>
+            <h4>The correct answer is <div style="display: inline;" class="correct-verb">{{ session["conjugated_verb"] }}</div>
             </h4>
         </div>
         {% endif %}
@@ -105,11 +105,11 @@
 
 <div class="image-form-div">
     <div class="center">
-        <form action="{{ url_for('vocabulary_for_topic', topic=topic, progress=progress) }}" class="shadow" method="POST">
+        <form action="{{ url_for('conjugation_drill_for_verb', tense=tense, verb=session['verb'], progress=progress) }}" class="shadow" method="POST">
             <div class="center">
                 <p class="big">{{ session["pronoun"] }}</p>
             </div>
-            <div class="center">({{ session["verb"] }})</div>
+            <div class="center">({{ session["verb"] }})</div> 
             <div class="center">
                 {% if user_input: %}
                 <input spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off" id="inputField"

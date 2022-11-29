@@ -243,13 +243,6 @@ def conjugation_drill_for_tense(tense):
 def conjugation_drill_for_verb(tense, verb, progress=0):
     if request.args.get("progress") != None:
         progress = int(request.args.get("progress"))
-    # def set_random_verb():
-    # random_verb = pd.read_csv(f"static/data/{current_user.language}/verbs/{verb}.csv").sample()
-
-    # session["pronoun"] = random_verb["pronoun"].values[0]
-    # session["conjugated_verb"] = random_verb[tense].values[0]
-    # session["verb_id"] = random_verb["verb_id"].values[0]
-    # session["verb"] = verb
     def set_random_verb():
         sentences = pd.read_csv(
             f"static/data/{current_user.language}/verbs/{verb}.csv")
@@ -317,7 +310,6 @@ def conjugation_drill_for_verb(tense, verb, progress=0):
                 user_input=user_input,
                 current_user=current_user,
                 play_audio=True,
-                language=current_user.language,
                 progress=progress
             )
         if verb_is_correct:
@@ -328,7 +320,6 @@ def conjugation_drill_for_verb(tense, verb, progress=0):
             verb_is_correct=verb_is_correct,
             current_user=current_user,
             play_audio=True,
-            language=current_user.language,
             progress=progress
         )
 
@@ -337,7 +328,6 @@ def conjugation_drill_for_verb(tense, verb, progress=0):
         'conjugation_drill_for_verb.html',
         tense=tense,
         current_user=current_user,
-        language=current_user.language,
         progress=progress
     )
 
@@ -345,7 +335,6 @@ def conjugation_drill_for_verb(tense, verb, progress=0):
 @app.route('/vocabulary_for_topic/<topic>', methods=["GET", "POST"])
 @logged_in
 def vocabulary_for_topic(topic, progress=0):
-
     if request.args.get("progress") != None:
         progress = int(request.args.get("progress"))
 
@@ -353,7 +342,6 @@ def vocabulary_for_topic(topic, progress=0):
         words = pd.read_csv(
             f"static/data/{current_user.language}/vocabulary/{topic}.csv")
         words = words.values.tolist()
-
         random_word = random.choice(words)
 
         session["foreign_language"] = random_word[0]
