@@ -13,8 +13,6 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_socketio import SocketIO
 
-# ! Remember to add the module to the requirements.txt file
-
 
 app = Flask(__name__)
 socket = SocketIO(app)
@@ -297,9 +295,10 @@ def conjugation_drill_for_verb(tense, verb, progress=0):
             flash("Unknown verb: " + verb)
             return redirect("/conjugation_drill_tenses")
 
+
     if request.form.get("user_input") != None:
         user_input = request.form.get("user_input").lower()
-        verb_is_correct = unidecode(user_input) in unidecode(session["conjugated_verb"].lower())
+        verb_is_correct = unidecode(user_input) == unidecode(session["conjugated_verb"].lower())
 
         if functions.differ_by_single_char(user_input, session["conjugated_verb"]):
             flash("You missed one letter.")
