@@ -107,7 +107,7 @@ german_tenses_formatted = ["Präsens", "Präteritum",
                            "Perfekt", "Plusquamperfekt", "Futur I", "Futur II"]
 spanish_tenses_formatted = ["Presente", "Futuro"]
 
-italian_lessons = ["the_alphabet"]
+italian_lessons = ["the_alphabet", "definite_articles", "verbs"]
 german_lessons = ["the_alphabet"]
 spanish_lessons = ["the_alphabet"]
 
@@ -297,8 +297,8 @@ def conjugation_drill_for_verb(tense, verb, progress=0):
 
 
     if request.form.get("user_input") != None:
-        user_input = request.form.get("user_input").lower()
-        verb_is_correct = unidecode(user_input) == unidecode(session["conjugated_verb"].lower())
+        user_input = request.form.get("user_input")
+        verb_is_correct = unidecode(user_input) == unidecode(session["conjugated_verb"])
 
         if functions.differ_by_single_char(user_input, session["conjugated_verb"]):
             flash("You missed one letter.")
@@ -356,13 +356,12 @@ def vocabulary_for_topic(topic, progress=0):
         return redirect("/vocabulary_topics")
         
     if request.form.get("user_input") != None:
-        user_input = request.form.get("user_input").lower()
+        user_input = request.form.get("user_input")
 
-        word_is_correct = user_input == (
-            unidecode(session["foreign_language"].lower()) or
-            unidecode(user_input in session["foreign_language"].lower()).split("||")
+        word_is_correct = unidecode(user_input) == (
+            unidecode(session["foreign_language"])
         )
-        if functions.differ_by_single_char(user_input, session["foreign_language"].lower()):
+        if functions.differ_by_single_char(user_input, session["foreign_language"]):
             print(f"User input: '{user_input}' differs by one char from '{session['foreign_language']}'")
             flash("You missed one letter.")
             return render_template(

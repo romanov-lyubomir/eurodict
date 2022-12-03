@@ -24,8 +24,21 @@
     .flag-pic {
         width: 200px;
         height: 200px;
+        box-shadow: 0 0 10px 0 rgb(255, 255, 255);
+    }
+    .img {
+        height: 20px;
+        width: 20px;
+        background-color: white;
+        float: left;
+        padding: 10px;
+        border-radius: 10px 0 0 10px;
     }
 
+    .img img {
+        height: 20px;
+        width: 20px;
+    }
     .background-div {
         background-size: cover;
         background-repeat: no-repeat;
@@ -44,19 +57,6 @@
         grid-gap: 10px;
     }
 
-    .img {
-        height: 20px;
-        width: 20px;
-        background-color: white;
-        float: left;
-        padding: 10px;
-        border-radius: 10px 0 0 10px;
-    }
-
-    .img img {
-        height: 20px;
-        width: 20px;
-    }
 
     .content {
         display: flex;
@@ -181,7 +181,7 @@
     <div class="grid">
 
         {% for lesson in lessons_list %}
-        {% set a_url = url_for('lesson_for_topic', topic=lesson, language=current_user.language) %}
+        {% set a_url = url_for('lesson_for_topic', topic=lesson) %}
         <a href="{{ a_url }}">
             <div class="option" style="width: 200px; height: 50px;">
                 <div class="content-verbs shadow">{{ lesson | format }}</div>
