@@ -5,21 +5,15 @@ from unidecode import unidecode
 import functions
 import pandas as pd
 from flask import Flask, abort, flash, redirect, render_template, request, session, url_for
-from flask_bootstrap import Bootstrap
-from flask_ckeditor import CKEditor
 from flask_compress import Compress
 from flask_login import LoginManager, UserMixin, current_user, login_user, logout_user
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_socketio import SocketIO
 
 
 app = Flask(__name__)
-socket = SocketIO(app)
 Compress(app)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
-ckeditor = CKEditor(app)
-Bootstrap(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
     "DATABASE_URL", "sqlite:///users.db")
@@ -545,12 +539,6 @@ def change_language():
 def error_404(e):
     return render_template("error_404.html")
 
-
-socket.on('offline')
-
-
-def offline():
-    return app.send_static_file("offline.html")
 
 
 @app.route('/service-worker.js')
