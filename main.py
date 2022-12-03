@@ -107,7 +107,7 @@ german_tenses_formatted = ["Präsens", "Präteritum",
                            "Perfekt", "Plusquamperfekt", "Futur I", "Futur II"]
 spanish_tenses_formatted = ["Presente", "Futuro"]
 
-italian_lessons = ["the_alphabet", "definite_articles", "verbs"]
+italian_lessons = ["the_alphabet", "definite_articles"]
 german_lessons = ["the_alphabet"]
 spanish_lessons = ["the_alphabet"]
 
