@@ -5,6 +5,9 @@ logo.png
 makeaudio.py
 makeaudio_for_verb.py
 notes.txt
+test.py
+documentation/docx/*
+documentation/printables/*
 # Byte-compiled / optimized / DLL files
 __pycache__/
 logs/
