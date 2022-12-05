@@ -6,10 +6,10 @@ def trim(string_to_trim):
     return trimmed_string
 
 
-def has_only_allowed_symbols(*args, allowed_symbols="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_@.-+0123456789"):
+def has_only_allowed_symbols(*args, allowed_symbols="_0123456789"):
     for arg in args:
         for letter in arg:
-            if not letter in allowed_symbols:
+            if not "a" <= letter <= "z" and not "A" <= letter <= "Z" and not letter in allowed_symbols:
                 return False
     return True
 

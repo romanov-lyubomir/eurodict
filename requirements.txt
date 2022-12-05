@@ -16,3 +16,4 @@ WTForms
 pandas
 psycopg2
 unidecode
+waitress
