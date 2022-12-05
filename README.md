@@ -6,7 +6,7 @@
 Make sure you have the latest version of Python installed.
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/romanov-lyubomir/eurodict.git
 ```
 
 ```bash
