@@ -235,6 +235,7 @@ def conjugation_drill_for_tense(tense):
 def conjugation_drill_for_verb(tense, verb, progress=0):
     if request.args.get("progress") != None:
         progress = int(request.args.get("progress"))
+
     def set_random_verb():
         sentences = pd.read_csv(
             f"static/data/{current_user.language}/verbs/{verb}.csv")
@@ -245,28 +246,14 @@ def conjugation_drill_for_verb(tense, verb, progress=0):
         session["pronoun"] = random_sentence[0]
         index = 0
         if current_user.language == "italian":
-            if tense == "presente":
-                index = 1
-            elif tense == "futuro_semplice":
-                index = 2
+            index = ["presente", "futuro_semplice"].index(tense) + 1
         elif current_user.language == "german":
-            if tense == "praesens":
-                index = 1
-            elif tense == "praeteritum":
-                index = 2
-            elif tense == "perfekt":
-                index = 3
-            elif tense == "plusquamperfekt":
-                index = 4
-            elif tense == "futur_eins":
-                index = 5
-            elif tense == "futur_zwei":
-                index = 6
+            index = [
+                "praesens", "praeteritum", "perfekt",
+                "plusquamperfekt", "futur_eins", "futur_zwei"
+            ].index(tense) + 1
         elif current_user.language == "spanish":
-            if tense == "presente":
-                index = 1
-            elif tense == "futuro":
-                index = 2
+            index = ["presente", "futuro"].index(tense) + 1
 
         session["conjugated_verb"] = random_sentence[index]
         session["verb_id"] = random_sentence[len(random_sentence) - 1]
@@ -289,10 +276,10 @@ def conjugation_drill_for_verb(tense, verb, progress=0):
             flash("Unknown verb: " + verb)
             return redirect("/conjugation_drill_tenses")
 
-
     if request.form.get("user_input") != None:
         user_input = request.form.get("user_input")
-        verb_is_correct = unidecode(user_input) == unidecode(session["conjugated_verb"])
+        verb_is_correct = unidecode(user_input) == unidecode(
+            session["conjugated_verb"])
 
         if functions.differ_by_single_char(user_input, session["conjugated_verb"]):
             flash("You missed one letter.")
@@ -348,7 +335,7 @@ def vocabulary_for_topic(topic, progress=0):
     if not topic in topics:
         flash("Unknown topic: " + topic)
         return redirect("/vocabulary_topics")
-        
+
     if request.form.get("user_input") != None:
         user_input = request.form.get("user_input")
 
@@ -356,7 +343,8 @@ def vocabulary_for_topic(topic, progress=0):
             unidecode(session["foreign_language"])
         )
         if functions.differ_by_single_char(user_input, session["foreign_language"]):
-            print(f"User input: '{user_input}' differs by one char from '{session['foreign_language']}'")
+            print(
+                f"User input: '{user_input}' differs by one char from '{session['foreign_language']}'")
             flash("You missed one letter.")
             return render_template(
                 'vocabulary_for_topic.html',
@@ -540,7 +528,6 @@ def error_404(e):
     return render_template("error_404.html")
 
 
-
 @app.route('/service-worker.js')
 def sw():
     return app.send_static_file('service-worker.js')
@@ -551,6 +538,8 @@ def robots_txt():
     return app.send_static_file('robots.txt')
 
 
+# if __name__ == '__main__':
+#     from waitress import serve
+#     serve(app, host="0.0.0.0", port=80)
 if __name__ == '__main__':
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=80)
+    app.run(host='127.0.0.1', debug=True)
