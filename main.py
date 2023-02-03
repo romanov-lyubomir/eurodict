@@ -22,11 +22,6 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
-
-
 class User(UserMixin, db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True, nullable=False)
@@ -34,6 +29,11 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(100), nullable=False)
     username = db.Column(db.String(100), unique=True, nullable=False)
     language = db.Column(db.String(10), nullable=False)
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 
 db.create_all()
@@ -93,12 +93,14 @@ verbs_spanish = [
 ]
 
 italian_tenses = ["presente", "futuro_semplice"]
-german_tenses = ["praesens", "praeteritum", "perfekt",
-                 "plusquamperfekt", "futur_eins", "futur_zwei"]
+german_tenses = [
+    "praesens", "praeteritum", "perfekt",
+    "plusquamperfekt", "futur_eins", "futur_zwei"]
 spanish_tenses = ["presente", "futuro"]
 italian_tenses_formatted = ["Presente", "Futuro semplice"]
-german_tenses_formatted = ["Präsens", "Präteritum",
-                           "Perfekt", "Plusquamperfekt", "Futur I", "Futur II"]
+german_tenses_formatted = [
+    "Präsens", "Präteritum",
+    "Perfekt", "Plusquamperfekt", "Futur I", "Futur II"]
 spanish_tenses_formatted = ["Presente", "Futuro"]
 
 italian_lessons = ["the_alphabet", "definite_articles"]
