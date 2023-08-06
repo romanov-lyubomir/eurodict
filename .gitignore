@@ -1,4 +1,4 @@
-static/images/stock_images/*
+static/images/stock_images
 *.ini
 *.db
 logo.png
