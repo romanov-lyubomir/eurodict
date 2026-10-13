@@ -19,7 +19,6 @@ from flask_login import LoginManager, UserMixin, current_user, login_user, logou
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash, generate_password_hash
 
-
 app = Flask(__name__)
 Compress(app)
 app.config["SECRET_KEY"] = "k"
@@ -46,7 +45,10 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-db.create_all()
+# Тук е добавен app.app_context(), за да се избегне грешката
+# "RuntimeError: Working outside of application context."
+with app.app_context():
+    db.create_all()
 
 
 def admin_only(f):
