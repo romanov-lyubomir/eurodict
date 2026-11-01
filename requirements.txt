@@ -2,10 +2,10 @@ gunicorn
 Flask
 Flask-Login
 Flask-SQLAlchemy
+Flask-WTF
 flask_compress
 Jinja2
 SQLAlchemy
 Werkzeug
-pandas
 psycopg2
 unidecode

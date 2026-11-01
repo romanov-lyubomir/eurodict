@@ -1,0 +1,20 @@
+Italian,English,word_id,img
+la stazione,station,62,station_it.webp
+la fermata,stop,63,None
+il binario,track,64,track.webp
+la biglietteria,ticket office,65,ticket_office.webp
+alta velocità,high speed,66,high_speed.webp
+frecciarossa,red arrow,68,red_arrow.webp
+sotterranea,underground,69,underground.webp
+il ritardo,dalay,70,delay.webp
+proviniente da,coming from,71,None
+il viaggio,trip,72,trip.webp
+il viaggiatore,traveler,73,trip.webp
+convalidare,to validate,76,None
+il biglietto,ticket,77,ticket.webp
+cancellato,canceled,78,cancelled.webp
+in ritardo,late,79,delay.webp
+diretto a,direct to,80,None
+delle ore,at (hour),81,at.webp
+ferma,stops,82,None
+il treno,train,84,train.webp

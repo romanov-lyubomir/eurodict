@@ -1,9 +1,9 @@
-import random
-from functools import wraps
+import csv
 import os
-from unidecode import unidecode
-import functions
-import pandas as pd
+import random
+import secrets
+from functools import wraps
+
 from flask import (
     Flask,
     abort,
@@ -17,18 +17,143 @@ from flask import (
 from flask_compress import Compress
 from flask_login import LoginManager, UserMixin, current_user, login_user, logout_user
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf.csrf import CSRFProtect
+from sqlalchemy.exc import IntegrityError
+from unidecode import unidecode
 from werkzeug.security import check_password_hash, generate_password_hash
 
+import functions
+
 app = Flask(__name__)
-Compress(app)
-app.config["SECRET_KEY"] = "k"
+
+
+def load_secret_key():
+    # In production set the SECRET_KEY environment variable.
+    # Locally a random key is generated once and kept in instance/secret_key.
+    if os.environ.get("SECRET_KEY"):
+        return os.environ["SECRET_KEY"]
+    os.makedirs(app.instance_path, exist_ok=True)
+    key_path = os.path.join(app.instance_path, "secret_key")
+    if not os.path.exists(key_path):
+        with open(key_path, "w") as key_file:
+            key_file.write(secrets.token_hex(32))
+    with open(key_path) as key_file:
+        return key_file.read().strip()
+
+
+app.config["SECRET_KEY"] = load_secret_key()
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
     "DATABASE_URL", "sqlite:///users.db"
 )
+# The CSRF token stays valid for the whole session, so a drill left open
+# for a long time doesn't fail on the next answer.
+app.config["WTF_CSRF_TIME_LIMIT"] = None
+
+Compress(app)
+CSRFProtect(app)
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
+
+MIN_PASSWORD_LENGTH = 8
+DATA_DIR = os.path.join(app.root_path, "data")
+
+TOPICS = ["foods", "drinks", "fruits", "transport"]
+
+LANGUAGES = {
+    "italian": {
+        "verbs": [
+            "abitare",
+            "andare",
+            "avere",
+            "capire",
+            "dare",
+            "dire",
+            "dormire",
+            "dovere",
+            "essere",
+            "fare",
+            "finire",
+            "leggere",
+            "parlare",
+            "potere",
+            "sapere",
+            "stare",
+            "trovare",
+            "uscire",
+            "vedere",
+            "venire",
+            "volere",
+        ],
+        "tenses": ["presente", "futuro_semplice"],
+        "tenses_formatted": ["Presente", "Futuro semplice"],
+        "lessons": ["the_alphabet", "definite_articles"],
+        "cities": ["rome", "venice", "milan"],
+    },
+    "german": {
+        "verbs": ["sein", "haben"],
+        "tenses": [
+            "praesens",
+            "praeteritum",
+            "perfekt",
+            "plusquamperfekt",
+            "futur_eins",
+            "futur_zwei",
+        ],
+        "tenses_formatted": [
+            "Präsens",
+            "Präteritum",
+            "Perfekt",
+            "Plusquamperfekt",
+            "Futur I",
+            "Futur II",
+        ],
+        "lessons": ["the_alphabet"],
+        "cities": ["berlin", "frankfurt", "munich", "leipzig"],
+    },
+    "spanish": {
+        "verbs": ["ser", "estar", "haber"],
+        "tenses": ["presente", "futuro"],
+        "tenses_formatted": ["Presente", "Futuro"],
+        "lessons": ["the_alphabet"],
+        "cities": ["malaga"],
+    },
+}
+
+
+def read_csv(path):
+    with open(path, encoding="utf-8-sig", newline="") as csv_file:
+        return list(csv.DictReader(csv_file))
+
+
+def load_vocabulary(lang, topic):
+    words = []
+    for row in read_csv(os.path.join(DATA_DIR, lang, "vocabulary", f"{topic}.csv")):
+        foreign, english, word_id, image = list(row.values())[:4]
+        words.append(
+            {
+                "foreign": foreign,
+                "english": english,
+                "id": word_id,
+                "image": None if image in ("", "None") else image,
+            }
+        )
+    return words
+
+
+# All drill data is read once at startup instead of on every request.
+VOCABULARY = {
+    lang: {topic: load_vocabulary(lang, topic) for topic in TOPICS}
+    for lang in LANGUAGES
+}
+VERBS = {
+    lang: {
+        verb: read_csv(os.path.join(DATA_DIR, lang, "verbs", f"{verb}.csv"))
+        for verb in config["verbs"]
+    }
+    for lang, config in LANGUAGES.items()
+}
 
 
 class User(UserMixin, db.Model):
@@ -42,21 +167,17 @@ class User(UserMixin, db.Model):
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))
+    return db.session.get(User, int(user_id))
 
 
 with app.app_context():
     db.create_all()
 
 
-def admin_only(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if current_user.username != "admin":
-            return abort(403)
-        return f(*args, **kwargs)
-
-    return decorated_function
+def get_lang():
+    if current_user.is_authenticated:
+        return current_user.language
+    return session.get("language")
 
 
 def not_logged_in(f):
@@ -79,25 +200,18 @@ def logged_in(f):
     return decorated_function
 
 
-# 🚀 NUOVO DECORATORE: Permette l'accesso se si è loggati O se si ha una lingua in sessione
+# Allows access when logged in or when a guest has picked a language
 def language_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if not current_user.is_authenticated and not session.get("language"):
+        if get_lang() not in LANGUAGES:
+            session.pop("language", None)
             return redirect(url_for("index"))
         return f(*args, **kwargs)
 
     return decorated_function
 
 
-# 🚀 NUOVA FUNZIONE: Prende la lingua dal database se loggato, altrimenti dalla sessione
-def get_lang():
-    if current_user.is_authenticated:
-        return current_user.language
-    return session.get("language")
-
-
-# Rende la lingua disponibile globalmente a tutti i template HTML come `user_language`
 @app.context_processor
 def inject_language():
     return dict(user_language=get_lang())
@@ -108,96 +222,48 @@ def format(string_to_format):
     return string_to_format.replace("_", " ").capitalize()
 
 
-topics = ["foods", "drinks", "fruits", "transport"]
+def get_progress():
+    return request.args.get("progress", 0, type=int)
 
-verbs_italian = [
-    "abitare",
-    "andare",
-    "avere",
-    "capire",
-    "dare",
-    "dire",
-    "dormire",
-    "dovere",
-    "essere",
-    "fare",
-    "finire",
-    "leggere",
-    "parlare",
-    "potere",
-    "sapere",
-    "stare",
-    "trovare",
-    "uscire",
-    "vedere",
-    "venire",
-    "volere",
-]
-verbs_german = ["sein", "haben"]
-verbs_spanish = ["ser", "estar", "haber"]
 
-italian_tenses = ["presente", "futuro_semplice"]
-german_tenses = [
-    "praesens",
-    "praeteritum",
-    "perfekt",
-    "plusquamperfekt",
-    "futur_eins",
-    "futur_zwei",
-]
-spanish_tenses = ["presente", "futuro"]
-italian_tenses_formatted = ["Presente", "Futuro semplice"]
-german_tenses_formatted = [
-    "Präsens",
-    "Präteritum",
-    "Perfekt",
-    "Plusquamperfekt",
-    "Futur I",
-    "Futur II",
-]
-spanish_tenses_formatted = ["Presente", "Futuro"]
+def check_answer(user_input, answer):
+    # Returns (is_correct, missed_one_letter)
+    is_correct = unidecode(user_input) == unidecode(answer)
+    return is_correct, functions.differ_by_single_char(user_input, answer)
 
-italian_lessons = ["the_alphabet", "definite_articles"]
-german_lessons = ["the_alphabet"]
-spanish_lessons = ["the_alphabet"]
+
+def drill_row(drill, row_count, **expected):
+    # Returns the row saved in the session if it belongs to this drill
+    if not isinstance(drill, dict):
+        return None
+    if any(drill.get(key) != value for key, value in expected.items()):
+        return None
+    row = drill.get("row")
+    if not isinstance(row, int) or not 0 <= row < row_count:
+        return None
+    return row
+
+
+def hash_password(password):
+    # Keeps the hash short enough for the existing 100-character column
+    return generate_password_hash(password, method="pbkdf2:sha256", salt_length=8)
 
 
 @app.route("/")
 def index():
     lang = get_lang()
-    if lang:
-        if lang == "italian":
-            return render_template(
-                "index.html",
-                current_user=current_user,
-                topics=topics,
-                tenses=italian_tenses,
-                tenses_formatted=italian_tenses_formatted,
-                lessons_list=italian_lessons,
-            )
-        elif lang == "german":
-            return render_template(
-                "index.html",
-                current_user=current_user,
-                topics=topics,
-                tenses_formatted=german_tenses_formatted,
-                tenses=german_tenses,
-                lessons_list=german_lessons,
-            )
-        elif lang == "spanish":
-            return render_template(
-                "index.html",
-                current_user=current_user,
-                topics=topics,
-                tenses_formatted=spanish_tenses_formatted,
-                tenses=spanish_tenses,
-                lessons_list=spanish_lessons,
-            )
-    else:
-        return render_template(
-            "index.html",
-            current_user=current_user,
-        )
+    if lang not in LANGUAGES:
+        return render_template("index.html", current_user=current_user)
+    config = LANGUAGES[lang]
+    return render_template(
+        "index.html",
+        current_user=current_user,
+        topics=TOPICS,
+        tenses=config["tenses"],
+        tenses_formatted=config["tenses_formatted"],
+        lessons_list=config["lessons"],
+        random_city=random.choice(config["cities"]),
+    )
 
 
 @app.route("/vocabulary_topics")
@@ -209,162 +275,100 @@ def vocabulary_topics():
 @app.route("/lessons")
 @language_required
 def lessons():
-    lang = get_lang()
-    if lang == "italian":
-        return render_template(
-            "lessons.html", lessons=italian_lessons, current_user=current_user
-        )
-    if lang == "spanish":
-        return render_template(
-            "lessons.html", lessons=spanish_lessons, current_user=current_user
-        )
-    if lang == "german":
-        return render_template(
-            "lessons.html", lessons=german_lessons, current_user=current_user
-        )
+    return render_template(
+        "lessons.html", lessons=LANGUAGES[get_lang()]["lessons"], current_user=current_user
+    )
 
 
 @app.route("/lesson_for_topic/<topic>")
 @language_required
 def lesson_for_topic(topic):
     lang = get_lang()
+    if topic not in LANGUAGES[lang]["lessons"]:
+        abort(404)
     return render_template(f"lessons/{lang}/{topic}.html", current_user=current_user)
 
 
 @app.route("/conjugation_drill_tenses")
 @language_required
 def conjugation_drill_tenses():
-    lang = get_lang()
-    if lang == "italian":
-        return render_template(
-            "conjugation_drill_tenses.html",
-            tenses_formatted=italian_tenses_formatted,
-            tenses=italian_tenses,
-            current_user=current_user,
-        )
-    if lang == "german":
-        return render_template(
-            "conjugation_drill_tenses.html",
-            tenses_formatted=german_tenses_formatted,
-            tenses=german_tenses,
-            current_user=current_user,
-        )
-    if lang == "spanish":
-        return render_template(
-            "conjugation_drill_tenses.html",
-            tenses_formatted=spanish_tenses_formatted,
-            tenses=spanish_tenses,
-            current_user=current_user,
-        )
+    config = LANGUAGES[get_lang()]
+    return render_template(
+        "conjugation_drill_tenses.html",
+        tenses_formatted=config["tenses_formatted"],
+        tenses=config["tenses"],
+        current_user=current_user,
+    )
 
 
 @app.route("/conjugation_drill_for_tense/<tense>")
 @language_required
 def conjugation_drill_for_tense(tense):
-    lang = get_lang()
-    if lang == "italian":
-        return render_template(
-            "conjugation_drill_for_tense.html",
-            verbs=verbs_italian,
-            tense=tense,
-            current_user=current_user,
-        )
-    elif lang == "german":
-        return render_template(
-            "conjugation_drill_for_tense.html",
-            verbs=verbs_german,
-            tense=tense,
-            current_user=current_user,
-        )
-    elif lang == "spanish":
-        return render_template(
-            "conjugation_drill_for_tense.html",
-            verbs=verbs_spanish,
-            tense=tense,
-            current_user=current_user,
-        )
+    config = LANGUAGES[get_lang()]
+    if tense not in config["tenses"]:
+        abort(404)
+    return render_template(
+        "conjugation_drill_for_tense.html",
+        verbs=config["verbs"],
+        tense=tense,
+        current_user=current_user,
+    )
 
 
 @app.route("/conjugation_drill_for_verb/<tense>/<verb>", methods=["GET", "POST"])
 @language_required
-def conjugation_drill_for_verb(tense, verb, progress=0):
+def conjugation_drill_for_verb(tense, verb):
     lang = get_lang()
-    if request.args.get("progress") != None:
-        progress = int(request.args.get("progress"))
+    progress = get_progress()
 
-    def set_random_verb():
-        sentences = pd.read_csv(
-            f"static/data/{lang}/verbs/{verb}.csv", dtype=str, keep_default_na=False
+    if tense not in LANGUAGES[lang]["tenses"]:
+        flash("Unknown tense: " + tense)
+        return redirect(url_for("conjugation_drill_tenses"))
+    if verb not in LANGUAGES[lang]["verbs"]:
+        flash("Unknown verb: " + verb)
+        return redirect(url_for("conjugation_drill_tenses"))
+
+    sentences = VERBS[lang][verb]
+    # Only the row number is kept in the session cookie, never the answer
+    drill = session.get("verb_drill")
+    user_input = request.form.get("user_input")
+    if (
+        request.method == "POST"
+        and user_input is not None
+        and (row := drill_row(drill, len(sentences), lang=lang, verb=verb, tense=tense))
+        is not None
+    ):
+        sentence = sentences[row]
+        verb_is_correct, missed_one_letter = check_answer(user_input, sentence[tense])
+        template_args = dict(
+            tense=tense,
+            verb=verb,
+            sentence=sentence,
+            verb_is_correct=verb_is_correct,
+            current_user=current_user,
+            play_audio=True,
         )
-        sentences = sentences.values.tolist()
-        random_sentence = random.choice(sentences)
-
-        session["pronoun"] = random_sentence[0]
-        index = 0
-        if lang == "italian":
-            index = ["presente", "futuro_semplice"].index(tense) + 1
-        elif lang == "german":
-            index = [
-                "praesens",
-                "praeteritum",
-                "perfekt",
-                "plusquamperfekt",
-                "futur_eins",
-                "futur_zwei",
-            ].index(tense) + 1
-        elif lang == "spanish":
-            index = ["presente", "futuro"].index(tense) + 1
-
-        session["conjugated_verb"] = random_sentence[index]
-        session["verb_id"] = random_sentence[len(random_sentence) - 1]
-        session["verb"] = verb
-
-    if lang == "italian":
-        if not tense in ["presente", "futuro_semplice"]:
-            flash("Unknown tense: " + tense)
-            return redirect("/conjugation_drill_tenses")
-        if not verb in verbs_italian:
-            flash("Unknown verb: " + verb)
-            return redirect("/conjugation_drill_tenses")
-    elif lang == "german":
-        if not verb in verbs_german:
-            flash("Unknown verb: " + verb)
-            return redirect("/conjugation_drill_tenses")
-    elif lang == "spanish":
-        if not verb in verbs_spanish:
-            flash("Unknown verb: " + verb)
-            return redirect("/conjugation_drill_tenses")
-
-    if request.form.get("user_input") != None:
-        user_input = request.form.get("user_input")
-        verb_is_correct = unidecode(user_input) == unidecode(session["conjugated_verb"])
-
-        if functions.differ_by_single_char(user_input, session["conjugated_verb"]):
+        if missed_one_letter:
             flash("You missed one letter.")
             return render_template(
                 "conjugation_drill_for_verb.html",
-                tense=tense,
-                verb_is_correct=verb_is_correct,
                 user_input=user_input,
-                current_user=current_user,
-                play_audio=True,
                 progress=progress,
+                **template_args,
             )
         if verb_is_correct:
             progress += 1
         return render_template(
-            "conjugation_drill_for_verb.html",
-            tense=tense,
-            verb_is_correct=verb_is_correct,
-            current_user=current_user,
-            play_audio=True,
-            progress=progress,
+            "conjugation_drill_for_verb.html", progress=progress, **template_args
         )
 
-    set_random_verb()
+    row = random.randrange(len(sentences))
+    session["verb_drill"] = {"lang": lang, "verb": verb, "tense": tense, "row": row}
     return render_template(
         "conjugation_drill_for_verb.html",
         tense=tense,
+        verb=verb,
+        sentence=sentences[row],
         current_user=current_user,
         progress=progress,
     )
@@ -372,61 +376,52 @@ def conjugation_drill_for_verb(tense, verb, progress=0):
 
 @app.route("/vocabulary_for_topic/<topic>", methods=["GET", "POST"])
 @language_required
-def vocabulary_for_topic(topic, progress=0):
+def vocabulary_for_topic(topic):
     lang = get_lang()
-    if request.args.get("progress") != None:
-        progress = int(request.args.get("progress"))
+    progress = get_progress()
 
-    def set_random_word():
-        words = pd.read_csv(
-            f"static/data/{lang}/vocabulary/{topic}.csv", dtype=str, keep_default_na=False
-        )
-        words = words.values.tolist()
-        random_word = random.choice(words)
-
-        session["foreign_language"] = random_word[0]
-        session["english"] = random_word[1]
-        session["word_id"] = random_word[2]
-        session["image"] = random_word[3]
-        if session["image"] == "None":
-            session["image"] = None
-
-    if not topic in topics:
+    if topic not in TOPICS:
         flash("Unknown topic: " + topic)
-        return redirect("/vocabulary_topics")
+        return redirect(url_for("vocabulary_topics"))
 
-    if request.form.get("user_input") != None:
-        user_input = request.form.get("user_input")
-
-        word_is_correct = unidecode(user_input) == (
-            unidecode(session["foreign_language"])
+    words = VOCABULARY[lang][topic]
+    # Only the row number is kept in the session cookie, never the answer
+    drill = session.get("word_drill")
+    user_input = request.form.get("user_input")
+    if (
+        request.method == "POST"
+        and user_input is not None
+        and (row := drill_row(drill, len(words), lang=lang, topic=topic)) is not None
+    ):
+        word = words[row]
+        word_is_correct, missed_one_letter = check_answer(user_input, word["foreign"])
+        template_args = dict(
+            topic=topic,
+            word=word,
+            word_is_correct=word_is_correct,
+            current_user=current_user,
+            play_audio=True,
         )
-        if functions.differ_by_single_char(user_input, session["foreign_language"]):
+        if missed_one_letter:
             flash("You missed one letter.")
             return render_template(
                 "vocabulary_for_topic.html",
-                topic=topic,
-                word_is_correct=word_is_correct,
                 user_input=user_input,
-                current_user=current_user,
-                play_audio=True,
                 progress=progress,
+                **template_args,
             )
         if word_is_correct:
             progress += 1
         return render_template(
-            "vocabulary_for_topic.html",
-            topic=topic,
-            word_is_correct=word_is_correct,
-            current_user=current_user,
-            play_audio=True,
-            progress=progress,
+            "vocabulary_for_topic.html", progress=progress, **template_args
         )
 
-    set_random_word()
+    row = random.randrange(len(words))
+    session["word_drill"] = {"lang": lang, "topic": topic, "row": row}
     return render_template(
         "vocabulary_for_topic.html",
         topic=topic,
+        word=words[row],
         current_user=current_user,
         progress=progress,
     )
@@ -435,67 +430,86 @@ def vocabulary_for_topic(topic, progress=0):
 @app.route("/register", methods=["GET", "POST"])
 @not_logged_in
 def register():
-    if request.form.get("submit"):
-        email = request.form.get("email")
-        username = request.form.get("username")
-        password = request.form.get("password")
+    if request.method == "POST":
+        email = request.form.get("email", "").strip()
+        username = request.form.get("username", "").strip()
+        password = request.form.get("password", "")
         language = request.form.get("language")
-
-        if User.query.filter_by(email=email).first():
-            flash("You've already signed up with that email, log in instead!")
-            return redirect(url_for("register"))
 
         if functions.empty(email, username, password):
             flash("Don't leave fields empty!")
             return redirect(url_for("register"))
 
-        if not functions.has_only_allowed_symbols(username, password):
-            flash("You used not allowed symbols!")
+        if not functions.is_valid_email(email):
+            flash("Please enter a valid email address.")
+            return redirect(url_for("register"))
+
+        if not functions.has_only_allowed_symbols(username):
+            flash("Usernames can only contain letters, numbers and _.")
+            return redirect(url_for("register"))
+
+        if len(password) < MIN_PASSWORD_LENGTH:
+            flash(f"Your password must be at least {MIN_PASSWORD_LENGTH} characters.")
+            return redirect(url_for("register"))
+
+        if language not in LANGUAGES:
+            flash("Please choose a language.")
+            return redirect(url_for("register"))
+
+        if User.query.filter_by(email=email).first():
+            flash("You've already signed up with that email, log in instead!")
+            return redirect(url_for("register"))
+
+        if User.query.filter_by(username=username).first():
+            flash("That username is taken, please choose another one.")
             return redirect(url_for("register"))
 
         new_user = User(
             email=email,
             username=username,
-            password=generate_password_hash(
-                password, method="pbkdf2:sha256", salt_length=8
-            ),
+            password=hash_password(password),
             language=language,
         )
         db.session.add(new_user)
-        db.session.commit()
+        try:
+            db.session.commit()
+        except IntegrityError:
+            db.session.rollback()
+            flash("That email or username is already taken.")
+            return redirect(url_for("register"))
         login_user(new_user, remember=True)
         return redirect(url_for("index"))
 
     return render_template("register.html", current_user=current_user)
 
 
-@app.route("/create_session_profile/<language>", methods=["GET", "POST"])
+@app.route("/create_session_profile/<language>")
 def create_session_profile(language):
-    session["language"] = language
-    # 🚀 Ora rimanda alla home invece che alla registrazione!
+    if language in LANGUAGES:
+        session["language"] = language
     return redirect(url_for("index"))
 
 
 @app.route("/login", methods=["GET", "POST"])
 @not_logged_in
 def login():
-    if request.form.get("submit"):
-        email_or_username = request.form.get("email")
-        password = request.form.get("password")
+    if request.method == "POST":
+        email_or_username = request.form.get("email", "").strip()
+        password = request.form.get("password", "")
 
-        user = User.query.filter_by(email=email_or_username).first()
-        if not user:
-            user = User.query.filter_by(username=email_or_username).first()
+        user = (
+            User.query.filter_by(email=email_or_username).first()
+            or User.query.filter_by(username=email_or_username).first()
+        )
 
         if not user:
             flash("Profile not found!")
             return redirect(url_for("login"))
-        elif not check_password_hash(user.password, password):
+        if not check_password_hash(user.password, password):
             flash("Password incorrect, please try again.")
             return redirect(url_for("login"))
-        else:
-            login_user(user, remember=True)
-            return redirect(url_for("index"))
+        login_user(user, remember=True)
+        return redirect(url_for("index"))
     return render_template("login.html", current_user=current_user)
 
 
@@ -508,72 +522,74 @@ def profile():
 @app.route("/logout")
 def logout():
     logout_user()
-    session.pop("language", None)  # 🚀 Pulisce anche la lingua ospite
+    session.pop("language", None)
     return redirect(url_for("index"))
 
 
-@app.route("/delete_profile", methods=["GET", "POST"])
+@app.route("/delete_profile", methods=["POST"])
 @logged_in
 def delete_profile():
     db.session.delete(current_user)
     db.session.commit()
+    logout_user()
     return redirect(url_for("index"))
 
 
-@app.route("/change_password", methods=["GET", "POST"])
+@app.route("/change_password", methods=["POST"])
 @logged_in
 def change_password():
-    if request.form.get("submit"):
-        old_password = request.form.get("old_password")
-        new_password = request.form.get("new_password")
-        if not check_password_hash(current_user.password, old_password):
-            flash("Old password is incorrect!")
-            return redirect(url_for("profile"))
-        if not functions.has_only_allowed_symbols(new_password):
-            flash("You used not allowed symbols!")
-            return redirect(url_for("profile"))
-        current_user.password = generate_password_hash(
-            new_password, method="pbkdf2:sha256", salt_length=8
-        )
-        db.session.commit()
-        flash("Password changed!")
+    old_password = request.form.get("old_password", "")
+    new_password = request.form.get("new_password", "")
+    if not check_password_hash(current_user.password, old_password):
+        flash("Old password is incorrect!")
         return redirect(url_for("profile"))
-    flash("Password not changed!")
+    if len(new_password) < MIN_PASSWORD_LENGTH:
+        flash(f"Your password must be at least {MIN_PASSWORD_LENGTH} characters.")
+        return redirect(url_for("profile"))
+    current_user.password = hash_password(new_password)
+    db.session.commit()
+    flash("Password changed!")
     return redirect(url_for("profile"))
 
 
-@app.route("/change_username", methods=["GET", "POST"])
+@app.route("/change_username", methods=["POST"])
 @logged_in
 def change_username():
-    if request.form.get("submit"):
-        new_username = request.form.get("new_username")
-        if not functions.has_only_allowed_symbols(new_username):
-            flash("You used not allowed symbols!")
-            return redirect(url_for("profile"))
-        current_user.username = new_username
-        db.session.commit()
-        flash("Username changed!")
+    password = request.form.get("password", "")
+    new_username = request.form.get("new_username", "").strip()
+    if not check_password_hash(current_user.password, password):
+        flash("Password incorrect, please try again.")
         return redirect(url_for("profile"))
-    flash("Username not changed!")
+    if not new_username or not functions.has_only_allowed_symbols(new_username):
+        flash("Usernames can only contain letters, numbers and _.")
+        return redirect(url_for("profile"))
+    if User.query.filter(
+        User.username == new_username, User.id != current_user.id
+    ).first():
+        flash("That username is taken, please choose another one.")
+        return redirect(url_for("profile"))
+    current_user.username = new_username
+    db.session.commit()
+    flash("Username changed!")
     return redirect(url_for("profile"))
 
 
-@app.route("/change_language", methods=["GET", "POST"])
+@app.route("/change_language", methods=["POST"])
 @logged_in
 def change_language():
-    if request.form.get("submit"):
-        new_language = request.form.get("new_language")
-        current_user.language = new_language
-        db.session.commit()
-        flash("Language changed!")
+    new_language = request.form.get("new_language")
+    if new_language not in LANGUAGES:
+        flash("Language not changed!")
         return redirect(url_for("profile"))
-    flash("Language not changed!")
+    current_user.language = new_language
+    db.session.commit()
+    flash("Language changed!")
     return redirect(url_for("profile"))
 
 
 @app.errorhandler(404)
 def error_404(e):
-    return render_template("error_404.html")
+    return render_template("error_404.html"), 404
 
 
 @app.route("/service-worker.js")

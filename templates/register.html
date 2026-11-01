@@ -19,6 +19,7 @@
 {% endwith %}
 <div class="center">
     <form class="shadow" action="{{ url_for('register') }}" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div class="center"><input spellcheck="false" autocomplete="off" type="text" name="email" placeholder="Email"></div>
         <div class="center"><input spellcheck="false" autocomplete="off" type="text" name="username" placeholder="Username"></div>
         <div class="center"><input spellcheck="false"autocomplete="off" type="password" name="password" placeholder="Password"></div>

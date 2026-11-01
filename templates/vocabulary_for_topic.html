@@ -39,19 +39,19 @@
     }
 </style>
 {% if user_language == "german" %}
-{% if session["foreign_language"][0:4] == "der ":%}
+{% if word.foreign[0:4] == "der ":%}
 <style>
     .correct-word {
         background-color: blue;
     }
 </style>
-{% elif session["foreign_language"][0:4] == "die ":%}
+{% elif word.foreign[0:4] == "die ":%}
 <style>
     .correct-word {
         background-color: red;
     }
 </style>
-{% elif session["foreign_language"][0:4] == "das ":%}
+{% elif word.foreign[0:4] == "das ":%}
 <style>
     .correct-word {
         background-color: green;
@@ -59,13 +59,13 @@
 </style>
 {% endif %}
 {% elif user_language == "spanish" %}
-{% if session["foreign_language"][0:3] == "el " or session["foreign_language"][0:4] == "los " :%}
+{% if word.foreign[0:3] == "el " or word.foreign[0:4] == "los " :%}
 <style>
     .correct-word {
         background-color: blue;
     }
 </style>
-{% elif session["foreign_language"][0:3] == "la " or session["foreign_language"][0:4] == "las ":%}
+{% elif word.foreign[0:3] == "la " or word.foreign[0:4] == "las ":%}
 <style>
     .correct-word {
         background-color: red;
@@ -73,14 +73,14 @@
 </style>
 {% endif %}
 {% elif user_language == "italian" %}
-{% if session["foreign_language"][0:3] == "il " or session["foreign_language"][0:3] == "lo " or
-session["foreign_language"][0:2] == "i " or session["foreign_language"][0:4] == "gli ":%}
+{% if word.foreign[0:3] == "il " or word.foreign[0:3] == "lo " or
+word.foreign[0:2] == "i " or word.foreign[0:4] == "gli ":%}
 <style>
     .correct-word {
         background-color: blue;
     }
 </style>
-{% elif session["foreign_language"][0:3] == "la " or session["foreign_language"][0:3] == "le ":%}
+{% elif word.foreign[0:3] == "la " or word.foreign[0:3] == "le ":%}
 <style>
     .correct-word {
         background-color: red;
@@ -108,7 +108,7 @@ session["foreign_language"][0:2] == "i " or session["foreign_language"][0:4] == 
 
 {% if word_is_correct == True or word_is_correct == False: %}
 <script>
-    const audio = new Audio("../../../../static/audio/{{user_language}}/vocabulary/{{session['word_id']}}.mp3");
+    const audio = new Audio("../../../../static/audio/{{user_language}}/vocabulary/{{ word.id }}.mp3");
     audio.play();
 </script>
 {% endif %}
@@ -125,7 +125,7 @@ session["foreign_language"][0:2] == "i " or session["foreign_language"][0:4] == 
         </div>
         {% if play_audio: %}
         <div class="center">
-            <div style="display: inline;" class="correct-word">{{ session["foreign_language"] }}</div>
+            <div style="display: inline;" class="correct-word">{{ word.foreign }}</div>
         </div>
         <script>
             const nextWord = () => {
@@ -142,7 +142,7 @@ session["foreign_language"][0:2] == "i " or session["foreign_language"][0:4] == 
         </div>
         {% if play_audio: %}
         <div class="center">
-            <h4>The correct answer is <div style="display: inline;" class="correct-word">{{ session["foreign_language"]
+            <h4>The correct answer is <div style="display: inline;" class="correct-word">{{ word.foreign
                     }}</div>
             </h4>
         </div>
@@ -165,18 +165,19 @@ session["foreign_language"][0:2] == "i " or session["foreign_language"][0:4] == 
 
 
 <div class="image-form-div">
-    {% if session["image"] != None: %}
-    {% set img_url = url_for('static', filename="images/vocabulary/" + topic + "/" + session['image']) %}
+    {% if word.image %}
+    {% set img_url = url_for('static', filename="images/vocabulary/" + topic + "/" + word.image) %}
     <div class="center">
-        <img class="shadow" src="{{ img_url }}" alt="{{ session['image'] }}"
+        <img class="shadow" src="{{ img_url }}" alt="{{ word.english }}"
             style="width: 80vw; height: calc(80vw / 1.5); max-width: 450px; max-height: 300px; margin-bottom: 30px;">
     </div>
     {% endif %}
     <div class="center">
         <form action="{{ url_for('vocabulary_for_topic', topic=topic, progress=progress) }}" class="shadow"
             method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="center">
-                <p class="big">Translate <b>{{ session["english"] }}</b> into {{ user_language | capitalize }}</p>
+                <p class="big">Translate <b>{{ word.english }}</b> into {{ user_language | capitalize }}</p>
             </div>
             <div class="center">
                 {% if user_input: %}

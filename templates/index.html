@@ -93,33 +93,11 @@
         }
     }
 </style>
-{% if user_language == "italian" %}
-{% set random_city = ["rome", "venice", "milan"] | random %}
 <style>
     .background-div {
-        background-image: url("/static/images/{{ random_city }}.jpg");
+        background-image: url("{{ url_for('static', filename='images/' ~ (random_city or 'europe') ~ '.webp') }}");
     }
 </style>
-{% elif user_language == "german" %}
-{% set random_city = ["berlin","frankfurt","munich","leipzig"] | random %}
-<style>
-    .background-div {
-        background-image: url("/static/images/{{ random_city }}.jpg");
-    }
-</style>
-{% elif user_language == "spanish" %}
-<style>
-    .background-div {
-        background-image: url("/static/images/malaga.jpg");
-    }
-</style>
-{% else%}
-<style>
-    .background-div {
-        background-image: url("/static/images/europe.jpg");
-    }
-</style>
-{% endif %}
 
 {% endblock %}
 

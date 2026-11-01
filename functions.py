@@ -1,11 +1,3 @@
-def trim(string_to_trim):
-    trimmed_string = ""
-    for word in string_to_trim.split(" "):
-        if word:
-            trimmed_string += word + " "
-    return trimmed_string
-
-
 def has_only_allowed_symbols(*args, allowed_symbols="_0123456789"):
     for arg in args:
         for letter in arg:
@@ -16,7 +8,7 @@ def has_only_allowed_symbols(*args, allowed_symbols="_0123456789"):
 
 def empty(*args):
     for arg in args:
-        if trim(arg) == "":
+        if not arg.strip():
             return True
     return False
 
@@ -50,6 +42,8 @@ def differ_by_single_char(s1, s2):
     return False
 
 def is_valid_email(email):
+    if not email:
+        return False
     if email[0] == "." or email[-1] == ".":
         return False
     if email[0] == "@" or email[-1] == "@":
@@ -62,6 +56,9 @@ def is_valid_email(email):
     for i in range(len(email) - 1):
         if email[i] == "." and email[i + 1] == ".":
             return False
-    if not has_only_allowed_symbols(email):
+    local_part, domain = email.split("@")
+    if not local_part or "." not in domain or domain.startswith(".") or domain.endswith("."):
+        return False
+    if not has_only_allowed_symbols(email, allowed_symbols="_0123456789.@+-"):
         return False
     return True

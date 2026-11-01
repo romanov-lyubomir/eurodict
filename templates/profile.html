@@ -50,6 +50,7 @@
 
 <div class="center">
     <form class="shadow" action="{{ url_for('change_password') }}" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div class="center"><input placeholder="Current password" type="password" name="old_password" id="old_password" required></div>
         <div class="center"><input placeholder="New password" type="password" name="new_password" id="new_password" required></div>
         <div class="center"><input type="submit" name="submit" value="Change password"></div>
@@ -58,6 +59,7 @@
 
 <div class="center">
     <form class="shadow" action="{{ url_for('change_username') }}" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div class="center"><input placeholder="Password" type="password" name="password" required></div>
         <div class="center"><input placeholder="New username" type="text" name="new_username" required></div>
         <div class="center"><input type="submit" name="submit" value="Change username"></div>
@@ -67,6 +69,7 @@
 <!-- Create a change language form -->
 <div class="center">
     <form class="shadow" action="{{ url_for('change_language') }}" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div class="center">
             <select name="new_language" id="language">
                 <option value="spanish">Spanish</option>
@@ -79,15 +82,11 @@
 </div>
 
 <div class="center">
-    <input onclick="confirmDeletion()" type="submit" name="delete" value="Delete profile">
+    <form action="{{ url_for('delete_profile') }}" method="POST"
+        onsubmit="return confirm('Are you sure you want to delete your profile?');">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="submit" name="delete" value="Delete profile">
+    </form>
 </div>
-
-<script>
-    function confirmDeletion() {
-        if (confirm("Are you sure you want to delete your profile?")) {
-            window.location.href = "{{ url_for('delete_profile') }}";
-        }
-    }
-</script>
 
 {% endblock %}

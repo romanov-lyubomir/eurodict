@@ -1,0 +1,14 @@
+Spanish,English,word_id,img
+la estación,station,62,station_it.webp
+la parada,stop,63,None
+la pista,track,64,track.webp
+la taquilla,ticket office,65,ticket_office.webp
+alta velocidad,high speed,66,high_speed.webp
+el retraso,dalay,67,delay.webp
+el viaje,trip,68,trip.webp
+el viajero,traveler,69,trip.webp
+el boleto,ticket,70,ticket.webp
+cancelado,canceled,71,cancelled.webp
+con un retraso,late,72,delay.webp
+directo a,direct to,73,None
+el tren,train,74,train.webp
