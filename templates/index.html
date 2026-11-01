@@ -93,21 +93,21 @@
         }
     }
 </style>
-{% if current_user.language == "italian" %}
+{% if user_language == "italian" %}
 {% set random_city = ["rome", "venice", "milan"] | random %}
 <style>
     .background-div {
         background-image: url("/static/images/{{ random_city }}.jpg");
     }
 </style>
-{% elif current_user.language == "german" %}
+{% elif user_language == "german" %}
 {% set random_city = ["berlin","frankfurt","munich","leipzig"] | random %}
 <style>
     .background-div {
         background-image: url("/static/images/{{ random_city }}.jpg");
     }
 </style>
-{% elif current_user.language == "spanish" %}
+{% elif user_language == "spanish" %}
 <style>
     .background-div {
         background-image: url("/static/images/malaga.jpg");
@@ -139,8 +139,8 @@
 <div class="center" style="margin: 0 0 20px 0;">
     <p><b>Federico Fellini</b></p>
 </div>
-<!-- Check if the user is logged -->
-{% if current_user.is_authenticated %}
+<!-- Check if the user has selected a language -->
+{% if user_language %}
 <div class="center">
     <p>Vocabulary</p>
 </div>

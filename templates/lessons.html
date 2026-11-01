@@ -4,12 +4,98 @@
 
 {% block css %}
 <style>
+    progress {
+        position: absolute;
+        top: 70px;
+    }
+
+    .word-correct-message {
+        position: absolute;
+        top: 100px;
+    }
+
+    .error {
+        margin-top: 10px;
+    }
+
+    .image-form-div {
+        position: relative;
+        top: 150px;
+    }
+
+    .big {
+        font-size: 20px;
+    }
+
+    .correct-word {
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    @media screen and (min-width: 500px) {
+        .form {
+            min-width: 400px;
+        }
+    }
 </style>
+{% if user_language == "german" %}
+{% if session["foreign_language"][0:4] == "der ":%}
+<style>
+    .correct-word {
+        background-color: blue;
+    }
+</style>
+{% elif session["foreign_language"][0:4] == "die ":%}
+<style>
+    .correct-word {
+        background-color: red;
+    }
+</style>
+{% elif session["foreign_language"][0:4] == "das ":%}
+<style>
+    .correct-word {
+        background-color: green;
+    }
+</style>
+{% endif %}
+{% elif user_language == "spanish" %}
+{% if session["foreign_language"][0:3] == "el " or session["foreign_language"][0:4] == "los " :%}
+<style>
+    .correct-word {
+        background-color: blue;
+    }
+</style>
+{% elif session["foreign_language"][0:3] == "la " or session["foreign_language"][0:4] == "las ":%}
+<style>
+    .correct-word {
+        background-color: red;
+    }
+</style>
+{% endif %}
+{% elif user_language == "italian" %}
+{% if session["foreign_language"][0:3] == "il " or session["foreign_language"][0:3] == "lo " or
+session["foreign_language"][0:2] == "i " or session["foreign_language"][0:4] == "gli ":%}
+<style>
+    .correct-word {
+        background-color: blue;
+    }
+</style>
+{% elif session["foreign_language"][0:3] == "la " or session["foreign_language"][0:3] == "le ":%}
+<style>
+    .correct-word {
+        background-color: red;
+    }
+</style>
+{% endif %}
+{% endif %}
+
 {% endblock %}
 
 
 {% block body %}
-<a href="{{ url_for('index') }}">
+
+
+<a href="{{ url_for('vocabulary_topics') }}">
     <svg class="svg-x" width="16" height="16" viewBox="0 0 16 16">
         <g fill="none" fill-rule="evenodd">
             <path fill="#fff"
@@ -18,20 +104,99 @@
         </g>
     </svg>
 </a>
+
+
+{% if word_is_correct == True or word_is_correct == False: %}
+<script>
+    const audio = new Audio("../../../../static/audio/{{user_language}}/vocabulary/{{session['word_id']}}.mp3");
+    audio.play();
+</script>
+{% endif %}
+
 <div class="center">
-    <h1 class="title">Lessons</h1>
+    <progress value="{{ progress }}" max="10"></progress>
 </div>
+
 <div class="center">
-    <div style="width: 500px;" class="container shadow">
-        {% for lesson in lessons %}
-        <a href="{{ url_for('lesson_for_topic', topic=lesson)}}">
-            <div class="center">
-                <div class="option">
-                    <div class="center">{{ lesson | format }}</div>
-                </div>
+    <div class="word-correct-message">
+        {% if word_is_correct == True: %}
+        <div class="center">
+            <h3 style="color: green;">Correct!</h3>
+        </div>
+        {% if play_audio: %}
+        <div class="center">
+            <div style="display: inline;" class="correct-word">{{ session["foreign_language"] }}</div>
+        </div>
+        <script>
+            audio.addEventListener('ended', (event) => {
+                window.location.href = "{{ url_for('vocabulary_for_topic', topic=topic, progress=progress) }}";
+            });
+        </script>
+        {% endif %}
+        {% elif word_is_correct == False: %}
+        <div class="center">
+            <h3 style="color: red;">Wrong!</h3>
+        </div>
+        {% if play_audio: %}
+        <div class="center">
+            <h4>The correct answer is <div style="display: inline;" class="correct-word">{{ session["foreign_language"]
+                    }}</div>
+            </h4>
+        </div>
+        {% endif %}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="center">
+            <div class="error">
+                {{ message }}
             </div>
-        </a>
+        </div>
         {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% endif %}
     </div>
 </div>
+
+
+
+<div class="image-form-div">
+    {% if session["image"] != None: %}
+    {% set img_url = url_for('static', filename="images/vocabulary/" + topic + "/" + session['image']) %}
+    <div class="center">
+        <img class="shadow" src="{{ img_url }}" alt="{{ session['image'] }}"
+            style="width: 80vw; height: calc(80vw / 1.5); max-width: 450px; max-height: 300px; margin-bottom: 30px;">
+    </div>
+    {% endif %}
+    <div class="center">
+        <form action="{{ url_for('vocabulary_for_topic', topic=topic, progress=progress) }}" class="shadow"
+            method="POST">
+            <div class="center">
+                <p class="big">Translate <b>{{ session["english"] }}</b> into {{ user_language | capitalize }}</p>
+            </div>
+            <div class="center">
+                {% if user_input: %}
+                <input spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off" id="inputField"
+                    value="{{ user_input }}" class="big" type="text" name="user_input" autofocus>
+                <script>
+                    let end = document.getElementById("inputField");
+                    let len = end.value.length;
+                    if (end.setSelectionRange) {
+                        end.focus();
+                        end.setSelectionRange(len, len);
+                    }
+                </script>
+                {% else: %}
+                <input spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off" id="inputField"
+                    class="big" type="text" name="user_input" autofocus>
+                {% endif %}
+            </div>
+            <input type="submit" hidden />
+        </form>
+    </div>
+
+</div>
+
+
 {% endblock %}

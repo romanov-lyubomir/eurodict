@@ -53,7 +53,7 @@
 
 {% if verb_is_correct == True or verb_is_correct == False: %}
 <script>
-    const audio = new Audio("../../static/audio/{{current_user.language}}/sentences/{{tense}}/{{session['verb']}}/{{session['verb_id']}}.mp3");
+    const audio = new Audio("../../static/audio/{{user_language}}/sentences/{{tense}}/{{session['verb']}}/{{session['verb_id']}}.mp3");
     audio.play();
 </script>
 {% endif %}
@@ -71,9 +71,12 @@
         {% if play_audio: %}
         <div class="center"><div style="display: inline;" class="correct-verb">{{ session["conjugated_verb"] }}</div></div>
         <script>
-            audio.addEventListener('ended', (event) => {
+            const nextVerb = () => {
                 window.location.href = "{{ url_for('conjugation_drill_for_verb', tense=tense, verb=session['verb'], progress=progress) }}";
-            });
+            };
+            audio.addEventListener('ended', nextVerb);
+            // If the audio file is missing, still move on to the next verb
+            audio.addEventListener('error', () => setTimeout(nextVerb, 1500));
         </script>
         {% endif %}
         {% elif verb_is_correct == False: %}
