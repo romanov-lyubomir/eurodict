@@ -1,0 +1,6717 @@
+{
+ "abitare": {
+  "presente": {
+   "io": [
+    "abito"
+   ],
+   "tu": [
+    "abiti"
+   ],
+   "lui": [
+    "abita"
+   ],
+   "noi": [
+    "abitiamo"
+   ],
+   "voi": [
+    "abitate"
+   ],
+   "loro": [
+    "abitano"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "abitavo"
+   ],
+   "tu": [
+    "abitavi"
+   ],
+   "lui": [
+    "abitava"
+   ],
+   "noi": [
+    "abitavamo"
+   ],
+   "voi": [
+    "abitavate"
+   ],
+   "loro": [
+    "abitavano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "abitai"
+   ],
+   "tu": [
+    "abitasti"
+   ],
+   "lui": [
+    "abitò"
+   ],
+   "noi": [
+    "abitammo"
+   ],
+   "voi": [
+    "abitaste"
+   ],
+   "loro": [
+    "abitarono"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "abiti"
+   ],
+   "tu": [
+    "abiti"
+   ],
+   "lui": [
+    "abiti"
+   ],
+   "noi": [
+    "abitiamo"
+   ],
+   "voi": [
+    "abitiate"
+   ],
+   "loro": [
+    "abitino"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "abitassi"
+   ],
+   "tu": [
+    "abitassi"
+   ],
+   "lui": [
+    "abitasse"
+   ],
+   "noi": [
+    "abitassimo"
+   ],
+   "voi": [
+    "abitaste"
+   ],
+   "loro": [
+    "abitassero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "abita"
+   ],
+   "lui": [
+    "abiti"
+   ],
+   "noi": [
+    "abitiamo"
+   ],
+   "voi": [
+    "abitate"
+   ],
+   "loro": [
+    "abitino"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "abiterò"
+   ],
+   "tu": [
+    "abiterai"
+   ],
+   "lui": [
+    "abiterà"
+   ],
+   "noi": [
+    "abiteremo"
+   ],
+   "voi": [
+    "abiterete"
+   ],
+   "loro": [
+    "abiteranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "abiterei"
+   ],
+   "tu": [
+    "abiteresti"
+   ],
+   "lui": [
+    "abiterebbe"
+   ],
+   "noi": [
+    "abiteremmo"
+   ],
+   "voi": [
+    "abitereste"
+   ],
+   "loro": [
+    "abiterebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "abitando"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "abitato"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho abitato"
+   ],
+   "tu": [
+    "hai abitato"
+   ],
+   "lui": [
+    "ha abitato"
+   ],
+   "noi": [
+    "abbiamo abitato"
+   ],
+   "voi": [
+    "avete abitato"
+   ],
+   "loro": [
+    "hanno abitato"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo abitato"
+   ],
+   "tu": [
+    "avevi abitato"
+   ],
+   "lui": [
+    "aveva abitato"
+   ],
+   "noi": [
+    "avevamo abitato"
+   ],
+   "voi": [
+    "avevate abitato"
+   ],
+   "loro": [
+    "avevano abitato"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi abitato"
+   ],
+   "tu": [
+    "avesti abitato"
+   ],
+   "lui": [
+    "ebbe abitato"
+   ],
+   "noi": [
+    "avemmo abitato"
+   ],
+   "voi": [
+    "aveste abitato"
+   ],
+   "loro": [
+    "ebbero abitato"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò abitato"
+   ],
+   "tu": [
+    "avrai abitato"
+   ],
+   "lui": [
+    "avrà abitato"
+   ],
+   "noi": [
+    "avremo abitato"
+   ],
+   "voi": [
+    "avrete abitato"
+   ],
+   "loro": [
+    "avranno abitato"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia abitato"
+   ],
+   "tu": [
+    "abbia abitato"
+   ],
+   "lui": [
+    "abbia abitato"
+   ],
+   "noi": [
+    "abbiamo abitato"
+   ],
+   "voi": [
+    "abbiate abitato"
+   ],
+   "loro": [
+    "abbiano abitato"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi abitato"
+   ],
+   "tu": [
+    "avessi abitato"
+   ],
+   "lui": [
+    "avesse abitato"
+   ],
+   "noi": [
+    "avessimo abitato"
+   ],
+   "voi": [
+    "aveste abitato"
+   ],
+   "loro": [
+    "avessero abitato"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei abitato"
+   ],
+   "tu": [
+    "avresti abitato"
+   ],
+   "lui": [
+    "avrebbe abitato"
+   ],
+   "noi": [
+    "avremmo abitato"
+   ],
+   "voi": [
+    "avreste abitato"
+   ],
+   "loro": [
+    "avrebbero abitato"
+   ]
+  }
+ },
+ "andare": {
+  "presente": {
+   "io": [
+    "vado"
+   ],
+   "tu": [
+    "vai"
+   ],
+   "lui": [
+    "va"
+   ],
+   "noi": [
+    "andiamo"
+   ],
+   "voi": [
+    "andate"
+   ],
+   "loro": [
+    "vanno"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "andavo"
+   ],
+   "tu": [
+    "andavi"
+   ],
+   "lui": [
+    "andava"
+   ],
+   "noi": [
+    "andavamo"
+   ],
+   "voi": [
+    "andavate"
+   ],
+   "loro": [
+    "andavano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "andai"
+   ],
+   "tu": [
+    "andasti"
+   ],
+   "lui": [
+    "andò"
+   ],
+   "noi": [
+    "andammo"
+   ],
+   "voi": [
+    "andaste"
+   ],
+   "loro": [
+    "andarono"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "vada"
+   ],
+   "tu": [
+    "vada"
+   ],
+   "lui": [
+    "vada"
+   ],
+   "noi": [
+    "andiamo"
+   ],
+   "voi": [
+    "andiate"
+   ],
+   "loro": [
+    "vadano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "andassi"
+   ],
+   "tu": [
+    "andassi"
+   ],
+   "lui": [
+    "andasse"
+   ],
+   "noi": [
+    "andassimo"
+   ],
+   "voi": [
+    "andaste"
+   ],
+   "loro": [
+    "andassero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "va'",
+    "vai",
+    "va"
+   ],
+   "lui": [
+    "vada"
+   ],
+   "noi": [
+    "andiamo"
+   ],
+   "voi": [
+    "andate"
+   ],
+   "loro": [
+    "vadano"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "andrò"
+   ],
+   "tu": [
+    "andrai"
+   ],
+   "lui": [
+    "andrà"
+   ],
+   "noi": [
+    "andremo"
+   ],
+   "voi": [
+    "andrete"
+   ],
+   "loro": [
+    "andranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "andrei"
+   ],
+   "tu": [
+    "andresti"
+   ],
+   "lui": [
+    "andrebbe"
+   ],
+   "noi": [
+    "andremmo"
+   ],
+   "voi": [
+    "andreste"
+   ],
+   "loro": [
+    "andrebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "andando"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "andato"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "sono andato",
+    "sono andata"
+   ],
+   "tu": [
+    "sei andato",
+    "sei andata"
+   ],
+   "lui": [
+    "è andato",
+    "è andata"
+   ],
+   "noi": [
+    "siamo andati",
+    "siamo andate"
+   ],
+   "voi": [
+    "siete andati",
+    "siete andate"
+   ],
+   "loro": [
+    "sono andati",
+    "sono andate"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "ero andato",
+    "ero andata"
+   ],
+   "tu": [
+    "eri andato",
+    "eri andata"
+   ],
+   "lui": [
+    "era andato",
+    "era andata"
+   ],
+   "noi": [
+    "eravamo andati",
+    "eravamo andate"
+   ],
+   "voi": [
+    "eravate andati",
+    "eravate andate"
+   ],
+   "loro": [
+    "erano andati",
+    "erano andate"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "fui andato",
+    "fui andata"
+   ],
+   "tu": [
+    "fosti andato",
+    "fosti andata"
+   ],
+   "lui": [
+    "fu andato",
+    "fu andata"
+   ],
+   "noi": [
+    "fummo andati",
+    "fummo andate"
+   ],
+   "voi": [
+    "foste andati",
+    "foste andate"
+   ],
+   "loro": [
+    "furono andati",
+    "furono andate"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "sarò andato",
+    "sarò andata"
+   ],
+   "tu": [
+    "sarai andato",
+    "sarai andata"
+   ],
+   "lui": [
+    "sarà andato",
+    "sarà andata"
+   ],
+   "noi": [
+    "saremo andati",
+    "saremo andate"
+   ],
+   "voi": [
+    "sarete andati",
+    "sarete andate"
+   ],
+   "loro": [
+    "saranno andati",
+    "saranno andate"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "sia andato",
+    "sia andata"
+   ],
+   "tu": [
+    "sia andato",
+    "sia andata"
+   ],
+   "lui": [
+    "sia andato",
+    "sia andata"
+   ],
+   "noi": [
+    "siamo andati",
+    "siamo andate"
+   ],
+   "voi": [
+    "siate andati",
+    "siate andate"
+   ],
+   "loro": [
+    "siano andati",
+    "siano andate"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "fossi andato",
+    "fossi andata"
+   ],
+   "tu": [
+    "fossi andato",
+    "fossi andata"
+   ],
+   "lui": [
+    "fosse andato",
+    "fosse andata"
+   ],
+   "noi": [
+    "fossimo andati",
+    "fossimo andate"
+   ],
+   "voi": [
+    "foste andati",
+    "foste andate"
+   ],
+   "loro": [
+    "fossero andati",
+    "fossero andate"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "sarei andato",
+    "sarei andata"
+   ],
+   "tu": [
+    "saresti andato",
+    "saresti andata"
+   ],
+   "lui": [
+    "sarebbe andato",
+    "sarebbe andata"
+   ],
+   "noi": [
+    "saremmo andati",
+    "saremmo andate"
+   ],
+   "voi": [
+    "sareste andati",
+    "sareste andate"
+   ],
+   "loro": [
+    "sarebbero andati",
+    "sarebbero andate"
+   ]
+  }
+ },
+ "avere": {
+  "presente": {
+   "io": [
+    "ho"
+   ],
+   "tu": [
+    "hai"
+   ],
+   "lui": [
+    "ha"
+   ],
+   "noi": [
+    "abbiamo"
+   ],
+   "voi": [
+    "avete"
+   ],
+   "loro": [
+    "hanno"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "avevo"
+   ],
+   "tu": [
+    "avevi"
+   ],
+   "lui": [
+    "aveva"
+   ],
+   "noi": [
+    "avevamo"
+   ],
+   "voi": [
+    "avevate"
+   ],
+   "loro": [
+    "avevano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "ebbi"
+   ],
+   "tu": [
+    "avesti"
+   ],
+   "lui": [
+    "ebbe"
+   ],
+   "noi": [
+    "avemmo"
+   ],
+   "voi": [
+    "aveste"
+   ],
+   "loro": [
+    "ebbero"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "abbia"
+   ],
+   "tu": [
+    "abbia"
+   ],
+   "lui": [
+    "abbia"
+   ],
+   "noi": [
+    "abbiamo"
+   ],
+   "voi": [
+    "abbiate"
+   ],
+   "loro": [
+    "abbiano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "avessi"
+   ],
+   "tu": [
+    "avessi"
+   ],
+   "lui": [
+    "avesse"
+   ],
+   "noi": [
+    "avessimo"
+   ],
+   "voi": [
+    "aveste"
+   ],
+   "loro": [
+    "avessero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "abbi"
+   ],
+   "lui": [
+    "abbia"
+   ],
+   "noi": [
+    "abbiamo"
+   ],
+   "voi": [
+    "abbiate"
+   ],
+   "loro": [
+    "abbiano"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "avrò"
+   ],
+   "tu": [
+    "avrai"
+   ],
+   "lui": [
+    "avrà"
+   ],
+   "noi": [
+    "avremo"
+   ],
+   "voi": [
+    "avrete"
+   ],
+   "loro": [
+    "avranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "avrei"
+   ],
+   "tu": [
+    "avresti"
+   ],
+   "lui": [
+    "avrebbe"
+   ],
+   "noi": [
+    "avremmo"
+   ],
+   "voi": [
+    "avreste"
+   ],
+   "loro": [
+    "avrebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "avendo"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "avuto"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho avuto"
+   ],
+   "tu": [
+    "hai avuto"
+   ],
+   "lui": [
+    "ha avuto"
+   ],
+   "noi": [
+    "abbiamo avuto"
+   ],
+   "voi": [
+    "avete avuto"
+   ],
+   "loro": [
+    "hanno avuto"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo avuto"
+   ],
+   "tu": [
+    "avevi avuto"
+   ],
+   "lui": [
+    "aveva avuto"
+   ],
+   "noi": [
+    "avevamo avuto"
+   ],
+   "voi": [
+    "avevate avuto"
+   ],
+   "loro": [
+    "avevano avuto"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi avuto"
+   ],
+   "tu": [
+    "avesti avuto"
+   ],
+   "lui": [
+    "ebbe avuto"
+   ],
+   "noi": [
+    "avemmo avuto"
+   ],
+   "voi": [
+    "aveste avuto"
+   ],
+   "loro": [
+    "ebbero avuto"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò avuto"
+   ],
+   "tu": [
+    "avrai avuto"
+   ],
+   "lui": [
+    "avrà avuto"
+   ],
+   "noi": [
+    "avremo avuto"
+   ],
+   "voi": [
+    "avrete avuto"
+   ],
+   "loro": [
+    "avranno avuto"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia avuto"
+   ],
+   "tu": [
+    "abbia avuto"
+   ],
+   "lui": [
+    "abbia avuto"
+   ],
+   "noi": [
+    "abbiamo avuto"
+   ],
+   "voi": [
+    "abbiate avuto"
+   ],
+   "loro": [
+    "abbiano avuto"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi avuto"
+   ],
+   "tu": [
+    "avessi avuto"
+   ],
+   "lui": [
+    "avesse avuto"
+   ],
+   "noi": [
+    "avessimo avuto"
+   ],
+   "voi": [
+    "aveste avuto"
+   ],
+   "loro": [
+    "avessero avuto"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei avuto"
+   ],
+   "tu": [
+    "avresti avuto"
+   ],
+   "lui": [
+    "avrebbe avuto"
+   ],
+   "noi": [
+    "avremmo avuto"
+   ],
+   "voi": [
+    "avreste avuto"
+   ],
+   "loro": [
+    "avrebbero avuto"
+   ]
+  }
+ },
+ "capire": {
+  "presente": {
+   "io": [
+    "capisco"
+   ],
+   "tu": [
+    "capisci"
+   ],
+   "lui": [
+    "capisce"
+   ],
+   "noi": [
+    "capiamo"
+   ],
+   "voi": [
+    "capite"
+   ],
+   "loro": [
+    "capiscono"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "capivo"
+   ],
+   "tu": [
+    "capivi"
+   ],
+   "lui": [
+    "capiva"
+   ],
+   "noi": [
+    "capivamo"
+   ],
+   "voi": [
+    "capivate"
+   ],
+   "loro": [
+    "capivano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "capii"
+   ],
+   "tu": [
+    "capisti"
+   ],
+   "lui": [
+    "capì"
+   ],
+   "noi": [
+    "capimmo"
+   ],
+   "voi": [
+    "capiste"
+   ],
+   "loro": [
+    "capirono"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "capisca"
+   ],
+   "tu": [
+    "capisca"
+   ],
+   "lui": [
+    "capisca"
+   ],
+   "noi": [
+    "capiamo"
+   ],
+   "voi": [
+    "capiate"
+   ],
+   "loro": [
+    "capiscano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "capissi"
+   ],
+   "tu": [
+    "capissi"
+   ],
+   "lui": [
+    "capisse"
+   ],
+   "noi": [
+    "capissimo"
+   ],
+   "voi": [
+    "capiste"
+   ],
+   "loro": [
+    "capissero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "capisci"
+   ],
+   "lui": [
+    "capisca"
+   ],
+   "noi": [
+    "capiamo"
+   ],
+   "voi": [
+    "capite"
+   ],
+   "loro": [
+    "capiscano"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "capirò"
+   ],
+   "tu": [
+    "capirai"
+   ],
+   "lui": [
+    "capirà"
+   ],
+   "noi": [
+    "capiremo"
+   ],
+   "voi": [
+    "capirete"
+   ],
+   "loro": [
+    "capiranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "capirei"
+   ],
+   "tu": [
+    "capiresti"
+   ],
+   "lui": [
+    "capirebbe"
+   ],
+   "noi": [
+    "capiremmo"
+   ],
+   "voi": [
+    "capireste"
+   ],
+   "loro": [
+    "capirebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "capendo"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "capito"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho capito"
+   ],
+   "tu": [
+    "hai capito"
+   ],
+   "lui": [
+    "ha capito"
+   ],
+   "noi": [
+    "abbiamo capito"
+   ],
+   "voi": [
+    "avete capito"
+   ],
+   "loro": [
+    "hanno capito"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo capito"
+   ],
+   "tu": [
+    "avevi capito"
+   ],
+   "lui": [
+    "aveva capito"
+   ],
+   "noi": [
+    "avevamo capito"
+   ],
+   "voi": [
+    "avevate capito"
+   ],
+   "loro": [
+    "avevano capito"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi capito"
+   ],
+   "tu": [
+    "avesti capito"
+   ],
+   "lui": [
+    "ebbe capito"
+   ],
+   "noi": [
+    "avemmo capito"
+   ],
+   "voi": [
+    "aveste capito"
+   ],
+   "loro": [
+    "ebbero capito"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò capito"
+   ],
+   "tu": [
+    "avrai capito"
+   ],
+   "lui": [
+    "avrà capito"
+   ],
+   "noi": [
+    "avremo capito"
+   ],
+   "voi": [
+    "avrete capito"
+   ],
+   "loro": [
+    "avranno capito"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia capito"
+   ],
+   "tu": [
+    "abbia capito"
+   ],
+   "lui": [
+    "abbia capito"
+   ],
+   "noi": [
+    "abbiamo capito"
+   ],
+   "voi": [
+    "abbiate capito"
+   ],
+   "loro": [
+    "abbiano capito"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi capito"
+   ],
+   "tu": [
+    "avessi capito"
+   ],
+   "lui": [
+    "avesse capito"
+   ],
+   "noi": [
+    "avessimo capito"
+   ],
+   "voi": [
+    "aveste capito"
+   ],
+   "loro": [
+    "avessero capito"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei capito"
+   ],
+   "tu": [
+    "avresti capito"
+   ],
+   "lui": [
+    "avrebbe capito"
+   ],
+   "noi": [
+    "avremmo capito"
+   ],
+   "voi": [
+    "avreste capito"
+   ],
+   "loro": [
+    "avrebbero capito"
+   ]
+  }
+ },
+ "dare": {
+  "presente": {
+   "io": [
+    "do"
+   ],
+   "tu": [
+    "dai"
+   ],
+   "lui": [
+    "dà"
+   ],
+   "noi": [
+    "diamo"
+   ],
+   "voi": [
+    "date"
+   ],
+   "loro": [
+    "danno"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "davo"
+   ],
+   "tu": [
+    "davi"
+   ],
+   "lui": [
+    "dava"
+   ],
+   "noi": [
+    "davamo"
+   ],
+   "voi": [
+    "davate"
+   ],
+   "loro": [
+    "davano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "diedi",
+    "detti"
+   ],
+   "tu": [
+    "desti"
+   ],
+   "lui": [
+    "diede",
+    "dette"
+   ],
+   "noi": [
+    "demmo"
+   ],
+   "voi": [
+    "deste"
+   ],
+   "loro": [
+    "diedero",
+    "dettero"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "dia"
+   ],
+   "tu": [
+    "dia"
+   ],
+   "lui": [
+    "dia"
+   ],
+   "noi": [
+    "diamo"
+   ],
+   "voi": [
+    "diate"
+   ],
+   "loro": [
+    "diano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "dessi"
+   ],
+   "tu": [
+    "dessi"
+   ],
+   "lui": [
+    "desse"
+   ],
+   "noi": [
+    "dessimo"
+   ],
+   "voi": [
+    "deste"
+   ],
+   "loro": [
+    "dessero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "da'",
+    "dai",
+    "dà"
+   ],
+   "lui": [
+    "dia"
+   ],
+   "noi": [
+    "diamo"
+   ],
+   "voi": [
+    "date"
+   ],
+   "loro": [
+    "diano"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "darò"
+   ],
+   "tu": [
+    "darai"
+   ],
+   "lui": [
+    "darà"
+   ],
+   "noi": [
+    "daremo"
+   ],
+   "voi": [
+    "darete"
+   ],
+   "loro": [
+    "daranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "darei"
+   ],
+   "tu": [
+    "daresti"
+   ],
+   "lui": [
+    "darebbe"
+   ],
+   "noi": [
+    "daremmo"
+   ],
+   "voi": [
+    "dareste"
+   ],
+   "loro": [
+    "darebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "dando"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "dato"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho dato"
+   ],
+   "tu": [
+    "hai dato"
+   ],
+   "lui": [
+    "ha dato"
+   ],
+   "noi": [
+    "abbiamo dato"
+   ],
+   "voi": [
+    "avete dato"
+   ],
+   "loro": [
+    "hanno dato"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo dato"
+   ],
+   "tu": [
+    "avevi dato"
+   ],
+   "lui": [
+    "aveva dato"
+   ],
+   "noi": [
+    "avevamo dato"
+   ],
+   "voi": [
+    "avevate dato"
+   ],
+   "loro": [
+    "avevano dato"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi dato"
+   ],
+   "tu": [
+    "avesti dato"
+   ],
+   "lui": [
+    "ebbe dato"
+   ],
+   "noi": [
+    "avemmo dato"
+   ],
+   "voi": [
+    "aveste dato"
+   ],
+   "loro": [
+    "ebbero dato"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò dato"
+   ],
+   "tu": [
+    "avrai dato"
+   ],
+   "lui": [
+    "avrà dato"
+   ],
+   "noi": [
+    "avremo dato"
+   ],
+   "voi": [
+    "avrete dato"
+   ],
+   "loro": [
+    "avranno dato"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia dato"
+   ],
+   "tu": [
+    "abbia dato"
+   ],
+   "lui": [
+    "abbia dato"
+   ],
+   "noi": [
+    "abbiamo dato"
+   ],
+   "voi": [
+    "abbiate dato"
+   ],
+   "loro": [
+    "abbiano dato"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi dato"
+   ],
+   "tu": [
+    "avessi dato"
+   ],
+   "lui": [
+    "avesse dato"
+   ],
+   "noi": [
+    "avessimo dato"
+   ],
+   "voi": [
+    "aveste dato"
+   ],
+   "loro": [
+    "avessero dato"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei dato"
+   ],
+   "tu": [
+    "avresti dato"
+   ],
+   "lui": [
+    "avrebbe dato"
+   ],
+   "noi": [
+    "avremmo dato"
+   ],
+   "voi": [
+    "avreste dato"
+   ],
+   "loro": [
+    "avrebbero dato"
+   ]
+  }
+ },
+ "dire": {
+  "presente": {
+   "io": [
+    "dico"
+   ],
+   "tu": [
+    "dici"
+   ],
+   "lui": [
+    "dice"
+   ],
+   "noi": [
+    "diciamo"
+   ],
+   "voi": [
+    "dite"
+   ],
+   "loro": [
+    "dicono"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "dicevo"
+   ],
+   "tu": [
+    "dicevi"
+   ],
+   "lui": [
+    "diceva"
+   ],
+   "noi": [
+    "dicevamo"
+   ],
+   "voi": [
+    "dicevate"
+   ],
+   "loro": [
+    "dicevano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "dissi"
+   ],
+   "tu": [
+    "dicesti"
+   ],
+   "lui": [
+    "disse"
+   ],
+   "noi": [
+    "dicemmo"
+   ],
+   "voi": [
+    "diceste"
+   ],
+   "loro": [
+    "dissero"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "dica"
+   ],
+   "tu": [
+    "dica"
+   ],
+   "lui": [
+    "dica"
+   ],
+   "noi": [
+    "diciamo"
+   ],
+   "voi": [
+    "diciate"
+   ],
+   "loro": [
+    "dicano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "dicessi"
+   ],
+   "tu": [
+    "dicessi"
+   ],
+   "lui": [
+    "dicesse"
+   ],
+   "noi": [
+    "dicessimo"
+   ],
+   "voi": [
+    "diceste"
+   ],
+   "loro": [
+    "dicessero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "di'",
+    "dì"
+   ],
+   "lui": [
+    "dica"
+   ],
+   "noi": [
+    "diciamo"
+   ],
+   "voi": [
+    "dite"
+   ],
+   "loro": [
+    "dicano"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "dirò"
+   ],
+   "tu": [
+    "dirai"
+   ],
+   "lui": [
+    "dirà"
+   ],
+   "noi": [
+    "diremo"
+   ],
+   "voi": [
+    "direte"
+   ],
+   "loro": [
+    "diranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "direi"
+   ],
+   "tu": [
+    "diresti"
+   ],
+   "lui": [
+    "direbbe"
+   ],
+   "noi": [
+    "diremmo"
+   ],
+   "voi": [
+    "direste"
+   ],
+   "loro": [
+    "direbbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "dicendo"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "detto"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho detto"
+   ],
+   "tu": [
+    "hai detto"
+   ],
+   "lui": [
+    "ha detto"
+   ],
+   "noi": [
+    "abbiamo detto"
+   ],
+   "voi": [
+    "avete detto"
+   ],
+   "loro": [
+    "hanno detto"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo detto"
+   ],
+   "tu": [
+    "avevi detto"
+   ],
+   "lui": [
+    "aveva detto"
+   ],
+   "noi": [
+    "avevamo detto"
+   ],
+   "voi": [
+    "avevate detto"
+   ],
+   "loro": [
+    "avevano detto"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi detto"
+   ],
+   "tu": [
+    "avesti detto"
+   ],
+   "lui": [
+    "ebbe detto"
+   ],
+   "noi": [
+    "avemmo detto"
+   ],
+   "voi": [
+    "aveste detto"
+   ],
+   "loro": [
+    "ebbero detto"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò detto"
+   ],
+   "tu": [
+    "avrai detto"
+   ],
+   "lui": [
+    "avrà detto"
+   ],
+   "noi": [
+    "avremo detto"
+   ],
+   "voi": [
+    "avrete detto"
+   ],
+   "loro": [
+    "avranno detto"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia detto"
+   ],
+   "tu": [
+    "abbia detto"
+   ],
+   "lui": [
+    "abbia detto"
+   ],
+   "noi": [
+    "abbiamo detto"
+   ],
+   "voi": [
+    "abbiate detto"
+   ],
+   "loro": [
+    "abbiano detto"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi detto"
+   ],
+   "tu": [
+    "avessi detto"
+   ],
+   "lui": [
+    "avesse detto"
+   ],
+   "noi": [
+    "avessimo detto"
+   ],
+   "voi": [
+    "aveste detto"
+   ],
+   "loro": [
+    "avessero detto"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei detto"
+   ],
+   "tu": [
+    "avresti detto"
+   ],
+   "lui": [
+    "avrebbe detto"
+   ],
+   "noi": [
+    "avremmo detto"
+   ],
+   "voi": [
+    "avreste detto"
+   ],
+   "loro": [
+    "avrebbero detto"
+   ]
+  }
+ },
+ "dormire": {
+  "presente": {
+   "io": [
+    "dormo"
+   ],
+   "tu": [
+    "dormi"
+   ],
+   "lui": [
+    "dorme"
+   ],
+   "noi": [
+    "dormiamo"
+   ],
+   "voi": [
+    "dormite"
+   ],
+   "loro": [
+    "dormono"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "dormivo"
+   ],
+   "tu": [
+    "dormivi"
+   ],
+   "lui": [
+    "dormiva"
+   ],
+   "noi": [
+    "dormivamo"
+   ],
+   "voi": [
+    "dormivate"
+   ],
+   "loro": [
+    "dormivano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "dormii"
+   ],
+   "tu": [
+    "dormisti"
+   ],
+   "lui": [
+    "dormì"
+   ],
+   "noi": [
+    "dormimmo"
+   ],
+   "voi": [
+    "dormiste"
+   ],
+   "loro": [
+    "dormirono"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "dorma"
+   ],
+   "tu": [
+    "dorma"
+   ],
+   "lui": [
+    "dorma"
+   ],
+   "noi": [
+    "dormiamo"
+   ],
+   "voi": [
+    "dormiate"
+   ],
+   "loro": [
+    "dormano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "dormissi"
+   ],
+   "tu": [
+    "dormissi"
+   ],
+   "lui": [
+    "dormisse"
+   ],
+   "noi": [
+    "dormissimo"
+   ],
+   "voi": [
+    "dormiste"
+   ],
+   "loro": [
+    "dormissero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "dormi"
+   ],
+   "lui": [
+    "dorma"
+   ],
+   "noi": [
+    "dormiamo"
+   ],
+   "voi": [
+    "dormite"
+   ],
+   "loro": [
+    "dormano"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "dormirò"
+   ],
+   "tu": [
+    "dormirai"
+   ],
+   "lui": [
+    "dormirà"
+   ],
+   "noi": [
+    "dormiremo"
+   ],
+   "voi": [
+    "dormirete"
+   ],
+   "loro": [
+    "dormiranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "dormirei"
+   ],
+   "tu": [
+    "dormiresti"
+   ],
+   "lui": [
+    "dormirebbe"
+   ],
+   "noi": [
+    "dormiremmo"
+   ],
+   "voi": [
+    "dormireste"
+   ],
+   "loro": [
+    "dormirebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "dormendo"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "dormito"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho dormito"
+   ],
+   "tu": [
+    "hai dormito"
+   ],
+   "lui": [
+    "ha dormito"
+   ],
+   "noi": [
+    "abbiamo dormito"
+   ],
+   "voi": [
+    "avete dormito"
+   ],
+   "loro": [
+    "hanno dormito"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo dormito"
+   ],
+   "tu": [
+    "avevi dormito"
+   ],
+   "lui": [
+    "aveva dormito"
+   ],
+   "noi": [
+    "avevamo dormito"
+   ],
+   "voi": [
+    "avevate dormito"
+   ],
+   "loro": [
+    "avevano dormito"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi dormito"
+   ],
+   "tu": [
+    "avesti dormito"
+   ],
+   "lui": [
+    "ebbe dormito"
+   ],
+   "noi": [
+    "avemmo dormito"
+   ],
+   "voi": [
+    "aveste dormito"
+   ],
+   "loro": [
+    "ebbero dormito"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò dormito"
+   ],
+   "tu": [
+    "avrai dormito"
+   ],
+   "lui": [
+    "avrà dormito"
+   ],
+   "noi": [
+    "avremo dormito"
+   ],
+   "voi": [
+    "avrete dormito"
+   ],
+   "loro": [
+    "avranno dormito"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia dormito"
+   ],
+   "tu": [
+    "abbia dormito"
+   ],
+   "lui": [
+    "abbia dormito"
+   ],
+   "noi": [
+    "abbiamo dormito"
+   ],
+   "voi": [
+    "abbiate dormito"
+   ],
+   "loro": [
+    "abbiano dormito"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi dormito"
+   ],
+   "tu": [
+    "avessi dormito"
+   ],
+   "lui": [
+    "avesse dormito"
+   ],
+   "noi": [
+    "avessimo dormito"
+   ],
+   "voi": [
+    "aveste dormito"
+   ],
+   "loro": [
+    "avessero dormito"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei dormito"
+   ],
+   "tu": [
+    "avresti dormito"
+   ],
+   "lui": [
+    "avrebbe dormito"
+   ],
+   "noi": [
+    "avremmo dormito"
+   ],
+   "voi": [
+    "avreste dormito"
+   ],
+   "loro": [
+    "avrebbero dormito"
+   ]
+  }
+ },
+ "dovere": {
+  "presente": {
+   "io": [
+    "devo",
+    "debbo"
+   ],
+   "tu": [
+    "devi"
+   ],
+   "lui": [
+    "deve"
+   ],
+   "noi": [
+    "dobbiamo"
+   ],
+   "voi": [
+    "dovete"
+   ],
+   "loro": [
+    "devono",
+    "debbono"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "dovevo"
+   ],
+   "tu": [
+    "dovevi"
+   ],
+   "lui": [
+    "doveva"
+   ],
+   "noi": [
+    "dovevamo"
+   ],
+   "voi": [
+    "dovevate"
+   ],
+   "loro": [
+    "dovevano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "dovetti",
+    "dovei"
+   ],
+   "tu": [
+    "dovesti"
+   ],
+   "lui": [
+    "dovette",
+    "dové"
+   ],
+   "noi": [
+    "dovemmo"
+   ],
+   "voi": [
+    "doveste"
+   ],
+   "loro": [
+    "dovettero",
+    "doverono"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "debba",
+    "deva"
+   ],
+   "tu": [
+    "debba",
+    "deva"
+   ],
+   "lui": [
+    "debba",
+    "deva"
+   ],
+   "noi": [
+    "dobbiamo"
+   ],
+   "voi": [
+    "dobbiate"
+   ],
+   "loro": [
+    "debbano",
+    "devano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "dovessi"
+   ],
+   "tu": [
+    "dovessi"
+   ],
+   "lui": [
+    "dovesse"
+   ],
+   "noi": [
+    "dovessimo"
+   ],
+   "voi": [
+    "doveste"
+   ],
+   "loro": [
+    "dovessero"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "dovrò"
+   ],
+   "tu": [
+    "dovrai"
+   ],
+   "lui": [
+    "dovrà"
+   ],
+   "noi": [
+    "dovremo"
+   ],
+   "voi": [
+    "dovrete"
+   ],
+   "loro": [
+    "dovranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "dovrei"
+   ],
+   "tu": [
+    "dovresti"
+   ],
+   "lui": [
+    "dovrebbe"
+   ],
+   "noi": [
+    "dovremmo"
+   ],
+   "voi": [
+    "dovreste"
+   ],
+   "loro": [
+    "dovrebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "dovendo"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "dovuto"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho dovuto"
+   ],
+   "tu": [
+    "hai dovuto"
+   ],
+   "lui": [
+    "ha dovuto"
+   ],
+   "noi": [
+    "abbiamo dovuto"
+   ],
+   "voi": [
+    "avete dovuto"
+   ],
+   "loro": [
+    "hanno dovuto"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo dovuto"
+   ],
+   "tu": [
+    "avevi dovuto"
+   ],
+   "lui": [
+    "aveva dovuto"
+   ],
+   "noi": [
+    "avevamo dovuto"
+   ],
+   "voi": [
+    "avevate dovuto"
+   ],
+   "loro": [
+    "avevano dovuto"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi dovuto"
+   ],
+   "tu": [
+    "avesti dovuto"
+   ],
+   "lui": [
+    "ebbe dovuto"
+   ],
+   "noi": [
+    "avemmo dovuto"
+   ],
+   "voi": [
+    "aveste dovuto"
+   ],
+   "loro": [
+    "ebbero dovuto"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò dovuto"
+   ],
+   "tu": [
+    "avrai dovuto"
+   ],
+   "lui": [
+    "avrà dovuto"
+   ],
+   "noi": [
+    "avremo dovuto"
+   ],
+   "voi": [
+    "avrete dovuto"
+   ],
+   "loro": [
+    "avranno dovuto"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia dovuto"
+   ],
+   "tu": [
+    "abbia dovuto"
+   ],
+   "lui": [
+    "abbia dovuto"
+   ],
+   "noi": [
+    "abbiamo dovuto"
+   ],
+   "voi": [
+    "abbiate dovuto"
+   ],
+   "loro": [
+    "abbiano dovuto"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi dovuto"
+   ],
+   "tu": [
+    "avessi dovuto"
+   ],
+   "lui": [
+    "avesse dovuto"
+   ],
+   "noi": [
+    "avessimo dovuto"
+   ],
+   "voi": [
+    "aveste dovuto"
+   ],
+   "loro": [
+    "avessero dovuto"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei dovuto"
+   ],
+   "tu": [
+    "avresti dovuto"
+   ],
+   "lui": [
+    "avrebbe dovuto"
+   ],
+   "noi": [
+    "avremmo dovuto"
+   ],
+   "voi": [
+    "avreste dovuto"
+   ],
+   "loro": [
+    "avrebbero dovuto"
+   ]
+  }
+ },
+ "essere": {
+  "presente": {
+   "io": [
+    "sono"
+   ],
+   "tu": [
+    "sei"
+   ],
+   "lui": [
+    "è"
+   ],
+   "noi": [
+    "siamo"
+   ],
+   "voi": [
+    "siete"
+   ],
+   "loro": [
+    "sono"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "ero"
+   ],
+   "tu": [
+    "eri"
+   ],
+   "lui": [
+    "era"
+   ],
+   "noi": [
+    "eravamo"
+   ],
+   "voi": [
+    "eravate"
+   ],
+   "loro": [
+    "erano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "fui"
+   ],
+   "tu": [
+    "fosti"
+   ],
+   "lui": [
+    "fu"
+   ],
+   "noi": [
+    "fummo"
+   ],
+   "voi": [
+    "foste"
+   ],
+   "loro": [
+    "furono"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "sia"
+   ],
+   "tu": [
+    "sia"
+   ],
+   "lui": [
+    "sia"
+   ],
+   "noi": [
+    "siamo"
+   ],
+   "voi": [
+    "siate"
+   ],
+   "loro": [
+    "siano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "fossi"
+   ],
+   "tu": [
+    "fossi"
+   ],
+   "lui": [
+    "fosse"
+   ],
+   "noi": [
+    "fossimo"
+   ],
+   "voi": [
+    "foste"
+   ],
+   "loro": [
+    "fossero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "sii"
+   ],
+   "lui": [
+    "sia"
+   ],
+   "noi": [
+    "siamo"
+   ],
+   "voi": [
+    "siate"
+   ],
+   "loro": [
+    "siano"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "sarò"
+   ],
+   "tu": [
+    "sarai"
+   ],
+   "lui": [
+    "sarà"
+   ],
+   "noi": [
+    "saremo"
+   ],
+   "voi": [
+    "sarete"
+   ],
+   "loro": [
+    "saranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "sarei"
+   ],
+   "tu": [
+    "saresti"
+   ],
+   "lui": [
+    "sarebbe"
+   ],
+   "noi": [
+    "saremmo"
+   ],
+   "voi": [
+    "sareste"
+   ],
+   "loro": [
+    "sarebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "essendo"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "stato"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "sono stato",
+    "sono stata"
+   ],
+   "tu": [
+    "sei stato",
+    "sei stata"
+   ],
+   "lui": [
+    "è stato",
+    "è stata"
+   ],
+   "noi": [
+    "siamo stati",
+    "siamo state"
+   ],
+   "voi": [
+    "siete stati",
+    "siete state"
+   ],
+   "loro": [
+    "sono stati",
+    "sono state"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "ero stato",
+    "ero stata"
+   ],
+   "tu": [
+    "eri stato",
+    "eri stata"
+   ],
+   "lui": [
+    "era stato",
+    "era stata"
+   ],
+   "noi": [
+    "eravamo stati",
+    "eravamo state"
+   ],
+   "voi": [
+    "eravate stati",
+    "eravate state"
+   ],
+   "loro": [
+    "erano stati",
+    "erano state"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "fui stato",
+    "fui stata"
+   ],
+   "tu": [
+    "fosti stato",
+    "fosti stata"
+   ],
+   "lui": [
+    "fu stato",
+    "fu stata"
+   ],
+   "noi": [
+    "fummo stati",
+    "fummo state"
+   ],
+   "voi": [
+    "foste stati",
+    "foste state"
+   ],
+   "loro": [
+    "furono stati",
+    "furono state"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "sarò stato",
+    "sarò stata"
+   ],
+   "tu": [
+    "sarai stato",
+    "sarai stata"
+   ],
+   "lui": [
+    "sarà stato",
+    "sarà stata"
+   ],
+   "noi": [
+    "saremo stati",
+    "saremo state"
+   ],
+   "voi": [
+    "sarete stati",
+    "sarete state"
+   ],
+   "loro": [
+    "saranno stati",
+    "saranno state"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "sia stato",
+    "sia stata"
+   ],
+   "tu": [
+    "sia stato",
+    "sia stata"
+   ],
+   "lui": [
+    "sia stato",
+    "sia stata"
+   ],
+   "noi": [
+    "siamo stati",
+    "siamo state"
+   ],
+   "voi": [
+    "siate stati",
+    "siate state"
+   ],
+   "loro": [
+    "siano stati",
+    "siano state"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "fossi stato",
+    "fossi stata"
+   ],
+   "tu": [
+    "fossi stato",
+    "fossi stata"
+   ],
+   "lui": [
+    "fosse stato",
+    "fosse stata"
+   ],
+   "noi": [
+    "fossimo stati",
+    "fossimo state"
+   ],
+   "voi": [
+    "foste stati",
+    "foste state"
+   ],
+   "loro": [
+    "fossero stati",
+    "fossero state"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "sarei stato",
+    "sarei stata"
+   ],
+   "tu": [
+    "saresti stato",
+    "saresti stata"
+   ],
+   "lui": [
+    "sarebbe stato",
+    "sarebbe stata"
+   ],
+   "noi": [
+    "saremmo stati",
+    "saremmo state"
+   ],
+   "voi": [
+    "sareste stati",
+    "sareste state"
+   ],
+   "loro": [
+    "sarebbero stati",
+    "sarebbero state"
+   ]
+  }
+ },
+ "fare": {
+  "presente": {
+   "io": [
+    "faccio"
+   ],
+   "tu": [
+    "fai"
+   ],
+   "lui": [
+    "fa"
+   ],
+   "noi": [
+    "facciamo"
+   ],
+   "voi": [
+    "fate"
+   ],
+   "loro": [
+    "fanno"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "facevo"
+   ],
+   "tu": [
+    "facevi"
+   ],
+   "lui": [
+    "faceva"
+   ],
+   "noi": [
+    "facevamo"
+   ],
+   "voi": [
+    "facevate"
+   ],
+   "loro": [
+    "facevano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "feci"
+   ],
+   "tu": [
+    "facesti"
+   ],
+   "lui": [
+    "fece"
+   ],
+   "noi": [
+    "facemmo"
+   ],
+   "voi": [
+    "faceste"
+   ],
+   "loro": [
+    "fecero"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "faccia"
+   ],
+   "tu": [
+    "faccia"
+   ],
+   "lui": [
+    "faccia"
+   ],
+   "noi": [
+    "facciamo"
+   ],
+   "voi": [
+    "facciate"
+   ],
+   "loro": [
+    "facciano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "facessi"
+   ],
+   "tu": [
+    "facessi"
+   ],
+   "lui": [
+    "facesse"
+   ],
+   "noi": [
+    "facessimo"
+   ],
+   "voi": [
+    "faceste"
+   ],
+   "loro": [
+    "facessero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "fa'",
+    "fai",
+    "fa"
+   ],
+   "lui": [
+    "faccia"
+   ],
+   "noi": [
+    "facciamo"
+   ],
+   "voi": [
+    "fate"
+   ],
+   "loro": [
+    "facciano"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "farò"
+   ],
+   "tu": [
+    "farai"
+   ],
+   "lui": [
+    "farà"
+   ],
+   "noi": [
+    "faremo"
+   ],
+   "voi": [
+    "farete"
+   ],
+   "loro": [
+    "faranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "farei"
+   ],
+   "tu": [
+    "faresti"
+   ],
+   "lui": [
+    "farebbe"
+   ],
+   "noi": [
+    "faremmo"
+   ],
+   "voi": [
+    "fareste"
+   ],
+   "loro": [
+    "farebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "facendo"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "fatto"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho fatto"
+   ],
+   "tu": [
+    "hai fatto"
+   ],
+   "lui": [
+    "ha fatto"
+   ],
+   "noi": [
+    "abbiamo fatto"
+   ],
+   "voi": [
+    "avete fatto"
+   ],
+   "loro": [
+    "hanno fatto"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo fatto"
+   ],
+   "tu": [
+    "avevi fatto"
+   ],
+   "lui": [
+    "aveva fatto"
+   ],
+   "noi": [
+    "avevamo fatto"
+   ],
+   "voi": [
+    "avevate fatto"
+   ],
+   "loro": [
+    "avevano fatto"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi fatto"
+   ],
+   "tu": [
+    "avesti fatto"
+   ],
+   "lui": [
+    "ebbe fatto"
+   ],
+   "noi": [
+    "avemmo fatto"
+   ],
+   "voi": [
+    "aveste fatto"
+   ],
+   "loro": [
+    "ebbero fatto"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò fatto"
+   ],
+   "tu": [
+    "avrai fatto"
+   ],
+   "lui": [
+    "avrà fatto"
+   ],
+   "noi": [
+    "avremo fatto"
+   ],
+   "voi": [
+    "avrete fatto"
+   ],
+   "loro": [
+    "avranno fatto"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia fatto"
+   ],
+   "tu": [
+    "abbia fatto"
+   ],
+   "lui": [
+    "abbia fatto"
+   ],
+   "noi": [
+    "abbiamo fatto"
+   ],
+   "voi": [
+    "abbiate fatto"
+   ],
+   "loro": [
+    "abbiano fatto"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi fatto"
+   ],
+   "tu": [
+    "avessi fatto"
+   ],
+   "lui": [
+    "avesse fatto"
+   ],
+   "noi": [
+    "avessimo fatto"
+   ],
+   "voi": [
+    "aveste fatto"
+   ],
+   "loro": [
+    "avessero fatto"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei fatto"
+   ],
+   "tu": [
+    "avresti fatto"
+   ],
+   "lui": [
+    "avrebbe fatto"
+   ],
+   "noi": [
+    "avremmo fatto"
+   ],
+   "voi": [
+    "avreste fatto"
+   ],
+   "loro": [
+    "avrebbero fatto"
+   ]
+  }
+ },
+ "finire": {
+  "presente": {
+   "io": [
+    "finisco"
+   ],
+   "tu": [
+    "finisci"
+   ],
+   "lui": [
+    "finisce"
+   ],
+   "noi": [
+    "finiamo"
+   ],
+   "voi": [
+    "finite"
+   ],
+   "loro": [
+    "finiscono"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "finivo"
+   ],
+   "tu": [
+    "finivi"
+   ],
+   "lui": [
+    "finiva"
+   ],
+   "noi": [
+    "finivamo"
+   ],
+   "voi": [
+    "finivate"
+   ],
+   "loro": [
+    "finivano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "finii"
+   ],
+   "tu": [
+    "finisti"
+   ],
+   "lui": [
+    "finì"
+   ],
+   "noi": [
+    "finimmo"
+   ],
+   "voi": [
+    "finiste"
+   ],
+   "loro": [
+    "finirono"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "finisca"
+   ],
+   "tu": [
+    "finisca"
+   ],
+   "lui": [
+    "finisca"
+   ],
+   "noi": [
+    "finiamo"
+   ],
+   "voi": [
+    "finiate"
+   ],
+   "loro": [
+    "finiscano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "finissi"
+   ],
+   "tu": [
+    "finissi"
+   ],
+   "lui": [
+    "finisse"
+   ],
+   "noi": [
+    "finissimo"
+   ],
+   "voi": [
+    "finiste"
+   ],
+   "loro": [
+    "finissero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "finisci"
+   ],
+   "lui": [
+    "finisca"
+   ],
+   "noi": [
+    "finiamo"
+   ],
+   "voi": [
+    "finite"
+   ],
+   "loro": [
+    "finiscano"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "finirò"
+   ],
+   "tu": [
+    "finirai"
+   ],
+   "lui": [
+    "finirà"
+   ],
+   "noi": [
+    "finiremo"
+   ],
+   "voi": [
+    "finirete"
+   ],
+   "loro": [
+    "finiranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "finirei"
+   ],
+   "tu": [
+    "finiresti"
+   ],
+   "lui": [
+    "finirebbe"
+   ],
+   "noi": [
+    "finiremmo"
+   ],
+   "voi": [
+    "finireste"
+   ],
+   "loro": [
+    "finirebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "finendo"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "finito"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho finito"
+   ],
+   "tu": [
+    "hai finito"
+   ],
+   "lui": [
+    "ha finito"
+   ],
+   "noi": [
+    "abbiamo finito"
+   ],
+   "voi": [
+    "avete finito"
+   ],
+   "loro": [
+    "hanno finito"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo finito"
+   ],
+   "tu": [
+    "avevi finito"
+   ],
+   "lui": [
+    "aveva finito"
+   ],
+   "noi": [
+    "avevamo finito"
+   ],
+   "voi": [
+    "avevate finito"
+   ],
+   "loro": [
+    "avevano finito"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi finito"
+   ],
+   "tu": [
+    "avesti finito"
+   ],
+   "lui": [
+    "ebbe finito"
+   ],
+   "noi": [
+    "avemmo finito"
+   ],
+   "voi": [
+    "aveste finito"
+   ],
+   "loro": [
+    "ebbero finito"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò finito"
+   ],
+   "tu": [
+    "avrai finito"
+   ],
+   "lui": [
+    "avrà finito"
+   ],
+   "noi": [
+    "avremo finito"
+   ],
+   "voi": [
+    "avrete finito"
+   ],
+   "loro": [
+    "avranno finito"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia finito"
+   ],
+   "tu": [
+    "abbia finito"
+   ],
+   "lui": [
+    "abbia finito"
+   ],
+   "noi": [
+    "abbiamo finito"
+   ],
+   "voi": [
+    "abbiate finito"
+   ],
+   "loro": [
+    "abbiano finito"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi finito"
+   ],
+   "tu": [
+    "avessi finito"
+   ],
+   "lui": [
+    "avesse finito"
+   ],
+   "noi": [
+    "avessimo finito"
+   ],
+   "voi": [
+    "aveste finito"
+   ],
+   "loro": [
+    "avessero finito"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei finito"
+   ],
+   "tu": [
+    "avresti finito"
+   ],
+   "lui": [
+    "avrebbe finito"
+   ],
+   "noi": [
+    "avremmo finito"
+   ],
+   "voi": [
+    "avreste finito"
+   ],
+   "loro": [
+    "avrebbero finito"
+   ]
+  }
+ },
+ "leggere": {
+  "presente": {
+   "io": [
+    "leggo"
+   ],
+   "tu": [
+    "leggi"
+   ],
+   "lui": [
+    "legge"
+   ],
+   "noi": [
+    "leggiamo"
+   ],
+   "voi": [
+    "leggete"
+   ],
+   "loro": [
+    "leggono"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "leggevo"
+   ],
+   "tu": [
+    "leggevi"
+   ],
+   "lui": [
+    "leggeva"
+   ],
+   "noi": [
+    "leggevamo"
+   ],
+   "voi": [
+    "leggevate"
+   ],
+   "loro": [
+    "leggevano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "lessi"
+   ],
+   "tu": [
+    "leggesti"
+   ],
+   "lui": [
+    "lesse"
+   ],
+   "noi": [
+    "leggemmo"
+   ],
+   "voi": [
+    "leggeste"
+   ],
+   "loro": [
+    "lessero"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "legga"
+   ],
+   "tu": [
+    "legga"
+   ],
+   "lui": [
+    "legga"
+   ],
+   "noi": [
+    "leggiamo"
+   ],
+   "voi": [
+    "leggiate"
+   ],
+   "loro": [
+    "leggano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "leggessi"
+   ],
+   "tu": [
+    "leggessi"
+   ],
+   "lui": [
+    "leggesse"
+   ],
+   "noi": [
+    "leggessimo"
+   ],
+   "voi": [
+    "leggeste"
+   ],
+   "loro": [
+    "leggessero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "leggi"
+   ],
+   "lui": [
+    "legga"
+   ],
+   "noi": [
+    "leggiamo"
+   ],
+   "voi": [
+    "leggete"
+   ],
+   "loro": [
+    "leggano"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "leggerò"
+   ],
+   "tu": [
+    "leggerai"
+   ],
+   "lui": [
+    "leggerà"
+   ],
+   "noi": [
+    "leggeremo"
+   ],
+   "voi": [
+    "leggerete"
+   ],
+   "loro": [
+    "leggeranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "leggerei"
+   ],
+   "tu": [
+    "leggeresti"
+   ],
+   "lui": [
+    "leggerebbe"
+   ],
+   "noi": [
+    "leggeremmo"
+   ],
+   "voi": [
+    "leggereste"
+   ],
+   "loro": [
+    "leggerebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "leggendo"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "letto"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho letto"
+   ],
+   "tu": [
+    "hai letto"
+   ],
+   "lui": [
+    "ha letto"
+   ],
+   "noi": [
+    "abbiamo letto"
+   ],
+   "voi": [
+    "avete letto"
+   ],
+   "loro": [
+    "hanno letto"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo letto"
+   ],
+   "tu": [
+    "avevi letto"
+   ],
+   "lui": [
+    "aveva letto"
+   ],
+   "noi": [
+    "avevamo letto"
+   ],
+   "voi": [
+    "avevate letto"
+   ],
+   "loro": [
+    "avevano letto"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi letto"
+   ],
+   "tu": [
+    "avesti letto"
+   ],
+   "lui": [
+    "ebbe letto"
+   ],
+   "noi": [
+    "avemmo letto"
+   ],
+   "voi": [
+    "aveste letto"
+   ],
+   "loro": [
+    "ebbero letto"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò letto"
+   ],
+   "tu": [
+    "avrai letto"
+   ],
+   "lui": [
+    "avrà letto"
+   ],
+   "noi": [
+    "avremo letto"
+   ],
+   "voi": [
+    "avrete letto"
+   ],
+   "loro": [
+    "avranno letto"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia letto"
+   ],
+   "tu": [
+    "abbia letto"
+   ],
+   "lui": [
+    "abbia letto"
+   ],
+   "noi": [
+    "abbiamo letto"
+   ],
+   "voi": [
+    "abbiate letto"
+   ],
+   "loro": [
+    "abbiano letto"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi letto"
+   ],
+   "tu": [
+    "avessi letto"
+   ],
+   "lui": [
+    "avesse letto"
+   ],
+   "noi": [
+    "avessimo letto"
+   ],
+   "voi": [
+    "aveste letto"
+   ],
+   "loro": [
+    "avessero letto"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei letto"
+   ],
+   "tu": [
+    "avresti letto"
+   ],
+   "lui": [
+    "avrebbe letto"
+   ],
+   "noi": [
+    "avremmo letto"
+   ],
+   "voi": [
+    "avreste letto"
+   ],
+   "loro": [
+    "avrebbero letto"
+   ]
+  }
+ },
+ "parlare": {
+  "presente": {
+   "io": [
+    "parlo"
+   ],
+   "tu": [
+    "parli"
+   ],
+   "lui": [
+    "parla"
+   ],
+   "noi": [
+    "parliamo"
+   ],
+   "voi": [
+    "parlate"
+   ],
+   "loro": [
+    "parlano"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "parlavo"
+   ],
+   "tu": [
+    "parlavi"
+   ],
+   "lui": [
+    "parlava"
+   ],
+   "noi": [
+    "parlavamo"
+   ],
+   "voi": [
+    "parlavate"
+   ],
+   "loro": [
+    "parlavano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "parlai"
+   ],
+   "tu": [
+    "parlasti"
+   ],
+   "lui": [
+    "parlò"
+   ],
+   "noi": [
+    "parlammo"
+   ],
+   "voi": [
+    "parlaste"
+   ],
+   "loro": [
+    "parlarono"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "parli"
+   ],
+   "tu": [
+    "parli"
+   ],
+   "lui": [
+    "parli"
+   ],
+   "noi": [
+    "parliamo"
+   ],
+   "voi": [
+    "parliate"
+   ],
+   "loro": [
+    "parlino"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "parlassi"
+   ],
+   "tu": [
+    "parlassi"
+   ],
+   "lui": [
+    "parlasse"
+   ],
+   "noi": [
+    "parlassimo"
+   ],
+   "voi": [
+    "parlaste"
+   ],
+   "loro": [
+    "parlassero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "parla"
+   ],
+   "lui": [
+    "parli"
+   ],
+   "noi": [
+    "parliamo"
+   ],
+   "voi": [
+    "parlate"
+   ],
+   "loro": [
+    "parlino"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "parlerò"
+   ],
+   "tu": [
+    "parlerai"
+   ],
+   "lui": [
+    "parlerà"
+   ],
+   "noi": [
+    "parleremo"
+   ],
+   "voi": [
+    "parlerete"
+   ],
+   "loro": [
+    "parleranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "parlerei"
+   ],
+   "tu": [
+    "parleresti"
+   ],
+   "lui": [
+    "parlerebbe"
+   ],
+   "noi": [
+    "parleremmo"
+   ],
+   "voi": [
+    "parlereste"
+   ],
+   "loro": [
+    "parlerebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "parlando"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "parlato"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho parlato"
+   ],
+   "tu": [
+    "hai parlato"
+   ],
+   "lui": [
+    "ha parlato"
+   ],
+   "noi": [
+    "abbiamo parlato"
+   ],
+   "voi": [
+    "avete parlato"
+   ],
+   "loro": [
+    "hanno parlato"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo parlato"
+   ],
+   "tu": [
+    "avevi parlato"
+   ],
+   "lui": [
+    "aveva parlato"
+   ],
+   "noi": [
+    "avevamo parlato"
+   ],
+   "voi": [
+    "avevate parlato"
+   ],
+   "loro": [
+    "avevano parlato"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi parlato"
+   ],
+   "tu": [
+    "avesti parlato"
+   ],
+   "lui": [
+    "ebbe parlato"
+   ],
+   "noi": [
+    "avemmo parlato"
+   ],
+   "voi": [
+    "aveste parlato"
+   ],
+   "loro": [
+    "ebbero parlato"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò parlato"
+   ],
+   "tu": [
+    "avrai parlato"
+   ],
+   "lui": [
+    "avrà parlato"
+   ],
+   "noi": [
+    "avremo parlato"
+   ],
+   "voi": [
+    "avrete parlato"
+   ],
+   "loro": [
+    "avranno parlato"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia parlato"
+   ],
+   "tu": [
+    "abbia parlato"
+   ],
+   "lui": [
+    "abbia parlato"
+   ],
+   "noi": [
+    "abbiamo parlato"
+   ],
+   "voi": [
+    "abbiate parlato"
+   ],
+   "loro": [
+    "abbiano parlato"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi parlato"
+   ],
+   "tu": [
+    "avessi parlato"
+   ],
+   "lui": [
+    "avesse parlato"
+   ],
+   "noi": [
+    "avessimo parlato"
+   ],
+   "voi": [
+    "aveste parlato"
+   ],
+   "loro": [
+    "avessero parlato"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei parlato"
+   ],
+   "tu": [
+    "avresti parlato"
+   ],
+   "lui": [
+    "avrebbe parlato"
+   ],
+   "noi": [
+    "avremmo parlato"
+   ],
+   "voi": [
+    "avreste parlato"
+   ],
+   "loro": [
+    "avrebbero parlato"
+   ]
+  }
+ },
+ "potere": {
+  "presente": {
+   "io": [
+    "posso"
+   ],
+   "tu": [
+    "puoi"
+   ],
+   "lui": [
+    "può"
+   ],
+   "noi": [
+    "possiamo"
+   ],
+   "voi": [
+    "potete"
+   ],
+   "loro": [
+    "possono"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "potevo"
+   ],
+   "tu": [
+    "potevi"
+   ],
+   "lui": [
+    "poteva"
+   ],
+   "noi": [
+    "potevamo"
+   ],
+   "voi": [
+    "potevate"
+   ],
+   "loro": [
+    "potevano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "potei",
+    "potetti"
+   ],
+   "tu": [
+    "potesti"
+   ],
+   "lui": [
+    "poté",
+    "potette"
+   ],
+   "noi": [
+    "potemmo"
+   ],
+   "voi": [
+    "poteste"
+   ],
+   "loro": [
+    "poterono",
+    "potettero"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "possa"
+   ],
+   "tu": [
+    "possa"
+   ],
+   "lui": [
+    "possa"
+   ],
+   "noi": [
+    "possiamo"
+   ],
+   "voi": [
+    "possiate"
+   ],
+   "loro": [
+    "possano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "potessi"
+   ],
+   "tu": [
+    "potessi"
+   ],
+   "lui": [
+    "potesse"
+   ],
+   "noi": [
+    "potessimo"
+   ],
+   "voi": [
+    "poteste"
+   ],
+   "loro": [
+    "potessero"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "potrò"
+   ],
+   "tu": [
+    "potrai"
+   ],
+   "lui": [
+    "potrà"
+   ],
+   "noi": [
+    "potremo"
+   ],
+   "voi": [
+    "potrete"
+   ],
+   "loro": [
+    "potranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "potrei"
+   ],
+   "tu": [
+    "potresti"
+   ],
+   "lui": [
+    "potrebbe"
+   ],
+   "noi": [
+    "potremmo"
+   ],
+   "voi": [
+    "potreste"
+   ],
+   "loro": [
+    "potrebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "potendo"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "potuto"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho potuto"
+   ],
+   "tu": [
+    "hai potuto"
+   ],
+   "lui": [
+    "ha potuto"
+   ],
+   "noi": [
+    "abbiamo potuto"
+   ],
+   "voi": [
+    "avete potuto"
+   ],
+   "loro": [
+    "hanno potuto"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo potuto"
+   ],
+   "tu": [
+    "avevi potuto"
+   ],
+   "lui": [
+    "aveva potuto"
+   ],
+   "noi": [
+    "avevamo potuto"
+   ],
+   "voi": [
+    "avevate potuto"
+   ],
+   "loro": [
+    "avevano potuto"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi potuto"
+   ],
+   "tu": [
+    "avesti potuto"
+   ],
+   "lui": [
+    "ebbe potuto"
+   ],
+   "noi": [
+    "avemmo potuto"
+   ],
+   "voi": [
+    "aveste potuto"
+   ],
+   "loro": [
+    "ebbero potuto"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò potuto"
+   ],
+   "tu": [
+    "avrai potuto"
+   ],
+   "lui": [
+    "avrà potuto"
+   ],
+   "noi": [
+    "avremo potuto"
+   ],
+   "voi": [
+    "avrete potuto"
+   ],
+   "loro": [
+    "avranno potuto"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia potuto"
+   ],
+   "tu": [
+    "abbia potuto"
+   ],
+   "lui": [
+    "abbia potuto"
+   ],
+   "noi": [
+    "abbiamo potuto"
+   ],
+   "voi": [
+    "abbiate potuto"
+   ],
+   "loro": [
+    "abbiano potuto"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi potuto"
+   ],
+   "tu": [
+    "avessi potuto"
+   ],
+   "lui": [
+    "avesse potuto"
+   ],
+   "noi": [
+    "avessimo potuto"
+   ],
+   "voi": [
+    "aveste potuto"
+   ],
+   "loro": [
+    "avessero potuto"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei potuto"
+   ],
+   "tu": [
+    "avresti potuto"
+   ],
+   "lui": [
+    "avrebbe potuto"
+   ],
+   "noi": [
+    "avremmo potuto"
+   ],
+   "voi": [
+    "avreste potuto"
+   ],
+   "loro": [
+    "avrebbero potuto"
+   ]
+  }
+ },
+ "sapere": {
+  "presente": {
+   "io": [
+    "so"
+   ],
+   "tu": [
+    "sai"
+   ],
+   "lui": [
+    "sa"
+   ],
+   "noi": [
+    "sappiamo"
+   ],
+   "voi": [
+    "sapete"
+   ],
+   "loro": [
+    "sanno"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "sapevo"
+   ],
+   "tu": [
+    "sapevi"
+   ],
+   "lui": [
+    "sapeva"
+   ],
+   "noi": [
+    "sapevamo"
+   ],
+   "voi": [
+    "sapevate"
+   ],
+   "loro": [
+    "sapevano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "seppi"
+   ],
+   "tu": [
+    "sapesti"
+   ],
+   "lui": [
+    "seppe"
+   ],
+   "noi": [
+    "sapemmo"
+   ],
+   "voi": [
+    "sapeste"
+   ],
+   "loro": [
+    "seppero"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "sappia"
+   ],
+   "tu": [
+    "sappia"
+   ],
+   "lui": [
+    "sappia"
+   ],
+   "noi": [
+    "sappiamo"
+   ],
+   "voi": [
+    "sappiate"
+   ],
+   "loro": [
+    "sappiano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "sapessi"
+   ],
+   "tu": [
+    "sapessi"
+   ],
+   "lui": [
+    "sapesse"
+   ],
+   "noi": [
+    "sapessimo"
+   ],
+   "voi": [
+    "sapeste"
+   ],
+   "loro": [
+    "sapessero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "sappi"
+   ],
+   "lui": [
+    "sappia"
+   ],
+   "noi": [
+    "sappiamo"
+   ],
+   "voi": [
+    "sappiate"
+   ],
+   "loro": [
+    "sappiano"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "saprò"
+   ],
+   "tu": [
+    "saprai"
+   ],
+   "lui": [
+    "saprà"
+   ],
+   "noi": [
+    "sapremo"
+   ],
+   "voi": [
+    "saprete"
+   ],
+   "loro": [
+    "sapranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "saprei"
+   ],
+   "tu": [
+    "sapresti"
+   ],
+   "lui": [
+    "saprebbe"
+   ],
+   "noi": [
+    "sapremmo"
+   ],
+   "voi": [
+    "sapreste"
+   ],
+   "loro": [
+    "saprebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "sapendo"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "saputo"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho saputo"
+   ],
+   "tu": [
+    "hai saputo"
+   ],
+   "lui": [
+    "ha saputo"
+   ],
+   "noi": [
+    "abbiamo saputo"
+   ],
+   "voi": [
+    "avete saputo"
+   ],
+   "loro": [
+    "hanno saputo"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo saputo"
+   ],
+   "tu": [
+    "avevi saputo"
+   ],
+   "lui": [
+    "aveva saputo"
+   ],
+   "noi": [
+    "avevamo saputo"
+   ],
+   "voi": [
+    "avevate saputo"
+   ],
+   "loro": [
+    "avevano saputo"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi saputo"
+   ],
+   "tu": [
+    "avesti saputo"
+   ],
+   "lui": [
+    "ebbe saputo"
+   ],
+   "noi": [
+    "avemmo saputo"
+   ],
+   "voi": [
+    "aveste saputo"
+   ],
+   "loro": [
+    "ebbero saputo"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò saputo"
+   ],
+   "tu": [
+    "avrai saputo"
+   ],
+   "lui": [
+    "avrà saputo"
+   ],
+   "noi": [
+    "avremo saputo"
+   ],
+   "voi": [
+    "avrete saputo"
+   ],
+   "loro": [
+    "avranno saputo"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia saputo"
+   ],
+   "tu": [
+    "abbia saputo"
+   ],
+   "lui": [
+    "abbia saputo"
+   ],
+   "noi": [
+    "abbiamo saputo"
+   ],
+   "voi": [
+    "abbiate saputo"
+   ],
+   "loro": [
+    "abbiano saputo"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi saputo"
+   ],
+   "tu": [
+    "avessi saputo"
+   ],
+   "lui": [
+    "avesse saputo"
+   ],
+   "noi": [
+    "avessimo saputo"
+   ],
+   "voi": [
+    "aveste saputo"
+   ],
+   "loro": [
+    "avessero saputo"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei saputo"
+   ],
+   "tu": [
+    "avresti saputo"
+   ],
+   "lui": [
+    "avrebbe saputo"
+   ],
+   "noi": [
+    "avremmo saputo"
+   ],
+   "voi": [
+    "avreste saputo"
+   ],
+   "loro": [
+    "avrebbero saputo"
+   ]
+  }
+ },
+ "stare": {
+  "presente": {
+   "io": [
+    "sto"
+   ],
+   "tu": [
+    "stai"
+   ],
+   "lui": [
+    "sta"
+   ],
+   "noi": [
+    "stiamo"
+   ],
+   "voi": [
+    "state"
+   ],
+   "loro": [
+    "stanno"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "stavo"
+   ],
+   "tu": [
+    "stavi"
+   ],
+   "lui": [
+    "stava"
+   ],
+   "noi": [
+    "stavamo"
+   ],
+   "voi": [
+    "stavate"
+   ],
+   "loro": [
+    "stavano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "stetti"
+   ],
+   "tu": [
+    "stesti"
+   ],
+   "lui": [
+    "stette"
+   ],
+   "noi": [
+    "stemmo"
+   ],
+   "voi": [
+    "steste"
+   ],
+   "loro": [
+    "stettero"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "stia"
+   ],
+   "tu": [
+    "stia"
+   ],
+   "lui": [
+    "stia"
+   ],
+   "noi": [
+    "stiamo"
+   ],
+   "voi": [
+    "stiate"
+   ],
+   "loro": [
+    "stiano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "stessi"
+   ],
+   "tu": [
+    "stessi"
+   ],
+   "lui": [
+    "stesse"
+   ],
+   "noi": [
+    "stessimo"
+   ],
+   "voi": [
+    "steste"
+   ],
+   "loro": [
+    "stessero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "sta'",
+    "stai",
+    "sta"
+   ],
+   "lui": [
+    "stia"
+   ],
+   "noi": [
+    "stiamo"
+   ],
+   "voi": [
+    "state"
+   ],
+   "loro": [
+    "stiano"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "starò"
+   ],
+   "tu": [
+    "starai"
+   ],
+   "lui": [
+    "starà"
+   ],
+   "noi": [
+    "staremo"
+   ],
+   "voi": [
+    "starete"
+   ],
+   "loro": [
+    "staranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "starei"
+   ],
+   "tu": [
+    "staresti"
+   ],
+   "lui": [
+    "starebbe"
+   ],
+   "noi": [
+    "staremmo"
+   ],
+   "voi": [
+    "stareste"
+   ],
+   "loro": [
+    "starebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "stando"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "stato"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "sono stato",
+    "sono stata"
+   ],
+   "tu": [
+    "sei stato",
+    "sei stata"
+   ],
+   "lui": [
+    "è stato",
+    "è stata"
+   ],
+   "noi": [
+    "siamo stati",
+    "siamo state"
+   ],
+   "voi": [
+    "siete stati",
+    "siete state"
+   ],
+   "loro": [
+    "sono stati",
+    "sono state"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "ero stato",
+    "ero stata"
+   ],
+   "tu": [
+    "eri stato",
+    "eri stata"
+   ],
+   "lui": [
+    "era stato",
+    "era stata"
+   ],
+   "noi": [
+    "eravamo stati",
+    "eravamo state"
+   ],
+   "voi": [
+    "eravate stati",
+    "eravate state"
+   ],
+   "loro": [
+    "erano stati",
+    "erano state"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "fui stato",
+    "fui stata"
+   ],
+   "tu": [
+    "fosti stato",
+    "fosti stata"
+   ],
+   "lui": [
+    "fu stato",
+    "fu stata"
+   ],
+   "noi": [
+    "fummo stati",
+    "fummo state"
+   ],
+   "voi": [
+    "foste stati",
+    "foste state"
+   ],
+   "loro": [
+    "furono stati",
+    "furono state"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "sarò stato",
+    "sarò stata"
+   ],
+   "tu": [
+    "sarai stato",
+    "sarai stata"
+   ],
+   "lui": [
+    "sarà stato",
+    "sarà stata"
+   ],
+   "noi": [
+    "saremo stati",
+    "saremo state"
+   ],
+   "voi": [
+    "sarete stati",
+    "sarete state"
+   ],
+   "loro": [
+    "saranno stati",
+    "saranno state"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "sia stato",
+    "sia stata"
+   ],
+   "tu": [
+    "sia stato",
+    "sia stata"
+   ],
+   "lui": [
+    "sia stato",
+    "sia stata"
+   ],
+   "noi": [
+    "siamo stati",
+    "siamo state"
+   ],
+   "voi": [
+    "siate stati",
+    "siate state"
+   ],
+   "loro": [
+    "siano stati",
+    "siano state"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "fossi stato",
+    "fossi stata"
+   ],
+   "tu": [
+    "fossi stato",
+    "fossi stata"
+   ],
+   "lui": [
+    "fosse stato",
+    "fosse stata"
+   ],
+   "noi": [
+    "fossimo stati",
+    "fossimo state"
+   ],
+   "voi": [
+    "foste stati",
+    "foste state"
+   ],
+   "loro": [
+    "fossero stati",
+    "fossero state"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "sarei stato",
+    "sarei stata"
+   ],
+   "tu": [
+    "saresti stato",
+    "saresti stata"
+   ],
+   "lui": [
+    "sarebbe stato",
+    "sarebbe stata"
+   ],
+   "noi": [
+    "saremmo stati",
+    "saremmo state"
+   ],
+   "voi": [
+    "sareste stati",
+    "sareste state"
+   ],
+   "loro": [
+    "sarebbero stati",
+    "sarebbero state"
+   ]
+  }
+ },
+ "trovare": {
+  "presente": {
+   "io": [
+    "trovo"
+   ],
+   "tu": [
+    "trovi"
+   ],
+   "lui": [
+    "trova"
+   ],
+   "noi": [
+    "troviamo"
+   ],
+   "voi": [
+    "trovate"
+   ],
+   "loro": [
+    "trovano"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "trovavo"
+   ],
+   "tu": [
+    "trovavi"
+   ],
+   "lui": [
+    "trovava"
+   ],
+   "noi": [
+    "trovavamo"
+   ],
+   "voi": [
+    "trovavate"
+   ],
+   "loro": [
+    "trovavano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "trovai"
+   ],
+   "tu": [
+    "trovasti"
+   ],
+   "lui": [
+    "trovò"
+   ],
+   "noi": [
+    "trovammo"
+   ],
+   "voi": [
+    "trovaste"
+   ],
+   "loro": [
+    "trovarono"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "trovi"
+   ],
+   "tu": [
+    "trovi"
+   ],
+   "lui": [
+    "trovi"
+   ],
+   "noi": [
+    "troviamo"
+   ],
+   "voi": [
+    "troviate"
+   ],
+   "loro": [
+    "trovino"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "trovassi"
+   ],
+   "tu": [
+    "trovassi"
+   ],
+   "lui": [
+    "trovasse"
+   ],
+   "noi": [
+    "trovassimo"
+   ],
+   "voi": [
+    "trovaste"
+   ],
+   "loro": [
+    "trovassero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "trova"
+   ],
+   "lui": [
+    "trovi"
+   ],
+   "noi": [
+    "troviamo"
+   ],
+   "voi": [
+    "trovate"
+   ],
+   "loro": [
+    "trovino"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "troverò"
+   ],
+   "tu": [
+    "troverai"
+   ],
+   "lui": [
+    "troverà"
+   ],
+   "noi": [
+    "troveremo"
+   ],
+   "voi": [
+    "troverete"
+   ],
+   "loro": [
+    "troveranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "troverei"
+   ],
+   "tu": [
+    "troveresti"
+   ],
+   "lui": [
+    "troverebbe"
+   ],
+   "noi": [
+    "troveremmo"
+   ],
+   "voi": [
+    "trovereste"
+   ],
+   "loro": [
+    "troverebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "trovando"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "trovato"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho trovato"
+   ],
+   "tu": [
+    "hai trovato"
+   ],
+   "lui": [
+    "ha trovato"
+   ],
+   "noi": [
+    "abbiamo trovato"
+   ],
+   "voi": [
+    "avete trovato"
+   ],
+   "loro": [
+    "hanno trovato"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo trovato"
+   ],
+   "tu": [
+    "avevi trovato"
+   ],
+   "lui": [
+    "aveva trovato"
+   ],
+   "noi": [
+    "avevamo trovato"
+   ],
+   "voi": [
+    "avevate trovato"
+   ],
+   "loro": [
+    "avevano trovato"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi trovato"
+   ],
+   "tu": [
+    "avesti trovato"
+   ],
+   "lui": [
+    "ebbe trovato"
+   ],
+   "noi": [
+    "avemmo trovato"
+   ],
+   "voi": [
+    "aveste trovato"
+   ],
+   "loro": [
+    "ebbero trovato"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò trovato"
+   ],
+   "tu": [
+    "avrai trovato"
+   ],
+   "lui": [
+    "avrà trovato"
+   ],
+   "noi": [
+    "avremo trovato"
+   ],
+   "voi": [
+    "avrete trovato"
+   ],
+   "loro": [
+    "avranno trovato"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia trovato"
+   ],
+   "tu": [
+    "abbia trovato"
+   ],
+   "lui": [
+    "abbia trovato"
+   ],
+   "noi": [
+    "abbiamo trovato"
+   ],
+   "voi": [
+    "abbiate trovato"
+   ],
+   "loro": [
+    "abbiano trovato"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi trovato"
+   ],
+   "tu": [
+    "avessi trovato"
+   ],
+   "lui": [
+    "avesse trovato"
+   ],
+   "noi": [
+    "avessimo trovato"
+   ],
+   "voi": [
+    "aveste trovato"
+   ],
+   "loro": [
+    "avessero trovato"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei trovato"
+   ],
+   "tu": [
+    "avresti trovato"
+   ],
+   "lui": [
+    "avrebbe trovato"
+   ],
+   "noi": [
+    "avremmo trovato"
+   ],
+   "voi": [
+    "avreste trovato"
+   ],
+   "loro": [
+    "avrebbero trovato"
+   ]
+  }
+ },
+ "uscire": {
+  "presente": {
+   "io": [
+    "esco"
+   ],
+   "tu": [
+    "esci"
+   ],
+   "lui": [
+    "esce"
+   ],
+   "noi": [
+    "usciamo"
+   ],
+   "voi": [
+    "uscite"
+   ],
+   "loro": [
+    "escono"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "uscivo"
+   ],
+   "tu": [
+    "uscivi"
+   ],
+   "lui": [
+    "usciva"
+   ],
+   "noi": [
+    "uscivamo"
+   ],
+   "voi": [
+    "uscivate"
+   ],
+   "loro": [
+    "uscivano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "uscii"
+   ],
+   "tu": [
+    "uscisti"
+   ],
+   "lui": [
+    "uscì"
+   ],
+   "noi": [
+    "uscimmo"
+   ],
+   "voi": [
+    "usciste"
+   ],
+   "loro": [
+    "uscirono"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "esca"
+   ],
+   "tu": [
+    "esca"
+   ],
+   "lui": [
+    "esca"
+   ],
+   "noi": [
+    "usciamo"
+   ],
+   "voi": [
+    "usciate"
+   ],
+   "loro": [
+    "escano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "uscissi"
+   ],
+   "tu": [
+    "uscissi"
+   ],
+   "lui": [
+    "uscisse"
+   ],
+   "noi": [
+    "uscissimo"
+   ],
+   "voi": [
+    "usciste"
+   ],
+   "loro": [
+    "uscissero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "esci"
+   ],
+   "lui": [
+    "esca"
+   ],
+   "noi": [
+    "usciamo"
+   ],
+   "voi": [
+    "uscite"
+   ],
+   "loro": [
+    "escano"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "uscirò"
+   ],
+   "tu": [
+    "uscirai"
+   ],
+   "lui": [
+    "uscirà"
+   ],
+   "noi": [
+    "usciremo"
+   ],
+   "voi": [
+    "uscirete"
+   ],
+   "loro": [
+    "usciranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "uscirei"
+   ],
+   "tu": [
+    "usciresti"
+   ],
+   "lui": [
+    "uscirebbe"
+   ],
+   "noi": [
+    "usciremmo"
+   ],
+   "voi": [
+    "uscireste"
+   ],
+   "loro": [
+    "uscirebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "uscendo"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "uscito"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "sono uscito",
+    "sono uscita"
+   ],
+   "tu": [
+    "sei uscito",
+    "sei uscita"
+   ],
+   "lui": [
+    "è uscito",
+    "è uscita"
+   ],
+   "noi": [
+    "siamo usciti",
+    "siamo uscite"
+   ],
+   "voi": [
+    "siete usciti",
+    "siete uscite"
+   ],
+   "loro": [
+    "sono usciti",
+    "sono uscite"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "ero uscito",
+    "ero uscita"
+   ],
+   "tu": [
+    "eri uscito",
+    "eri uscita"
+   ],
+   "lui": [
+    "era uscito",
+    "era uscita"
+   ],
+   "noi": [
+    "eravamo usciti",
+    "eravamo uscite"
+   ],
+   "voi": [
+    "eravate usciti",
+    "eravate uscite"
+   ],
+   "loro": [
+    "erano usciti",
+    "erano uscite"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "fui uscito",
+    "fui uscita"
+   ],
+   "tu": [
+    "fosti uscito",
+    "fosti uscita"
+   ],
+   "lui": [
+    "fu uscito",
+    "fu uscita"
+   ],
+   "noi": [
+    "fummo usciti",
+    "fummo uscite"
+   ],
+   "voi": [
+    "foste usciti",
+    "foste uscite"
+   ],
+   "loro": [
+    "furono usciti",
+    "furono uscite"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "sarò uscito",
+    "sarò uscita"
+   ],
+   "tu": [
+    "sarai uscito",
+    "sarai uscita"
+   ],
+   "lui": [
+    "sarà uscito",
+    "sarà uscita"
+   ],
+   "noi": [
+    "saremo usciti",
+    "saremo uscite"
+   ],
+   "voi": [
+    "sarete usciti",
+    "sarete uscite"
+   ],
+   "loro": [
+    "saranno usciti",
+    "saranno uscite"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "sia uscito",
+    "sia uscita"
+   ],
+   "tu": [
+    "sia uscito",
+    "sia uscita"
+   ],
+   "lui": [
+    "sia uscito",
+    "sia uscita"
+   ],
+   "noi": [
+    "siamo usciti",
+    "siamo uscite"
+   ],
+   "voi": [
+    "siate usciti",
+    "siate uscite"
+   ],
+   "loro": [
+    "siano usciti",
+    "siano uscite"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "fossi uscito",
+    "fossi uscita"
+   ],
+   "tu": [
+    "fossi uscito",
+    "fossi uscita"
+   ],
+   "lui": [
+    "fosse uscito",
+    "fosse uscita"
+   ],
+   "noi": [
+    "fossimo usciti",
+    "fossimo uscite"
+   ],
+   "voi": [
+    "foste usciti",
+    "foste uscite"
+   ],
+   "loro": [
+    "fossero usciti",
+    "fossero uscite"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "sarei uscito",
+    "sarei uscita"
+   ],
+   "tu": [
+    "saresti uscito",
+    "saresti uscita"
+   ],
+   "lui": [
+    "sarebbe uscito",
+    "sarebbe uscita"
+   ],
+   "noi": [
+    "saremmo usciti",
+    "saremmo uscite"
+   ],
+   "voi": [
+    "sareste usciti",
+    "sareste uscite"
+   ],
+   "loro": [
+    "sarebbero usciti",
+    "sarebbero uscite"
+   ]
+  }
+ },
+ "vedere": {
+  "presente": {
+   "io": [
+    "vedo"
+   ],
+   "tu": [
+    "vedi"
+   ],
+   "lui": [
+    "vede"
+   ],
+   "noi": [
+    "vediamo"
+   ],
+   "voi": [
+    "vedete"
+   ],
+   "loro": [
+    "vedono"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "vedevo"
+   ],
+   "tu": [
+    "vedevi"
+   ],
+   "lui": [
+    "vedeva"
+   ],
+   "noi": [
+    "vedevamo"
+   ],
+   "voi": [
+    "vedevate"
+   ],
+   "loro": [
+    "vedevano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "vidi"
+   ],
+   "tu": [
+    "vedesti"
+   ],
+   "lui": [
+    "vide"
+   ],
+   "noi": [
+    "vedemmo"
+   ],
+   "voi": [
+    "vedeste"
+   ],
+   "loro": [
+    "videro"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "veda"
+   ],
+   "tu": [
+    "veda"
+   ],
+   "lui": [
+    "veda"
+   ],
+   "noi": [
+    "vediamo"
+   ],
+   "voi": [
+    "vediate"
+   ],
+   "loro": [
+    "vedano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "vedessi"
+   ],
+   "tu": [
+    "vedessi"
+   ],
+   "lui": [
+    "vedesse"
+   ],
+   "noi": [
+    "vedessimo"
+   ],
+   "voi": [
+    "vedeste"
+   ],
+   "loro": [
+    "vedessero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "vedi"
+   ],
+   "lui": [
+    "veda"
+   ],
+   "noi": [
+    "vediamo"
+   ],
+   "voi": [
+    "vedete"
+   ],
+   "loro": [
+    "vedano"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "vedrò"
+   ],
+   "tu": [
+    "vedrai"
+   ],
+   "lui": [
+    "vedrà"
+   ],
+   "noi": [
+    "vedremo"
+   ],
+   "voi": [
+    "vedrete"
+   ],
+   "loro": [
+    "vedranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "vedrei"
+   ],
+   "tu": [
+    "vedresti"
+   ],
+   "lui": [
+    "vedrebbe"
+   ],
+   "noi": [
+    "vedremmo"
+   ],
+   "voi": [
+    "vedreste"
+   ],
+   "loro": [
+    "vedrebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "vedendo"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "visto",
+    "veduto"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho visto",
+    "ho veduto"
+   ],
+   "tu": [
+    "hai visto",
+    "hai veduto"
+   ],
+   "lui": [
+    "ha visto",
+    "ha veduto"
+   ],
+   "noi": [
+    "abbiamo visto",
+    "abbiamo veduto"
+   ],
+   "voi": [
+    "avete visto",
+    "avete veduto"
+   ],
+   "loro": [
+    "hanno visto",
+    "hanno veduto"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo visto",
+    "avevo veduto"
+   ],
+   "tu": [
+    "avevi visto",
+    "avevi veduto"
+   ],
+   "lui": [
+    "aveva visto",
+    "aveva veduto"
+   ],
+   "noi": [
+    "avevamo visto",
+    "avevamo veduto"
+   ],
+   "voi": [
+    "avevate visto",
+    "avevate veduto"
+   ],
+   "loro": [
+    "avevano visto",
+    "avevano veduto"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi visto",
+    "ebbi veduto"
+   ],
+   "tu": [
+    "avesti visto",
+    "avesti veduto"
+   ],
+   "lui": [
+    "ebbe visto",
+    "ebbe veduto"
+   ],
+   "noi": [
+    "avemmo visto",
+    "avemmo veduto"
+   ],
+   "voi": [
+    "aveste visto",
+    "aveste veduto"
+   ],
+   "loro": [
+    "ebbero visto",
+    "ebbero veduto"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò visto",
+    "avrò veduto"
+   ],
+   "tu": [
+    "avrai visto",
+    "avrai veduto"
+   ],
+   "lui": [
+    "avrà visto",
+    "avrà veduto"
+   ],
+   "noi": [
+    "avremo visto",
+    "avremo veduto"
+   ],
+   "voi": [
+    "avrete visto",
+    "avrete veduto"
+   ],
+   "loro": [
+    "avranno visto",
+    "avranno veduto"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia visto",
+    "abbia veduto"
+   ],
+   "tu": [
+    "abbia visto",
+    "abbia veduto"
+   ],
+   "lui": [
+    "abbia visto",
+    "abbia veduto"
+   ],
+   "noi": [
+    "abbiamo visto",
+    "abbiamo veduto"
+   ],
+   "voi": [
+    "abbiate visto",
+    "abbiate veduto"
+   ],
+   "loro": [
+    "abbiano visto",
+    "abbiano veduto"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi visto",
+    "avessi veduto"
+   ],
+   "tu": [
+    "avessi visto",
+    "avessi veduto"
+   ],
+   "lui": [
+    "avesse visto",
+    "avesse veduto"
+   ],
+   "noi": [
+    "avessimo visto",
+    "avessimo veduto"
+   ],
+   "voi": [
+    "aveste visto",
+    "aveste veduto"
+   ],
+   "loro": [
+    "avessero visto",
+    "avessero veduto"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei visto",
+    "avrei veduto"
+   ],
+   "tu": [
+    "avresti visto",
+    "avresti veduto"
+   ],
+   "lui": [
+    "avrebbe visto",
+    "avrebbe veduto"
+   ],
+   "noi": [
+    "avremmo visto",
+    "avremmo veduto"
+   ],
+   "voi": [
+    "avreste visto",
+    "avreste veduto"
+   ],
+   "loro": [
+    "avrebbero visto",
+    "avrebbero veduto"
+   ]
+  }
+ },
+ "venire": {
+  "presente": {
+   "io": [
+    "vengo"
+   ],
+   "tu": [
+    "vieni"
+   ],
+   "lui": [
+    "viene"
+   ],
+   "noi": [
+    "veniamo"
+   ],
+   "voi": [
+    "venite"
+   ],
+   "loro": [
+    "vengono"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "venivo"
+   ],
+   "tu": [
+    "venivi"
+   ],
+   "lui": [
+    "veniva"
+   ],
+   "noi": [
+    "venivamo"
+   ],
+   "voi": [
+    "venivate"
+   ],
+   "loro": [
+    "venivano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "venni"
+   ],
+   "tu": [
+    "venisti"
+   ],
+   "lui": [
+    "venne"
+   ],
+   "noi": [
+    "venimmo"
+   ],
+   "voi": [
+    "veniste"
+   ],
+   "loro": [
+    "vennero"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "venga"
+   ],
+   "tu": [
+    "venga"
+   ],
+   "lui": [
+    "venga"
+   ],
+   "noi": [
+    "veniamo"
+   ],
+   "voi": [
+    "veniate"
+   ],
+   "loro": [
+    "vengano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "venissi"
+   ],
+   "tu": [
+    "venissi"
+   ],
+   "lui": [
+    "venisse"
+   ],
+   "noi": [
+    "venissimo"
+   ],
+   "voi": [
+    "veniste"
+   ],
+   "loro": [
+    "venissero"
+   ]
+  },
+  "imperativo": {
+   "tu": [
+    "vieni"
+   ],
+   "lui": [
+    "venga"
+   ],
+   "noi": [
+    "veniamo"
+   ],
+   "voi": [
+    "venite"
+   ],
+   "loro": [
+    "vengano"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "verrò"
+   ],
+   "tu": [
+    "verrai"
+   ],
+   "lui": [
+    "verrà"
+   ],
+   "noi": [
+    "verremo"
+   ],
+   "voi": [
+    "verrete"
+   ],
+   "loro": [
+    "verranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "verrei"
+   ],
+   "tu": [
+    "verresti"
+   ],
+   "lui": [
+    "verrebbe"
+   ],
+   "noi": [
+    "verremmo"
+   ],
+   "voi": [
+    "verreste"
+   ],
+   "loro": [
+    "verrebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "venendo"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "venuto"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "sono venuto",
+    "sono venuta"
+   ],
+   "tu": [
+    "sei venuto",
+    "sei venuta"
+   ],
+   "lui": [
+    "è venuto",
+    "è venuta"
+   ],
+   "noi": [
+    "siamo venuti",
+    "siamo venute"
+   ],
+   "voi": [
+    "siete venuti",
+    "siete venute"
+   ],
+   "loro": [
+    "sono venuti",
+    "sono venute"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "ero venuto",
+    "ero venuta"
+   ],
+   "tu": [
+    "eri venuto",
+    "eri venuta"
+   ],
+   "lui": [
+    "era venuto",
+    "era venuta"
+   ],
+   "noi": [
+    "eravamo venuti",
+    "eravamo venute"
+   ],
+   "voi": [
+    "eravate venuti",
+    "eravate venute"
+   ],
+   "loro": [
+    "erano venuti",
+    "erano venute"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "fui venuto",
+    "fui venuta"
+   ],
+   "tu": [
+    "fosti venuto",
+    "fosti venuta"
+   ],
+   "lui": [
+    "fu venuto",
+    "fu venuta"
+   ],
+   "noi": [
+    "fummo venuti",
+    "fummo venute"
+   ],
+   "voi": [
+    "foste venuti",
+    "foste venute"
+   ],
+   "loro": [
+    "furono venuti",
+    "furono venute"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "sarò venuto",
+    "sarò venuta"
+   ],
+   "tu": [
+    "sarai venuto",
+    "sarai venuta"
+   ],
+   "lui": [
+    "sarà venuto",
+    "sarà venuta"
+   ],
+   "noi": [
+    "saremo venuti",
+    "saremo venute"
+   ],
+   "voi": [
+    "sarete venuti",
+    "sarete venute"
+   ],
+   "loro": [
+    "saranno venuti",
+    "saranno venute"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "sia venuto",
+    "sia venuta"
+   ],
+   "tu": [
+    "sia venuto",
+    "sia venuta"
+   ],
+   "lui": [
+    "sia venuto",
+    "sia venuta"
+   ],
+   "noi": [
+    "siamo venuti",
+    "siamo venute"
+   ],
+   "voi": [
+    "siate venuti",
+    "siate venute"
+   ],
+   "loro": [
+    "siano venuti",
+    "siano venute"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "fossi venuto",
+    "fossi venuta"
+   ],
+   "tu": [
+    "fossi venuto",
+    "fossi venuta"
+   ],
+   "lui": [
+    "fosse venuto",
+    "fosse venuta"
+   ],
+   "noi": [
+    "fossimo venuti",
+    "fossimo venute"
+   ],
+   "voi": [
+    "foste venuti",
+    "foste venute"
+   ],
+   "loro": [
+    "fossero venuti",
+    "fossero venute"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "sarei venuto",
+    "sarei venuta"
+   ],
+   "tu": [
+    "saresti venuto",
+    "saresti venuta"
+   ],
+   "lui": [
+    "sarebbe venuto",
+    "sarebbe venuta"
+   ],
+   "noi": [
+    "saremmo venuti",
+    "saremmo venute"
+   ],
+   "voi": [
+    "sareste venuti",
+    "sareste venute"
+   ],
+   "loro": [
+    "sarebbero venuti",
+    "sarebbero venute"
+   ]
+  }
+ },
+ "volere": {
+  "presente": {
+   "io": [
+    "voglio"
+   ],
+   "tu": [
+    "vuoi"
+   ],
+   "lui": [
+    "vuole"
+   ],
+   "noi": [
+    "vogliamo"
+   ],
+   "voi": [
+    "volete"
+   ],
+   "loro": [
+    "vogliono"
+   ]
+  },
+  "imperfetto": {
+   "io": [
+    "volevo"
+   ],
+   "tu": [
+    "volevi"
+   ],
+   "lui": [
+    "voleva"
+   ],
+   "noi": [
+    "volevamo"
+   ],
+   "voi": [
+    "volevate"
+   ],
+   "loro": [
+    "volevano"
+   ]
+  },
+  "passato_remoto": {
+   "io": [
+    "volli"
+   ],
+   "tu": [
+    "volesti"
+   ],
+   "lui": [
+    "volle"
+   ],
+   "noi": [
+    "volemmo"
+   ],
+   "voi": [
+    "voleste"
+   ],
+   "loro": [
+    "vollero"
+   ]
+  },
+  "congiuntivo_presente": {
+   "io": [
+    "voglia"
+   ],
+   "tu": [
+    "voglia"
+   ],
+   "lui": [
+    "voglia"
+   ],
+   "noi": [
+    "vogliamo"
+   ],
+   "voi": [
+    "vogliate"
+   ],
+   "loro": [
+    "vogliano"
+   ]
+  },
+  "congiuntivo_imperfetto": {
+   "io": [
+    "volessi"
+   ],
+   "tu": [
+    "volessi"
+   ],
+   "lui": [
+    "volesse"
+   ],
+   "noi": [
+    "volessimo"
+   ],
+   "voi": [
+    "voleste"
+   ],
+   "loro": [
+    "volessero"
+   ]
+  },
+  "futuro_semplice": {
+   "io": [
+    "vorrò"
+   ],
+   "tu": [
+    "vorrai"
+   ],
+   "lui": [
+    "vorrà"
+   ],
+   "noi": [
+    "vorremo"
+   ],
+   "voi": [
+    "vorrete"
+   ],
+   "loro": [
+    "vorranno"
+   ]
+  },
+  "condizionale_presente": {
+   "io": [
+    "vorrei"
+   ],
+   "tu": [
+    "vorresti"
+   ],
+   "lui": [
+    "vorrebbe"
+   ],
+   "noi": [
+    "vorremmo"
+   ],
+   "voi": [
+    "vorreste"
+   ],
+   "loro": [
+    "vorrebbero"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "volendo"
+   ]
+  },
+  "participio_passato": {
+   "-": [
+    "voluto"
+   ]
+  },
+  "passato_prossimo": {
+   "io": [
+    "ho voluto"
+   ],
+   "tu": [
+    "hai voluto"
+   ],
+   "lui": [
+    "ha voluto"
+   ],
+   "noi": [
+    "abbiamo voluto"
+   ],
+   "voi": [
+    "avete voluto"
+   ],
+   "loro": [
+    "hanno voluto"
+   ]
+  },
+  "trapassato_prossimo": {
+   "io": [
+    "avevo voluto"
+   ],
+   "tu": [
+    "avevi voluto"
+   ],
+   "lui": [
+    "aveva voluto"
+   ],
+   "noi": [
+    "avevamo voluto"
+   ],
+   "voi": [
+    "avevate voluto"
+   ],
+   "loro": [
+    "avevano voluto"
+   ]
+  },
+  "trapassato_remoto": {
+   "io": [
+    "ebbi voluto"
+   ],
+   "tu": [
+    "avesti voluto"
+   ],
+   "lui": [
+    "ebbe voluto"
+   ],
+   "noi": [
+    "avemmo voluto"
+   ],
+   "voi": [
+    "aveste voluto"
+   ],
+   "loro": [
+    "ebbero voluto"
+   ]
+  },
+  "futuro_anteriore": {
+   "io": [
+    "avrò voluto"
+   ],
+   "tu": [
+    "avrai voluto"
+   ],
+   "lui": [
+    "avrà voluto"
+   ],
+   "noi": [
+    "avremo voluto"
+   ],
+   "voi": [
+    "avrete voluto"
+   ],
+   "loro": [
+    "avranno voluto"
+   ]
+  },
+  "congiuntivo_passato": {
+   "io": [
+    "abbia voluto"
+   ],
+   "tu": [
+    "abbia voluto"
+   ],
+   "lui": [
+    "abbia voluto"
+   ],
+   "noi": [
+    "abbiamo voluto"
+   ],
+   "voi": [
+    "abbiate voluto"
+   ],
+   "loro": [
+    "abbiano voluto"
+   ]
+  },
+  "congiuntivo_trapassato": {
+   "io": [
+    "avessi voluto"
+   ],
+   "tu": [
+    "avessi voluto"
+   ],
+   "lui": [
+    "avesse voluto"
+   ],
+   "noi": [
+    "avessimo voluto"
+   ],
+   "voi": [
+    "aveste voluto"
+   ],
+   "loro": [
+    "avessero voluto"
+   ]
+  },
+  "condizionale_passato": {
+   "io": [
+    "avrei voluto"
+   ],
+   "tu": [
+    "avresti voluto"
+   ],
+   "lui": [
+    "avrebbe voluto"
+   ],
+   "noi": [
+    "avremmo voluto"
+   ],
+   "voi": [
+    "avreste voluto"
+   ],
+   "loro": [
+    "avrebbero voluto"
+   ]
+  }
+ }
+}

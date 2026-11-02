@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% block imports %}
+{% endblock %}
+
+{% block css %}
+<style>
+    .settings {
+        width: 90vw;
+        max-width: 560px;
+    }
+
+    fieldset {
+        border: 1px solid #505050;
+        border-radius: 10px;
+        padding: 10px 15px 15px;
+        margin-bottom: 15px;
+    }
+
+    legend {
+        padding: 0 8px;
+        font-size: 18px;
+    }
+
+    .group-toggle {
+        font-size: 12px;
+        margin-left: 8px;
+        color: #C0C0C0;
+        cursor: pointer;
+        background: none;
+        border: 1px solid #707070;
+        border-radius: 5px;
+        padding: 2px 6px;
+    }
+
+    .group-toggle:hover {
+        color: white;
+        border-color: white;
+        background: none;
+    }
+
+    .choices {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6px 20px;
+    }
+
+    @media screen and (min-width: 500px) {
+        .choices {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .choices label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 6px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .choices label:hover {
+        background: var(--gradient-right);
+    }
+
+    .choices input[type=checkbox] {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        cursor: pointer;
+    }
+
+    .hint {
+        color: #C0C0C0;
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .start {
+        font-size: 18px;
+        padding: 10px 30px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<a href="{{ url_for('index') }}">
+    <svg class="svg-x" width="16" height="16" viewBox="0 0 16 16">
+        <g fill="none" fill-rule="evenodd">
+            <path fill="#fff"
+                d="M6.93 8l-4.7-4.7a.76.76 0 1 1 1.06-1.08L8 6.92l4.7-4.7a.76.76 0 0 1 1.08 1.07L9.08 8l4.7 4.7a.76.76 0 1 1-1.07 1.08L8 9.08l-4.7 4.7a.76.76 0 0 1-1.08-1.07L6.92 8z">
+            </path>
+        </g>
+    </svg>
+</a>
+<div class="center">
+    <h1 class="title">Conjugation drill</h1>
+</div>
+
+{% with messages = get_flashed_messages() %}
+{% for message in messages %}
+<div class="center">
+    <div class="error">{{ message }}</div>
+</div>
+{% endfor %}
+{% endwith %}
+
+<div class="center">
+    <form class="shadow settings" action="{{ url_for('conjugation_drill') }}" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <p class="hint">Choose the verb forms you want to practise. Every question picks a random verb and one of
+            these forms.</p>
+
+        {% for group, forms in groups %}
+        <fieldset>
+            <legend>{{ group }}<button type="button" class="group-toggle">all / none</button></legend>
+            <div class="choices">
+                {% for key, label in forms %}
+                <label>
+                    <input type="checkbox" name="forms" value="{{ key }}" {% if key in selected_forms %}checked{% endif %}>
+                    {{ label }}
+                </label>
+                {% endfor %}
+            </div>
+        </fieldset>
+        {% endfor %}
+
+        {% if pronoun_options %}
+        <fieldset>
+            <legend>Second person</legend>
+            <div class="choices">
+                {% for key, label in pronoun_options %}
+                <label>
+                    <input type="checkbox" name="pronouns" value="{{ key }}" {% if key in selected_pronouns %}checked{% endif %}>
+                    {{ label }}
+                </label>
+                {% endfor %}
+            </div>
+        </fieldset>
+        {% endif %}
+
+        <div class="center">
+            <input class="start" type="submit" value="Start">
+        </div>
+    </form>
+</div>
+
+<script>
+    // "all / none" ticks every box in the group, or clears them if all are ticked
+    document.querySelectorAll(".group-toggle").forEach((button) => {
+        button.addEventListener("click", () => {
+            const boxes = button.closest("fieldset").querySelectorAll("input[type=checkbox]");
+            const allChecked = Array.from(boxes).every((box) => box.checked);
+            boxes.forEach((box) => { box.checked = !allChecked; });
+        });
+    });
+</script>
+{% endblock %}

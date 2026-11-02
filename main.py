@@ -22,6 +22,7 @@ from sqlalchemy.exc import IntegrityError
 from unidecode import unidecode
 from werkzeug.security import check_password_hash, generate_password_hash
 
+import conjugation
 import functions
 
 app = Flask(__name__)
@@ -63,59 +64,14 @@ TOPICS = ["foods", "drinks", "fruits", "transport"]
 
 LANGUAGES = {
     "italian": {
-        "verbs": [
-            "abitare",
-            "andare",
-            "avere",
-            "capire",
-            "dare",
-            "dire",
-            "dormire",
-            "dovere",
-            "essere",
-            "fare",
-            "finire",
-            "leggere",
-            "parlare",
-            "potere",
-            "sapere",
-            "stare",
-            "trovare",
-            "uscire",
-            "vedere",
-            "venire",
-            "volere",
-        ],
-        "tenses": ["presente", "futuro_semplice"],
-        "tenses_formatted": ["Presente", "Futuro semplice"],
         "lessons": ["the_alphabet", "definite_articles"],
         "cities": ["rome", "venice", "milan"],
     },
     "german": {
-        "verbs": ["sein", "haben"],
-        "tenses": [
-            "praesens",
-            "praeteritum",
-            "perfekt",
-            "plusquamperfekt",
-            "futur_eins",
-            "futur_zwei",
-        ],
-        "tenses_formatted": [
-            "Präsens",
-            "Präteritum",
-            "Perfekt",
-            "Plusquamperfekt",
-            "Futur I",
-            "Futur II",
-        ],
         "lessons": ["the_alphabet"],
         "cities": ["berlin", "frankfurt", "munich", "leipzig"],
     },
     "spanish": {
-        "verbs": ["ser", "estar", "haber"],
-        "tenses": ["presente", "futuro"],
-        "tenses_formatted": ["Presente", "Futuro"],
         "lessons": ["the_alphabet"],
         "cities": ["malaga"],
     },
@@ -146,13 +102,6 @@ def load_vocabulary(lang, topic):
 VOCABULARY = {
     lang: {topic: load_vocabulary(lang, topic) for topic in TOPICS}
     for lang in LANGUAGES
-}
-VERBS = {
-    lang: {
-        verb: read_csv(os.path.join(DATA_DIR, lang, "verbs", f"{verb}.csv"))
-        for verb in config["verbs"]
-    }
-    for lang, config in LANGUAGES.items()
 }
 
 
@@ -259,8 +208,6 @@ def index():
         "index.html",
         current_user=current_user,
         topics=TOPICS,
-        tenses=config["tenses"],
-        tenses_formatted=config["tenses_formatted"],
         lessons_list=config["lessons"],
         random_city=random.choice(config["cities"]),
     )
@@ -289,88 +236,107 @@ def lesson_for_topic(topic):
     return render_template(f"lessons/{lang}/{topic}.html", current_user=current_user)
 
 
+def get_conjugation_settings(lang):
+    saved = session.get("conjugation", {}).get(lang, {})
+    return conjugation.clean_settings(
+        lang,
+        saved.get("forms", conjugation.DEFAULT_FORMS[lang]),
+        saved.get("pronouns", conjugation.DEFAULT_PRONOUNS.get(lang, [])),
+    )
+
+
+@app.route("/conjugation_drill", methods=["GET", "POST"])
+@language_required
+def conjugation_drill():
+    lang = get_lang()
+    if request.method == "POST":
+        forms, pronouns = conjugation.clean_settings(
+            lang, request.form.getlist("forms"), request.form.getlist("pronouns")
+        )
+        if not forms:
+            flash("Choose at least one verb form.")
+            return redirect(url_for("conjugation_drill"))
+        settings = dict(session.get("conjugation", {}))
+        settings[lang] = {"forms": forms, "pronouns": pronouns}
+        session["conjugation"] = settings
+        # Remember the choice after the browser is closed
+        session.permanent = True
+        session.pop("conjugation_question", None)
+        return redirect(url_for("conjugation_practice"))
+
+    forms, pronouns = get_conjugation_settings(lang)
+    return render_template(
+        "conjugation_drill.html",
+        groups=conjugation.FORM_GROUPS[lang],
+        pronoun_options=conjugation.PRONOUN_OPTIONS.get(lang, []),
+        selected_forms=forms,
+        selected_pronouns=pronouns,
+        current_user=current_user,
+    )
+
+
+# Old links from the home screen of the installed app
 @app.route("/conjugation_drill_tenses")
-@language_required
 def conjugation_drill_tenses():
-    config = LANGUAGES[get_lang()]
-    return render_template(
-        "conjugation_drill_tenses.html",
-        tenses_formatted=config["tenses_formatted"],
-        tenses=config["tenses"],
-        current_user=current_user,
-    )
+    return redirect(url_for("conjugation_drill"))
 
 
-@app.route("/conjugation_drill_for_tense/<tense>")
+@app.route("/conjugation_drill/practice", methods=["GET", "POST"])
 @language_required
-def conjugation_drill_for_tense(tense):
-    config = LANGUAGES[get_lang()]
-    if tense not in config["tenses"]:
-        abort(404)
-    return render_template(
-        "conjugation_drill_for_tense.html",
-        verbs=config["verbs"],
-        tense=tense,
-        current_user=current_user,
-    )
-
-
-@app.route("/conjugation_drill_for_verb/<tense>/<verb>", methods=["GET", "POST"])
-@language_required
-def conjugation_drill_for_verb(tense, verb):
+def conjugation_practice():
     lang = get_lang()
     progress = get_progress()
+    forms, pronouns = get_conjugation_settings(lang)
+    if not forms:
+        return redirect(url_for("conjugation_drill"))
 
-    if tense not in LANGUAGES[lang]["tenses"]:
-        flash("Unknown tense: " + tense)
-        return redirect(url_for("conjugation_drill_tenses"))
-    if verb not in LANGUAGES[lang]["verbs"]:
-        flash("Unknown verb: " + verb)
-        return redirect(url_for("conjugation_drill_tenses"))
+    # Only the question is kept in the session cookie, never the answer
+    question = session.get("conjugation_question")
+    accepted = None
+    if isinstance(question, dict) and question.get("language") == lang:
+        accepted = conjugation.answers(question)
 
-    sentences = VERBS[lang][verb]
-    # Only the row number is kept in the session cookie, never the answer
-    drill = session.get("verb_drill")
     user_input = request.form.get("user_input")
-    if (
-        request.method == "POST"
-        and user_input is not None
-        and (row := drill_row(drill, len(sentences), lang=lang, verb=verb, tense=tense))
-        is not None
-    ):
-        sentence = sentences[row]
-        verb_is_correct, missed_one_letter = check_answer(user_input, sentence[tense])
-        template_args = dict(
-            tense=tense,
-            verb=verb,
-            sentence=sentence,
-            verb_is_correct=verb_is_correct,
-            current_user=current_user,
-            play_audio=True,
+    if request.method == "POST" and user_input is not None and accepted:
+        verb_is_correct, missed_one_letter, answer = conjugation.check(
+            user_input, accepted
         )
         if missed_one_letter:
             flash("You missed one letter.")
-            return render_template(
-                "conjugation_drill_for_verb.html",
-                user_input=user_input,
-                progress=progress,
-                **template_args,
-            )
-        if verb_is_correct:
+        elif verb_is_correct:
             progress += 1
         return render_template(
-            "conjugation_drill_for_verb.html", progress=progress, **template_args
+            "conjugation_practice.html",
+            **conjugation_question_args(question),
+            answer=answer,
+            verb_is_correct=verb_is_correct,
+            user_input=user_input if missed_one_letter else None,
+            play_audio=True,
+            progress=progress,
+            current_user=current_user,
         )
 
-    row = random.randrange(len(sentences))
-    session["verb_drill"] = {"lang": lang, "verb": verb, "tense": tense, "row": row}
+    question = conjugation.pick_question(lang, forms, pronouns, previous=question)
+    if question is None:
+        flash("There is nothing to practise with these settings.")
+        return redirect(url_for("conjugation_drill"))
+    session["conjugation_question"] = question
     return render_template(
-        "conjugation_drill_for_verb.html",
-        tense=tense,
-        verb=verb,
-        sentence=sentences[row],
-        current_user=current_user,
+        "conjugation_practice.html",
+        **conjugation_question_args(question),
         progress=progress,
+        current_user=current_user,
+    )
+
+
+def conjugation_question_args(question):
+    lang, form = question["language"], question["form"]
+    audio = conjugation.audio_path(lang, form, question["verb"], question["person"])
+    return dict(
+        verb=question["verb"],
+        form_label=conjugation.FORM_LABELS[lang][form],
+        pronoun=conjugation.person_label(lang, form, question["person"]),
+        audio_url=url_for("static", filename=audio) if audio else None,
     )
 
 

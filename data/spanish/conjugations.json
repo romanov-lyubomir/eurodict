@@ -1,0 +1,1284 @@
+{
+ "ser": {
+  "presente": {
+   "yo": [
+    "soy"
+   ],
+   "tu": [
+    "eres"
+   ],
+   "vos": [
+    "sos"
+   ],
+   "el": [
+    "es"
+   ],
+   "nosotros": [
+    "somos"
+   ],
+   "vosotros": [
+    "sois"
+   ],
+   "ellos": [
+    "son"
+   ]
+  },
+  "preterito_imperfecto": {
+   "yo": [
+    "era"
+   ],
+   "tu": [
+    "eras"
+   ],
+   "vos": [
+    "eras"
+   ],
+   "el": [
+    "era"
+   ],
+   "nosotros": [
+    "éramos"
+   ],
+   "vosotros": [
+    "erais"
+   ],
+   "ellos": [
+    "eran"
+   ]
+  },
+  "preterito_indefinido": {
+   "yo": [
+    "fui"
+   ],
+   "tu": [
+    "fuiste"
+   ],
+   "vos": [
+    "fuiste"
+   ],
+   "el": [
+    "fue"
+   ],
+   "nosotros": [
+    "fuimos"
+   ],
+   "vosotros": [
+    "fuisteis"
+   ],
+   "ellos": [
+    "fueron"
+   ]
+  },
+  "futuro": {
+   "yo": [
+    "seré"
+   ],
+   "tu": [
+    "serás"
+   ],
+   "vos": [
+    "serás"
+   ],
+   "el": [
+    "será"
+   ],
+   "nosotros": [
+    "seremos"
+   ],
+   "vosotros": [
+    "seréis"
+   ],
+   "ellos": [
+    "serán"
+   ]
+  },
+  "condicional": {
+   "yo": [
+    "sería"
+   ],
+   "tu": [
+    "serías"
+   ],
+   "vos": [
+    "serías"
+   ],
+   "el": [
+    "sería"
+   ],
+   "nosotros": [
+    "seríamos"
+   ],
+   "vosotros": [
+    "seríais"
+   ],
+   "ellos": [
+    "serían"
+   ]
+  },
+  "subjuntivo_presente": {
+   "yo": [
+    "sea"
+   ],
+   "tu": [
+    "seas"
+   ],
+   "vos": [
+    "seas",
+    "seás"
+   ],
+   "el": [
+    "sea"
+   ],
+   "nosotros": [
+    "seamos"
+   ],
+   "vosotros": [
+    "seáis"
+   ],
+   "ellos": [
+    "sean"
+   ]
+  },
+  "subjuntivo_imperfecto": {
+   "yo": [
+    "fuera",
+    "fuese"
+   ],
+   "tu": [
+    "fueras",
+    "fueses"
+   ],
+   "vos": [
+    "fueras",
+    "fueses"
+   ],
+   "el": [
+    "fuera",
+    "fuese"
+   ],
+   "nosotros": [
+    "fuéramos",
+    "fuésemos"
+   ],
+   "vosotros": [
+    "fuerais",
+    "fueseis"
+   ],
+   "ellos": [
+    "fueran",
+    "fuesen"
+   ]
+  },
+  "subjuntivo_futuro": {
+   "yo": [
+    "fuere"
+   ],
+   "tu": [
+    "fueres"
+   ],
+   "vos": [
+    "fueres"
+   ],
+   "el": [
+    "fuere"
+   ],
+   "nosotros": [
+    "fuéremos"
+   ],
+   "vosotros": [
+    "fuereis"
+   ],
+   "ellos": [
+    "fueren"
+   ]
+  },
+  "preterito_perfecto": {
+   "yo": [
+    "he sido"
+   ],
+   "tu": [
+    "has sido"
+   ],
+   "vos": [
+    "has sido"
+   ],
+   "el": [
+    "ha sido"
+   ],
+   "nosotros": [
+    "hemos sido"
+   ],
+   "vosotros": [
+    "habéis sido"
+   ],
+   "ellos": [
+    "han sido"
+   ]
+  },
+  "preterito_pluscuamperfecto": {
+   "yo": [
+    "había sido"
+   ],
+   "tu": [
+    "habías sido"
+   ],
+   "vos": [
+    "habías sido"
+   ],
+   "el": [
+    "había sido"
+   ],
+   "nosotros": [
+    "habíamos sido"
+   ],
+   "vosotros": [
+    "habíais sido"
+   ],
+   "ellos": [
+    "habían sido"
+   ]
+  },
+  "preterito_anterior": {
+   "yo": [
+    "hube sido"
+   ],
+   "tu": [
+    "hubiste sido"
+   ],
+   "vos": [
+    "hubiste sido"
+   ],
+   "el": [
+    "hubo sido"
+   ],
+   "nosotros": [
+    "hubimos sido"
+   ],
+   "vosotros": [
+    "hubisteis sido"
+   ],
+   "ellos": [
+    "hubieron sido"
+   ]
+  },
+  "futuro_perfecto": {
+   "yo": [
+    "habré sido"
+   ],
+   "tu": [
+    "habrás sido"
+   ],
+   "vos": [
+    "habrás sido"
+   ],
+   "el": [
+    "habrá sido"
+   ],
+   "nosotros": [
+    "habremos sido"
+   ],
+   "vosotros": [
+    "habréis sido"
+   ],
+   "ellos": [
+    "habrán sido"
+   ]
+  },
+  "condicional_perfecto": {
+   "yo": [
+    "habría sido"
+   ],
+   "tu": [
+    "habrías sido"
+   ],
+   "vos": [
+    "habrías sido"
+   ],
+   "el": [
+    "habría sido"
+   ],
+   "nosotros": [
+    "habríamos sido"
+   ],
+   "vosotros": [
+    "habríais sido"
+   ],
+   "ellos": [
+    "habrían sido"
+   ]
+  },
+  "subjuntivo_perfecto": {
+   "yo": [
+    "haya sido"
+   ],
+   "tu": [
+    "hayas sido"
+   ],
+   "vos": [
+    "hayas sido",
+    "hayás sido"
+   ],
+   "el": [
+    "haya sido"
+   ],
+   "nosotros": [
+    "hayamos sido"
+   ],
+   "vosotros": [
+    "hayáis sido"
+   ],
+   "ellos": [
+    "hayan sido"
+   ]
+  },
+  "subjuntivo_pluscuamperfecto": {
+   "yo": [
+    "hubiera sido",
+    "hubiese sido"
+   ],
+   "tu": [
+    "hubieras sido",
+    "hubieses sido"
+   ],
+   "vos": [
+    "hubieras sido",
+    "hubieses sido"
+   ],
+   "el": [
+    "hubiera sido",
+    "hubiese sido"
+   ],
+   "nosotros": [
+    "hubiéramos sido",
+    "hubiésemos sido"
+   ],
+   "vosotros": [
+    "hubierais sido",
+    "hubieseis sido"
+   ],
+   "ellos": [
+    "hubieran sido",
+    "hubiesen sido"
+   ]
+  },
+  "subjuntivo_futuro_perfecto": {
+   "yo": [
+    "hubiere sido"
+   ],
+   "tu": [
+    "hubieres sido"
+   ],
+   "vos": [
+    "hubieres sido"
+   ],
+   "el": [
+    "hubiere sido"
+   ],
+   "nosotros": [
+    "hubiéremos sido"
+   ],
+   "vosotros": [
+    "hubiereis sido"
+   ],
+   "ellos": [
+    "hubieren sido"
+   ]
+  },
+  "imperativo_afirmativo": {
+   "tu": [
+    "sé"
+   ],
+   "vos": [
+    "sé"
+   ],
+   "el": [
+    "sea"
+   ],
+   "nosotros": [
+    "seamos"
+   ],
+   "vosotros": [
+    "sed"
+   ],
+   "ellos": [
+    "sean"
+   ]
+  },
+  "imperativo_negativo": {
+   "tu": [
+    "no seas",
+    "seas"
+   ],
+   "vos": [
+    "no seas",
+    "no seás",
+    "seas",
+    "seás"
+   ],
+   "el": [
+    "no sea",
+    "sea"
+   ],
+   "nosotros": [
+    "no seamos",
+    "seamos"
+   ],
+   "vosotros": [
+    "no seáis",
+    "seáis"
+   ],
+   "ellos": [
+    "no sean",
+    "sean"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "siendo"
+   ]
+  },
+  "participio": {
+   "-": [
+    "sido"
+   ]
+  }
+ },
+ "estar": {
+  "presente": {
+   "yo": [
+    "estoy"
+   ],
+   "tu": [
+    "estás"
+   ],
+   "vos": [
+    "estás"
+   ],
+   "el": [
+    "está"
+   ],
+   "nosotros": [
+    "estamos"
+   ],
+   "vosotros": [
+    "estáis"
+   ],
+   "ellos": [
+    "están"
+   ]
+  },
+  "preterito_imperfecto": {
+   "yo": [
+    "estaba"
+   ],
+   "tu": [
+    "estabas"
+   ],
+   "vos": [
+    "estabas"
+   ],
+   "el": [
+    "estaba"
+   ],
+   "nosotros": [
+    "estábamos"
+   ],
+   "vosotros": [
+    "estabais"
+   ],
+   "ellos": [
+    "estaban"
+   ]
+  },
+  "preterito_indefinido": {
+   "yo": [
+    "estuve"
+   ],
+   "tu": [
+    "estuviste"
+   ],
+   "vos": [
+    "estuviste"
+   ],
+   "el": [
+    "estuvo"
+   ],
+   "nosotros": [
+    "estuvimos"
+   ],
+   "vosotros": [
+    "estuvisteis"
+   ],
+   "ellos": [
+    "estuvieron"
+   ]
+  },
+  "futuro": {
+   "yo": [
+    "estaré"
+   ],
+   "tu": [
+    "estarás"
+   ],
+   "vos": [
+    "estarás"
+   ],
+   "el": [
+    "estará"
+   ],
+   "nosotros": [
+    "estaremos"
+   ],
+   "vosotros": [
+    "estaréis"
+   ],
+   "ellos": [
+    "estarán"
+   ]
+  },
+  "condicional": {
+   "yo": [
+    "estaría"
+   ],
+   "tu": [
+    "estarías"
+   ],
+   "vos": [
+    "estarías"
+   ],
+   "el": [
+    "estaría"
+   ],
+   "nosotros": [
+    "estaríamos"
+   ],
+   "vosotros": [
+    "estaríais"
+   ],
+   "ellos": [
+    "estarían"
+   ]
+  },
+  "subjuntivo_presente": {
+   "yo": [
+    "esté"
+   ],
+   "tu": [
+    "estés"
+   ],
+   "vos": [
+    "estés"
+   ],
+   "el": [
+    "esté"
+   ],
+   "nosotros": [
+    "estemos"
+   ],
+   "vosotros": [
+    "estéis"
+   ],
+   "ellos": [
+    "estén"
+   ]
+  },
+  "subjuntivo_imperfecto": {
+   "yo": [
+    "estuviera",
+    "estuviese"
+   ],
+   "tu": [
+    "estuvieras",
+    "estuvieses"
+   ],
+   "vos": [
+    "estuvieras",
+    "estuvieses"
+   ],
+   "el": [
+    "estuviera",
+    "estuviese"
+   ],
+   "nosotros": [
+    "estuviéramos",
+    "estuviésemos"
+   ],
+   "vosotros": [
+    "estuvierais",
+    "estuvieseis"
+   ],
+   "ellos": [
+    "estuvieran",
+    "estuviesen"
+   ]
+  },
+  "subjuntivo_futuro": {
+   "yo": [
+    "estuviere"
+   ],
+   "tu": [
+    "estuvieres"
+   ],
+   "vos": [
+    "estuvieres"
+   ],
+   "el": [
+    "estuviere"
+   ],
+   "nosotros": [
+    "estuviéremos"
+   ],
+   "vosotros": [
+    "estuviereis"
+   ],
+   "ellos": [
+    "estuvieren"
+   ]
+  },
+  "preterito_perfecto": {
+   "yo": [
+    "he estado"
+   ],
+   "tu": [
+    "has estado"
+   ],
+   "vos": [
+    "has estado"
+   ],
+   "el": [
+    "ha estado"
+   ],
+   "nosotros": [
+    "hemos estado"
+   ],
+   "vosotros": [
+    "habéis estado"
+   ],
+   "ellos": [
+    "han estado"
+   ]
+  },
+  "preterito_pluscuamperfecto": {
+   "yo": [
+    "había estado"
+   ],
+   "tu": [
+    "habías estado"
+   ],
+   "vos": [
+    "habías estado"
+   ],
+   "el": [
+    "había estado"
+   ],
+   "nosotros": [
+    "habíamos estado"
+   ],
+   "vosotros": [
+    "habíais estado"
+   ],
+   "ellos": [
+    "habían estado"
+   ]
+  },
+  "preterito_anterior": {
+   "yo": [
+    "hube estado"
+   ],
+   "tu": [
+    "hubiste estado"
+   ],
+   "vos": [
+    "hubiste estado"
+   ],
+   "el": [
+    "hubo estado"
+   ],
+   "nosotros": [
+    "hubimos estado"
+   ],
+   "vosotros": [
+    "hubisteis estado"
+   ],
+   "ellos": [
+    "hubieron estado"
+   ]
+  },
+  "futuro_perfecto": {
+   "yo": [
+    "habré estado"
+   ],
+   "tu": [
+    "habrás estado"
+   ],
+   "vos": [
+    "habrás estado"
+   ],
+   "el": [
+    "habrá estado"
+   ],
+   "nosotros": [
+    "habremos estado"
+   ],
+   "vosotros": [
+    "habréis estado"
+   ],
+   "ellos": [
+    "habrán estado"
+   ]
+  },
+  "condicional_perfecto": {
+   "yo": [
+    "habría estado"
+   ],
+   "tu": [
+    "habrías estado"
+   ],
+   "vos": [
+    "habrías estado"
+   ],
+   "el": [
+    "habría estado"
+   ],
+   "nosotros": [
+    "habríamos estado"
+   ],
+   "vosotros": [
+    "habríais estado"
+   ],
+   "ellos": [
+    "habrían estado"
+   ]
+  },
+  "subjuntivo_perfecto": {
+   "yo": [
+    "haya estado"
+   ],
+   "tu": [
+    "hayas estado"
+   ],
+   "vos": [
+    "hayas estado",
+    "hayás estado"
+   ],
+   "el": [
+    "haya estado"
+   ],
+   "nosotros": [
+    "hayamos estado"
+   ],
+   "vosotros": [
+    "hayáis estado"
+   ],
+   "ellos": [
+    "hayan estado"
+   ]
+  },
+  "subjuntivo_pluscuamperfecto": {
+   "yo": [
+    "hubiera estado",
+    "hubiese estado"
+   ],
+   "tu": [
+    "hubieras estado",
+    "hubieses estado"
+   ],
+   "vos": [
+    "hubieras estado",
+    "hubieses estado"
+   ],
+   "el": [
+    "hubiera estado",
+    "hubiese estado"
+   ],
+   "nosotros": [
+    "hubiéramos estado",
+    "hubiésemos estado"
+   ],
+   "vosotros": [
+    "hubierais estado",
+    "hubieseis estado"
+   ],
+   "ellos": [
+    "hubieran estado",
+    "hubiesen estado"
+   ]
+  },
+  "subjuntivo_futuro_perfecto": {
+   "yo": [
+    "hubiere estado"
+   ],
+   "tu": [
+    "hubieres estado"
+   ],
+   "vos": [
+    "hubieres estado"
+   ],
+   "el": [
+    "hubiere estado"
+   ],
+   "nosotros": [
+    "hubiéremos estado"
+   ],
+   "vosotros": [
+    "hubiereis estado"
+   ],
+   "ellos": [
+    "hubieren estado"
+   ]
+  },
+  "imperativo_afirmativo": {
+   "tu": [
+    "está"
+   ],
+   "vos": [
+    "está"
+   ],
+   "el": [
+    "esté"
+   ],
+   "nosotros": [
+    "estemos"
+   ],
+   "vosotros": [
+    "estad"
+   ],
+   "ellos": [
+    "estén"
+   ]
+  },
+  "imperativo_negativo": {
+   "tu": [
+    "no estés",
+    "estés"
+   ],
+   "vos": [
+    "no estés",
+    "estés"
+   ],
+   "el": [
+    "no esté",
+    "esté"
+   ],
+   "nosotros": [
+    "no estemos",
+    "estemos"
+   ],
+   "vosotros": [
+    "no estéis",
+    "estéis"
+   ],
+   "ellos": [
+    "no estén",
+    "estén"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "estando"
+   ]
+  },
+  "participio": {
+   "-": [
+    "estado"
+   ]
+  }
+ },
+ "haber": {
+  "presente": {
+   "yo": [
+    "he"
+   ],
+   "tu": [
+    "has"
+   ],
+   "vos": [
+    "has"
+   ],
+   "el": [
+    "ha",
+    "hay"
+   ],
+   "nosotros": [
+    "hemos"
+   ],
+   "vosotros": [
+    "habéis"
+   ],
+   "ellos": [
+    "han"
+   ]
+  },
+  "preterito_imperfecto": {
+   "yo": [
+    "había"
+   ],
+   "tu": [
+    "habías"
+   ],
+   "vos": [
+    "habías"
+   ],
+   "el": [
+    "había"
+   ],
+   "nosotros": [
+    "habíamos"
+   ],
+   "vosotros": [
+    "habíais"
+   ],
+   "ellos": [
+    "habían"
+   ]
+  },
+  "preterito_indefinido": {
+   "yo": [
+    "hube"
+   ],
+   "tu": [
+    "hubiste"
+   ],
+   "vos": [
+    "hubiste"
+   ],
+   "el": [
+    "hubo"
+   ],
+   "nosotros": [
+    "hubimos"
+   ],
+   "vosotros": [
+    "hubisteis"
+   ],
+   "ellos": [
+    "hubieron"
+   ]
+  },
+  "futuro": {
+   "yo": [
+    "habré"
+   ],
+   "tu": [
+    "habrás"
+   ],
+   "vos": [
+    "habrás"
+   ],
+   "el": [
+    "habrá"
+   ],
+   "nosotros": [
+    "habremos"
+   ],
+   "vosotros": [
+    "habréis"
+   ],
+   "ellos": [
+    "habrán"
+   ]
+  },
+  "condicional": {
+   "yo": [
+    "habría"
+   ],
+   "tu": [
+    "habrías"
+   ],
+   "vos": [
+    "habrías"
+   ],
+   "el": [
+    "habría"
+   ],
+   "nosotros": [
+    "habríamos"
+   ],
+   "vosotros": [
+    "habríais"
+   ],
+   "ellos": [
+    "habrían"
+   ]
+  },
+  "subjuntivo_presente": {
+   "yo": [
+    "haya"
+   ],
+   "tu": [
+    "hayas"
+   ],
+   "vos": [
+    "hayas",
+    "hayás"
+   ],
+   "el": [
+    "haya"
+   ],
+   "nosotros": [
+    "hayamos"
+   ],
+   "vosotros": [
+    "hayáis"
+   ],
+   "ellos": [
+    "hayan"
+   ]
+  },
+  "subjuntivo_imperfecto": {
+   "yo": [
+    "hubiera",
+    "hubiese"
+   ],
+   "tu": [
+    "hubieras",
+    "hubieses"
+   ],
+   "vos": [
+    "hubieras",
+    "hubieses"
+   ],
+   "el": [
+    "hubiera",
+    "hubiese"
+   ],
+   "nosotros": [
+    "hubiéramos",
+    "hubiésemos"
+   ],
+   "vosotros": [
+    "hubierais",
+    "hubieseis"
+   ],
+   "ellos": [
+    "hubieran",
+    "hubiesen"
+   ]
+  },
+  "subjuntivo_futuro": {
+   "yo": [
+    "hubiere"
+   ],
+   "tu": [
+    "hubieres"
+   ],
+   "vos": [
+    "hubieres"
+   ],
+   "el": [
+    "hubiere"
+   ],
+   "nosotros": [
+    "hubiéremos"
+   ],
+   "vosotros": [
+    "hubiereis"
+   ],
+   "ellos": [
+    "hubieren"
+   ]
+  },
+  "preterito_perfecto": {
+   "yo": [
+    "he habido"
+   ],
+   "tu": [
+    "has habido"
+   ],
+   "vos": [
+    "has habido"
+   ],
+   "el": [
+    "ha habido"
+   ],
+   "nosotros": [
+    "hemos habido"
+   ],
+   "vosotros": [
+    "habéis habido"
+   ],
+   "ellos": [
+    "han habido"
+   ]
+  },
+  "preterito_pluscuamperfecto": {
+   "yo": [
+    "había habido"
+   ],
+   "tu": [
+    "habías habido"
+   ],
+   "vos": [
+    "habías habido"
+   ],
+   "el": [
+    "había habido"
+   ],
+   "nosotros": [
+    "habíamos habido"
+   ],
+   "vosotros": [
+    "habíais habido"
+   ],
+   "ellos": [
+    "habían habido"
+   ]
+  },
+  "preterito_anterior": {
+   "yo": [
+    "hube habido"
+   ],
+   "tu": [
+    "hubiste habido"
+   ],
+   "vos": [
+    "hubiste habido"
+   ],
+   "el": [
+    "hubo habido"
+   ],
+   "nosotros": [
+    "hubimos habido"
+   ],
+   "vosotros": [
+    "hubisteis habido"
+   ],
+   "ellos": [
+    "hubieron habido"
+   ]
+  },
+  "futuro_perfecto": {
+   "yo": [
+    "habré habido"
+   ],
+   "tu": [
+    "habrás habido"
+   ],
+   "vos": [
+    "habrás habido"
+   ],
+   "el": [
+    "habrá habido"
+   ],
+   "nosotros": [
+    "habremos habido"
+   ],
+   "vosotros": [
+    "habréis habido"
+   ],
+   "ellos": [
+    "habrán habido"
+   ]
+  },
+  "condicional_perfecto": {
+   "yo": [
+    "habría habido"
+   ],
+   "tu": [
+    "habrías habido"
+   ],
+   "vos": [
+    "habrías habido"
+   ],
+   "el": [
+    "habría habido"
+   ],
+   "nosotros": [
+    "habríamos habido"
+   ],
+   "vosotros": [
+    "habríais habido"
+   ],
+   "ellos": [
+    "habrían habido"
+   ]
+  },
+  "subjuntivo_perfecto": {
+   "yo": [
+    "haya habido"
+   ],
+   "tu": [
+    "hayas habido"
+   ],
+   "vos": [
+    "hayas habido",
+    "hayás habido"
+   ],
+   "el": [
+    "haya habido"
+   ],
+   "nosotros": [
+    "hayamos habido"
+   ],
+   "vosotros": [
+    "hayáis habido"
+   ],
+   "ellos": [
+    "hayan habido"
+   ]
+  },
+  "subjuntivo_pluscuamperfecto": {
+   "yo": [
+    "hubiera habido",
+    "hubiese habido"
+   ],
+   "tu": [
+    "hubieras habido",
+    "hubieses habido"
+   ],
+   "vos": [
+    "hubieras habido",
+    "hubieses habido"
+   ],
+   "el": [
+    "hubiera habido",
+    "hubiese habido"
+   ],
+   "nosotros": [
+    "hubiéramos habido",
+    "hubiésemos habido"
+   ],
+   "vosotros": [
+    "hubierais habido",
+    "hubieseis habido"
+   ],
+   "ellos": [
+    "hubieran habido",
+    "hubiesen habido"
+   ]
+  },
+  "subjuntivo_futuro_perfecto": {
+   "yo": [
+    "hubiere habido"
+   ],
+   "tu": [
+    "hubieres habido"
+   ],
+   "vos": [
+    "hubieres habido"
+   ],
+   "el": [
+    "hubiere habido"
+   ],
+   "nosotros": [
+    "hubiéremos habido"
+   ],
+   "vosotros": [
+    "hubiereis habido"
+   ],
+   "ellos": [
+    "hubieren habido"
+   ]
+  },
+  "gerundio": {
+   "-": [
+    "habiendo"
+   ]
+  },
+  "participio": {
+   "-": [
+    "habido"
+   ]
+  }
+ }
+}

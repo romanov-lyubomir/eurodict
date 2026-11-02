@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block imports %}
+{% endblock %}
+
+{% block css %}
+<style>
+    progress {
+        position: absolute;
+        top: 70px;
+    }
+
+    .verb-correct-message {
+        position: absolute;
+        top: 100px;
+    }
+
+    .error {
+        margin-top: 10px;
+    }
+
+    .image-form-div {
+        position: relative;
+        top: 150px;
+    }
+
+    .big {
+        font-size: 20px;
+    }
+
+    .form-label {
+        font-size: 15px;
+        color: #C0C0C0;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .correct-verb {
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .settings-link {
+        font-size: 13px;
+        color: #C0C0C0;
+        text-decoration: underline;
+    }
+
+    @media screen and (min-width: 500px) {
+        .form {
+            min-width: 400px;
+        }
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+<a href="{{ url_for('conjugation_drill') }}">
+    <svg class="svg-x" width="16" height="16" viewBox="0 0 16 16">
+        <g fill="none" fill-rule="evenodd">
+            <path fill="#fff"
+                d="M6.93 8l-4.7-4.7a.76.76 0 1 1 1.06-1.08L8 6.92l4.7-4.7a.76.76 0 0 1 1.08 1.07L9.08 8l4.7 4.7a.76.76 0 1 1-1.07 1.08L8 9.08l-4.7 4.7a.76.76 0 0 1-1.08-1.07L6.92 8z">
+            </path>
+        </g>
+    </svg>
+</a>
+
+{% if play_audio and audio_url %}
+<script>
+    const audio = new Audio("{{ audio_url }}");
+    audio.play().catch(() => {});
+</script>
+{% endif %}
+
+<div class="center">
+    <progress value="{{ progress }}" max="10"></progress>
+</div>
+
+<div class="center">
+    <div class="verb-correct-message">
+        {% if verb_is_correct == True %}
+        <div class="center">
+            <h3 style="color: green;">Correct!</h3>
+        </div>
+        <div class="center">
+            <div style="display: inline;" class="correct-verb">{{ answer }}</div>
+        </div>
+        <script>
+            const nextQuestion = () => {
+                window.location.href = "{{ url_for('conjugation_practice', progress=progress) }}";
+            };
+            {% if audio_url %}
+            audio.addEventListener('ended', nextQuestion);
+            // If the audio can't be played, still move on
+            audio.addEventListener('error', () => setTimeout(nextQuestion, 1500));
+            {% else %}
+            setTimeout(nextQuestion, 1500);
+            {% endif %}
+        </script>
+        {% elif verb_is_correct == False %}
+        <div class="center">
+            <h3 style="color: red;">Wrong!</h3>
+        </div>
+        <div class="center">
+            <h4>The correct answer is <div style="display: inline;" class="correct-verb">{{ answer }}</div></h4>
+        </div>
+        {% endif %}
+        {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+        <div class="center">
+            <div class="error">{{ message }}</div>
+        </div>
+        {% endfor %}
+        {% endwith %}
+    </div>
+</div>
+
+<div class="image-form-div">
+    <div class="center">
+        <form action="{{ url_for('conjugation_practice', progress=progress) }}" class="shadow" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <p class="form-label">{{ form_label }}</p>
+            {% if pronoun %}
+            <div class="center">
+                <p class="big">{{ pronoun }}</p>
+            </div>
+            {% endif %}
+            <div class="center">({{ verb }})</div>
+            <div class="center">
+                <input spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off" id="inputField"
+                    {% if user_input %}value="{{ user_input }}"{% endif %} class="big" type="text" name="user_input"
+                    autofocus>
+                {% if user_input %}
+                <script>
+                    const field = document.getElementById("inputField");
+                    field.focus();
+                    field.setSelectionRange(field.value.length, field.value.length);
+                </script>
+                {% endif %}
+            </div>
+            <input type="submit" hidden />
+        </form>
+    </div>
+    <div class="center">
+        <a class="settings-link" href="{{ url_for('conjugation_drill') }}">Change verb forms</a>
+    </div>
+</div>
+
+{% endblock %}

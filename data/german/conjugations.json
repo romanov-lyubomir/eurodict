@@ -1,0 +1,617 @@
+{
+ "sein": {
+  "praesens": {
+   "ich": [
+    "bin"
+   ],
+   "du": [
+    "bist"
+   ],
+   "er": [
+    "ist"
+   ],
+   "wir": [
+    "sind"
+   ],
+   "ihr": [
+    "seid"
+   ],
+   "sie": [
+    "sind"
+   ]
+  },
+  "praeteritum": {
+   "ich": [
+    "war"
+   ],
+   "du": [
+    "warst"
+   ],
+   "er": [
+    "war"
+   ],
+   "wir": [
+    "waren"
+   ],
+   "ihr": [
+    "wart"
+   ],
+   "sie": [
+    "waren"
+   ]
+  },
+  "konjunktiv_eins_praesens": {
+   "ich": [
+    "sei"
+   ],
+   "du": [
+    "seiest",
+    "seist"
+   ],
+   "er": [
+    "sei"
+   ],
+   "wir": [
+    "seien"
+   ],
+   "ihr": [
+    "seiet"
+   ],
+   "sie": [
+    "seien"
+   ]
+  },
+  "konjunktiv_zwei_praeteritum": {
+   "ich": [
+    "wäre"
+   ],
+   "du": [
+    "wärest",
+    "wärst"
+   ],
+   "er": [
+    "wäre"
+   ],
+   "wir": [
+    "wären"
+   ],
+   "ihr": [
+    "wäret",
+    "wärt"
+   ],
+   "sie": [
+    "wären"
+   ]
+  },
+  "perfekt": {
+   "ich": [
+    "bin gewesen"
+   ],
+   "du": [
+    "bist gewesen"
+   ],
+   "er": [
+    "ist gewesen"
+   ],
+   "wir": [
+    "sind gewesen"
+   ],
+   "ihr": [
+    "seid gewesen"
+   ],
+   "sie": [
+    "sind gewesen"
+   ]
+  },
+  "plusquamperfekt": {
+   "ich": [
+    "war gewesen"
+   ],
+   "du": [
+    "warst gewesen"
+   ],
+   "er": [
+    "war gewesen"
+   ],
+   "wir": [
+    "waren gewesen"
+   ],
+   "ihr": [
+    "wart gewesen"
+   ],
+   "sie": [
+    "waren gewesen"
+   ]
+  },
+  "futur_eins": {
+   "ich": [
+    "werde sein"
+   ],
+   "du": [
+    "wirst sein"
+   ],
+   "er": [
+    "wird sein"
+   ],
+   "wir": [
+    "werden sein"
+   ],
+   "ihr": [
+    "werdet sein"
+   ],
+   "sie": [
+    "werden sein"
+   ]
+  },
+  "futur_zwei": {
+   "ich": [
+    "werde gewesen sein"
+   ],
+   "du": [
+    "wirst gewesen sein"
+   ],
+   "er": [
+    "wird gewesen sein"
+   ],
+   "wir": [
+    "werden gewesen sein"
+   ],
+   "ihr": [
+    "werdet gewesen sein"
+   ],
+   "sie": [
+    "werden gewesen sein"
+   ]
+  },
+  "konjunktiv_eins_perfekt": {
+   "ich": [
+    "sei gewesen"
+   ],
+   "du": [
+    "seiest gewesen",
+    "seist gewesen"
+   ],
+   "er": [
+    "sei gewesen"
+   ],
+   "wir": [
+    "seien gewesen"
+   ],
+   "ihr": [
+    "seiet gewesen"
+   ],
+   "sie": [
+    "seien gewesen"
+   ]
+  },
+  "konjunktiv_eins_futur_eins": {
+   "ich": [
+    "werde sein"
+   ],
+   "du": [
+    "werdest sein"
+   ],
+   "er": [
+    "werde sein"
+   ],
+   "wir": [
+    "werden sein"
+   ],
+   "ihr": [
+    "werdet sein"
+   ],
+   "sie": [
+    "werden sein"
+   ]
+  },
+  "konjunktiv_eins_futur_zwei": {
+   "ich": [
+    "werde gewesen sein"
+   ],
+   "du": [
+    "werdest gewesen sein"
+   ],
+   "er": [
+    "werde gewesen sein"
+   ],
+   "wir": [
+    "werden gewesen sein"
+   ],
+   "ihr": [
+    "werdet gewesen sein"
+   ],
+   "sie": [
+    "werden gewesen sein"
+   ]
+  },
+  "konjunktiv_zwei_plusquamperfekt": {
+   "ich": [
+    "wäre gewesen"
+   ],
+   "du": [
+    "wärest gewesen",
+    "wärst gewesen"
+   ],
+   "er": [
+    "wäre gewesen"
+   ],
+   "wir": [
+    "wären gewesen"
+   ],
+   "ihr": [
+    "wäret gewesen",
+    "wärt gewesen"
+   ],
+   "sie": [
+    "wären gewesen"
+   ]
+  },
+  "konjunktiv_zwei_futur_eins": {
+   "ich": [
+    "würde sein"
+   ],
+   "du": [
+    "würdest sein"
+   ],
+   "er": [
+    "würde sein"
+   ],
+   "wir": [
+    "würden sein"
+   ],
+   "ihr": [
+    "würdet sein"
+   ],
+   "sie": [
+    "würden sein"
+   ]
+  },
+  "konjunktiv_zwei_futur_zwei": {
+   "ich": [
+    "würde gewesen sein"
+   ],
+   "du": [
+    "würdest gewesen sein"
+   ],
+   "er": [
+    "würde gewesen sein"
+   ],
+   "wir": [
+    "würden gewesen sein"
+   ],
+   "ihr": [
+    "würdet gewesen sein"
+   ],
+   "sie": [
+    "würden gewesen sein"
+   ]
+  },
+  "imperativ": {
+   "du": [
+    "sei"
+   ],
+   "ihr": [
+    "seid"
+   ],
+   "sie": [
+    "seien",
+    "seien Sie"
+   ]
+  },
+  "partizip_eins": {
+   "-": [
+    "seiend"
+   ]
+  },
+  "partizip_zwei": {
+   "-": [
+    "gewesen"
+   ]
+  }
+ },
+ "haben": {
+  "praesens": {
+   "ich": [
+    "habe"
+   ],
+   "du": [
+    "hast"
+   ],
+   "er": [
+    "hat"
+   ],
+   "wir": [
+    "haben"
+   ],
+   "ihr": [
+    "habt"
+   ],
+   "sie": [
+    "haben"
+   ]
+  },
+  "praeteritum": {
+   "ich": [
+    "hatte"
+   ],
+   "du": [
+    "hattest"
+   ],
+   "er": [
+    "hatte"
+   ],
+   "wir": [
+    "hatten"
+   ],
+   "ihr": [
+    "hattet"
+   ],
+   "sie": [
+    "hatten"
+   ]
+  },
+  "konjunktiv_eins_praesens": {
+   "ich": [
+    "habe"
+   ],
+   "du": [
+    "habest"
+   ],
+   "er": [
+    "habe"
+   ],
+   "wir": [
+    "haben"
+   ],
+   "ihr": [
+    "habet"
+   ],
+   "sie": [
+    "haben"
+   ]
+  },
+  "konjunktiv_zwei_praeteritum": {
+   "ich": [
+    "hätte"
+   ],
+   "du": [
+    "hättest"
+   ],
+   "er": [
+    "hätte"
+   ],
+   "wir": [
+    "hätten"
+   ],
+   "ihr": [
+    "hättet"
+   ],
+   "sie": [
+    "hätten"
+   ]
+  },
+  "perfekt": {
+   "ich": [
+    "habe gehabt"
+   ],
+   "du": [
+    "hast gehabt"
+   ],
+   "er": [
+    "hat gehabt"
+   ],
+   "wir": [
+    "haben gehabt"
+   ],
+   "ihr": [
+    "habt gehabt"
+   ],
+   "sie": [
+    "haben gehabt"
+   ]
+  },
+  "plusquamperfekt": {
+   "ich": [
+    "hatte gehabt"
+   ],
+   "du": [
+    "hattest gehabt"
+   ],
+   "er": [
+    "hatte gehabt"
+   ],
+   "wir": [
+    "hatten gehabt"
+   ],
+   "ihr": [
+    "hattet gehabt"
+   ],
+   "sie": [
+    "hatten gehabt"
+   ]
+  },
+  "futur_eins": {
+   "ich": [
+    "werde haben"
+   ],
+   "du": [
+    "wirst haben"
+   ],
+   "er": [
+    "wird haben"
+   ],
+   "wir": [
+    "werden haben"
+   ],
+   "ihr": [
+    "werdet haben"
+   ],
+   "sie": [
+    "werden haben"
+   ]
+  },
+  "futur_zwei": {
+   "ich": [
+    "werde gehabt haben"
+   ],
+   "du": [
+    "wirst gehabt haben"
+   ],
+   "er": [
+    "wird gehabt haben"
+   ],
+   "wir": [
+    "werden gehabt haben"
+   ],
+   "ihr": [
+    "werdet gehabt haben"
+   ],
+   "sie": [
+    "werden gehabt haben"
+   ]
+  },
+  "konjunktiv_eins_perfekt": {
+   "ich": [
+    "habe gehabt"
+   ],
+   "du": [
+    "habest gehabt"
+   ],
+   "er": [
+    "habe gehabt"
+   ],
+   "wir": [
+    "haben gehabt"
+   ],
+   "ihr": [
+    "habet gehabt"
+   ],
+   "sie": [
+    "haben gehabt"
+   ]
+  },
+  "konjunktiv_eins_futur_eins": {
+   "ich": [
+    "werde haben"
+   ],
+   "du": [
+    "werdest haben"
+   ],
+   "er": [
+    "werde haben"
+   ],
+   "wir": [
+    "werden haben"
+   ],
+   "ihr": [
+    "werdet haben"
+   ],
+   "sie": [
+    "werden haben"
+   ]
+  },
+  "konjunktiv_eins_futur_zwei": {
+   "ich": [
+    "werde gehabt haben"
+   ],
+   "du": [
+    "werdest gehabt haben"
+   ],
+   "er": [
+    "werde gehabt haben"
+   ],
+   "wir": [
+    "werden gehabt haben"
+   ],
+   "ihr": [
+    "werdet gehabt haben"
+   ],
+   "sie": [
+    "werden gehabt haben"
+   ]
+  },
+  "konjunktiv_zwei_plusquamperfekt": {
+   "ich": [
+    "hätte gehabt"
+   ],
+   "du": [
+    "hättest gehabt"
+   ],
+   "er": [
+    "hätte gehabt"
+   ],
+   "wir": [
+    "hätten gehabt"
+   ],
+   "ihr": [
+    "hättet gehabt"
+   ],
+   "sie": [
+    "hätten gehabt"
+   ]
+  },
+  "konjunktiv_zwei_futur_eins": {
+   "ich": [
+    "würde haben"
+   ],
+   "du": [
+    "würdest haben"
+   ],
+   "er": [
+    "würde haben"
+   ],
+   "wir": [
+    "würden haben"
+   ],
+   "ihr": [
+    "würdet haben"
+   ],
+   "sie": [
+    "würden haben"
+   ]
+  },
+  "konjunktiv_zwei_futur_zwei": {
+   "ich": [
+    "würde gehabt haben"
+   ],
+   "du": [
+    "würdest gehabt haben"
+   ],
+   "er": [
+    "würde gehabt haben"
+   ],
+   "wir": [
+    "würden gehabt haben"
+   ],
+   "ihr": [
+    "würdet gehabt haben"
+   ],
+   "sie": [
+    "würden gehabt haben"
+   ]
+  },
+  "imperativ": {
+   "du": [
+    "hab",
+    "habe"
+   ],
+   "ihr": [
+    "habt"
+   ],
+   "sie": [
+    "haben",
+    "haben Sie"
+   ]
+  },
+  "partizip_eins": {
+   "-": [
+    "habend"
+   ]
+  },
+  "partizip_zwei": {
+   "-": [
+    "gehabt"
+   ]
+  }
+ }
+}
